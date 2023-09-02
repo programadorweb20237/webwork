@@ -12,6 +12,7 @@ import Nosotros from './components/Nosotros/Nosotros';
 import Noticias from './components/Noticias/Noticias';
 import Portada from './components/Portada/Portada';
 import Whats from "https://kit.fontawesome.com/eb496ab1a0.js"
+import Navegacion from './components/Navegacion/Navegacion';
 
 
 function App() {

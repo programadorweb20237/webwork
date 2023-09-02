@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin:2em 3em;
+    margin:2em 0.2em;
     cursor: pointer;
     transition: background-color 180ms;
     width:22em;

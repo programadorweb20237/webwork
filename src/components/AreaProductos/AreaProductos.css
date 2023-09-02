@@ -1,10 +1,9 @@
 .AreaProductos {
     display: flex;
     flex-direction: column;
-    background-color: rgb(194, 221, 238);
     padding-bottom: 1.4em;
-    border-top: solid 0.3em black;
     margin-bottom: -10px;
+    border-top: solid 0.6em var(--two-color);
 }
 .h2Productos{
     font-size: 2em;

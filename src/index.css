@@ -1,12 +1,17 @@
+:root {
+  --main-color: rgb(222, 238, 248);
+  --two-color: #4b727d;
+  --nav-color:#1d95b7;
+
+}
 *{
   margin:0px;
   padding: 0px;
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Nunito', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: 390px;

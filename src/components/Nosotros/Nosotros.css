@@ -1,4 +1,5 @@
 .Nosotros {
+    border-top: solid 0.6em var(--two-color);
     
 }
 
@@ -22,7 +23,7 @@
 .imgNosotros{
     width: 90%;
     object-fit: cover;
-    max-width: 30em;
+    max-width: 530px;
     padding:1em;
     border-radius: 10%;
 }
@@ -36,7 +37,8 @@
 }
 .itemNosotros p {
     display: flex;
-    max-width: 40em;
+    flex-direction: column;
+    max-width: 37em;
     padding: 1em;
 }
 .areaNosotros{
@@ -44,8 +46,4 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.parrafoNosotros{
-    display: flex;
-    flex-direction: column;
 }

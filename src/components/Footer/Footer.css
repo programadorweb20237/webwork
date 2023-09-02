@@ -4,12 +4,12 @@
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
-    background-color: #1587a7;
+    background-color: var(--nav-color);
     width: 100%;
 
     padding-top:1.8em;
     padding-bottom: 1em;
-    border-top: #000000 solid 0.6em;
+    border-top: var(--two-color) solid 0.6em;
 
 }
 .footerContact{
