@@ -30,11 +30,11 @@ function Navbar() {
       <nav className='NavDef' id="menu">
         <ul className="listaNav2" id='listaNavUl'>
           <li><a href="#areaNosotrostheId">Empresa</a></li>
-          <li><a href="#areaProdtheId">Productos <img className="downflecha" src={downflecha} />
+          <li ><a href="#areaProdtheId">Productos <img className="downflecha" src={downflecha} />
           </a>
 
 
-            <ul id='listaprodlist'>
+            <ul className="classlistaprodlist" id='listaprodlist'>
               <li><a href="#">Automatizacion</a></li>
               <li><a href="#">Bombas de vacio lobulares y a paleta</a></li>
               <li><a href="#">Confort Animal</a></li>
@@ -70,6 +70,7 @@ function Navbar() {
 function menuDes() {
   document.querySelector(".Box").classList.toggle("ocultar");
 }
+
 
 function IrInicio() {
   window.location.href ="#";
