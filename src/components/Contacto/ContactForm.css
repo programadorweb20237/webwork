@@ -1,0 +1,82 @@
+.Contacto {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+
+.Contacto22 {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2em;
+    margin-top:0.5em;
+    border-top: solid 0.3em black;
+  
+
+}
+.divJunta{
+    max-width: 600px;
+    border-bottom: solid black 5px;
+    padding-bottom: 1.3em;
+    
+}
+
+#formBtn{
+    height: 3em;
+    font-size: 29px;
+    border: none;
+    background-color: #4cbae1;
+}
+
+.h2Contacto{
+    font-size: 2em;
+    margin-left: 0.6em;
+    margin-top:0.6em;
+    width: fit-content;
+    text-align: start;
+    text-decoration:underline;
+    margin-bottom: 1em;
+
+}
+.mapaGoogle{
+    margin:3em 0em;
+    max-width: 700px;
+}
+.formulario{
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    
+
+}
+.formulario label{
+    font-size: 1.54em;
+}
+
+.formulario input{
+    width:90%;
+    height:1.7em;
+    font-size: 1.2em;
+    
+}
+
+.formulario textarea{
+    width:90%;
+    height:7.7em;
+    font-size: 1.2em;
+    
+}
+
+.h444Nosotros{
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.3em 0.5em;
+    background-color: rgba(81, 157, 185, 0.46);
+}

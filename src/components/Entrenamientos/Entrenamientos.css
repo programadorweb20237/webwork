@@ -6,6 +6,7 @@
         padding-bottom: 2em;
         margin-top:0.5em;
         border-top: solid 0.3em black;
+        background-color: rgb(208, 226, 235);
 
 }
 
@@ -27,8 +28,20 @@
 }
 .areaCapacitaciones{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
+}
+
+.areaCapacitaciones p {
+    display: flex;
+    max-width: 40em;
+    padding: 1em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top:0px;
+    margin-bottom:4px;
 }

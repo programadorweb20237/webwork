@@ -8,6 +8,7 @@
     background-color: transparent;
     border-bottom: 0.3em solid black;
     margin:1em;
+    cursor: pointer;
 }
 
 .NoticiasCard:hover{

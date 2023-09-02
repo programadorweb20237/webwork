@@ -3,7 +3,8 @@ import './App.css';
 
 import AreaProductos from './components/AreaProductos/AreaProductos';
 import Box from './components/Box/Box';
-import Contacto from './components/Contacto/Contacto';
+import ContactForm from './components/Contacto/ConctactForm';
+
 import Entrenamientos from './components/Entrenamientos/Entrenamientos';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
@@ -22,7 +23,7 @@ function App() {
       <AreaProductos/>
       <Entrenamientos/>
       <Noticias/>
-      <Contacto/>
+      <ContactForm/>
       <Footer/>
       
     </div>
