@@ -5,8 +5,7 @@ import './Box.css';
 const Box = () => (
   <div className="Box ocultar">
     <ul className='listaNavBox'>
-      <li  ><a  href="#">Home</a></li>
-      <li><a href="#">Sobre Nosotros</a></li>
+      <li><a href="#">Empresa</a></li>
       <li><a href="#">Productos</a></li>
       <li><a href="#">Capacitaciones</a></li>
       <li><a href="#">Boumatic</a></li>

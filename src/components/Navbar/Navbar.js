@@ -28,7 +28,6 @@ function Navbar() {
       <img id="logoId" className="logoimg" src={logo} />
       <nav className='NavDef' id="menu">
         <ul className="listaNav2" id='listaNavUl'>
-          <li id='itemHome' ><a href="#">Home</a></li>
           <li><a href="#">Empresa</a></li>
           <li><a href="#">Productos <img className="downflecha" src={downflecha} />
           </a>
@@ -55,7 +54,7 @@ function Navbar() {
 
           </li>
           <li><a href="#">Capacitaciones</a></li>
-          <li id="itemBoumatic"><a href="#">Boumatic</a></li>
+          <li id="itemBoumatic"><a href="https://boumatic.com/" target="_blank">Boumatic</a></li>
           <li><a href="#">Noticias</a></li>
           <li><a href="#">Contacto</a></li>
         </ul>

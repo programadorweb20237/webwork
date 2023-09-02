@@ -187,9 +187,7 @@ display:block;
 }
 
 @media (width <=1005px) {
-    #itemHome {
-        display: none !important;
-    }
+   
 
     #itemBoumatic {
         display: none !important;
