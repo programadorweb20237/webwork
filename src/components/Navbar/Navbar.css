@@ -39,7 +39,7 @@
 /* items del menu */
 
 #menu ul li {
-    background-color: #1d95b7;
+    background-color: var(--nav-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,7 +76,7 @@
 /* efecto al pasar el ratón por los items del menu */
 
 #menu ul li:hover {
-    background: #dc8e46;
+    background: var(--contrast-color);
 }
 
 
@@ -123,14 +123,14 @@ display:block;
 
 
 #listaprodlist li {
-    background-color: rgb(132, 201, 218) !important;
+    background-color: rgb(161, 208, 221) !important;
     width: 300px !important;
 
 
 }
 
 #listaprodlist li:hover {
-    background: #dc8e46 !important;
+    background: var(--contrast-color) !important;
 }
 
 
@@ -150,6 +150,7 @@ display:block;
 }
 
 .searchimg {
+    display: none;
     background-color: transparent;
     width: 25px;
     height: fit-content;
@@ -212,7 +213,7 @@ display:block;
     }
 
     .Navbar {
-        background-color: #1d95b7;
+        background-color: var(--nav-color);
         justify-content: flex-start;
     }
 

@@ -11,8 +11,8 @@ const Box = () => (
       <li><a href="#">Boumatic</a></li>
       <li><a href="#">Noticias</a></li>
       <li><a href="#">Contacto</a></li>
-      <li><a href="#">Buscar</a></li>
-      <li><a href="#">Loguearse</a></li>
+  
+      <li><a href="#">Login</a></li>
     </ul>
   </div>
 );

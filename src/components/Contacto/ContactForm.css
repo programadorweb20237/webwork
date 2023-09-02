@@ -25,10 +25,12 @@
 }
 
 #formBtn{
-    height: 2.3em;
+    height: 64px;
     font-size: 29px;
     border: none;
     background-color: #4cbae1;
+    margin-top: -10px;
+    margin-bottom: 5px;
 }
 
 .h2Contacto{
@@ -70,7 +72,7 @@
 .formulario textarea{
     width:90%;
     height:7.7em;
-    font-size: 1.2em;
+    font-size: 1.3em;
     
 }
 

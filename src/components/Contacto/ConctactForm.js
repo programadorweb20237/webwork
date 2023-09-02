@@ -38,6 +38,7 @@ class ContactForm extends Component {
                             type="text"
                             id="nombre"
                             name="nombre"
+                            placeholder='Ingrese su nombre'
                             value={this.state.nombre}
                             onChange={this.handleChange}
                             required
@@ -48,6 +49,7 @@ class ContactForm extends Component {
                             type="tel"
                             id="telefono"
                             name="telefono"
+                            placeholder='Ingrese su teléfono'
                             value={this.state.telefono}
                             onChange={this.handleChange}
                             required
@@ -58,6 +60,7 @@ class ContactForm extends Component {
                             type="email"
                             id="email"
                             name="email"
+                            placeholder='Ingrese su email'
                             value={this.state.email}
                             onChange={this.handleChange}
                             required
@@ -67,6 +70,7 @@ class ContactForm extends Component {
                         <textarea
                             id="consulta"
                             name="consulta"
+                            placeholder='Ingrese su consulta'
                             value={this.state.consulta}
                             onChange={this.handleChange}
                             rows="4"

@@ -21,17 +21,7 @@ const Noticias = () => (
 
       />
 
-<NoticiasCard
-        img={imgReunion}
-        titulo="Reunion de fin de año."
-        descripcion="A finales de año, el equipo de Dairy Solutions se reunió en un ambiente 
-      cordial y festivo para celebrar los logros del año y planificar el futuro. Durante la 
-      reunión, se compartieroos desafíos y éxitos del período, se reconoció 
-      el arduo trabajo de toidose en la innovación y 
-      el crecimiento sostenible. La reunión fue una oportunidad para fortalecer los lazos entre 
-      los miembros del equipo y motivarlos para enfrentar el futuro con entusiasmo y determinación."
 
-      />
 
 
     </div>
