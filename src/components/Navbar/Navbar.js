@@ -35,9 +35,21 @@ function Navbar() {
 
 
             <ul id='listaprodlist'>
-              <li><a href="#">Enlace 2.1</a></li>
-              <li><a href="#">Bombas de Vacio lobulares y a paleta</a></li>
-              <li><a href="#">Enlace 2.3</a></li>
+              <li><a href="#">Automatizacion</a></li>
+              <li><a href="#">Bombas de vacio lobulares y a paleta</a></li>
+              <li><a href="#">Confort Animal</a></li>
+              <li><a href="#">Enfriamiento</a></li>
+              <li><a href="#">Equipo de ordeño</a></li>
+              <li><a href="#">Feed Pusher, robot empuja comida</a></li>
+              <li><a href="#">Instalaciones de ordeño</a></li>
+              <li><a href="#">Manejo de Efluentes</a></li>
+              <li><a href="#">Pisos de Goma</a></li>
+              <li><a href="#">Productos de higiene</a></li>
+              <li><a href="#">Real Time, sistema de deteccion de celo y vacas</a></li>
+              <li><a href="#">Robot Sellador</a></li>
+              <li><a href="#">Sistema de Pulsado</a></li>
+              <li><a href="#">Robots de ordeño</a></li>
+              <li><a href="#">Ventiladores</a></li>
             </ul>
 
 
