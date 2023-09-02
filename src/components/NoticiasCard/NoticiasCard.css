@@ -1,0 +1,33 @@
+.NoticiasCard {
+    width: 22em;
+    height: 39em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    border-bottom: 0.3em solid black;
+    margin:1em;
+}
+
+.NoticiasCard:hover{
+    background-color: rgba(173, 207, 224, 0.728);
+}
+.imgNoticiasCard{
+    width: 22em;
+    height: 15em;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+.h4NoticiasCard{
+    font-size: 1.8em;
+    text-align: center;
+    padding-top:0.2em;
+    
+}
+
+.descNoticiasCard{
+    display: flex;
+    padding: 0.5em 1em;
+}

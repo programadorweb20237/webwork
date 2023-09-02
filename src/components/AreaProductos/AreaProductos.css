@@ -1,0 +1,40 @@
+.AreaProductos {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(222, 238, 248);
+    padding-bottom: 2em;
+    margin-top:0.5em;
+    border-top: solid 0.3em black;
+}
+.h2Productos{
+    font-size: 2em;
+    margin-left: 0.6em;
+    margin-top:0.6em;
+    width: fit-content;
+    text-align: start;
+    text-decoration:underline;
+
+}
+.areaAqui{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.h3verProd{
+    font-size: 1.8em;
+    text-align:center;
+}
+.h3verProd a:hover{
+    background-color: #0078c2c7;
+    
+
+}
+.h3verProd a{
+    font-style: none;
+    text-decoration: none;
+    color: black;
+    background-color: rgba(81, 157, 185, 0.46);
+    
+}

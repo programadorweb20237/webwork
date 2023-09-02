@@ -1,0 +1,31 @@
+.Noticias {
+
+
+
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2em;
+    margin-top: 0.5em;
+    border-top: solid 0.3em black;
+
+
+}
+
+.h2Noticias {
+    font-size: 2em;
+    margin-left: 0.6em;
+    margin-top: 0.6em;
+    width: fit-content;
+    text-align: start;
+    text-decoration: underline;
+    margin-bottom: 1em;
+
+}
+.areaNoticias{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
