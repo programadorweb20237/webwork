@@ -54,6 +54,14 @@
     justify-content: center;
     align-items: center;
 }
+.email-a{
+    all:unset;
+    cursor: pointer;
+}
+.tel-a{
+    all:unset;
+    cursor: pointer;
+}
 .redesIcon{
     width:4.1em;
     margin:0.6em;

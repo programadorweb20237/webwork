@@ -27,17 +27,23 @@ const Footer = () => (
         <div className='itemContacto'>
         
           <BsFillTelephoneFill/>
-          <p>(011) 6907.4492 / 6907.3337</p>
+          <p><a className="tel-a" href="tel:+5491169074492" target='_blank'>(011) 6907.4492 / 6907.3337</a></p>
         </div>
 
         <div className='itemContacto'>
           <IoLogoWhatsapp/>
-          <p>+54 9 11 6907-4492</p>
+
+
+         
+
+
+
+          <p><a className="tel-a" href="https://api.whatsapp.com/send?phone=5491169074492" target='_blank'>+54 9 11 6907-4492</a></p>
         </div>
 
         <div className='itemContacto'>
           <MdEmail/>
-          <p>dairy@dairy.com.ar</p>
+          <p><a className="email-a"href="mailto:dairy@dairy.com.ar" target='_blank'>dairy@dairy.com.ar</a></p>
         </div>
 
         <div className='itemContacto'>
