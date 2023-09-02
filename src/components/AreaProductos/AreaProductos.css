@@ -3,7 +3,7 @@
     flex-direction: column;
     background-color: rgb(222, 238, 248);
     padding-bottom: 2em;
-    margin-top:0.5em;
+    margin-bottom: 1em;
     border-top: solid 0.3em black;
 }
 .h2Productos{
@@ -13,8 +13,14 @@
     width: fit-content;
     text-align: start;
     text-decoration:underline;
+    margin-bottom: 0.3em;
 
 }
+
+
+
+
+
 .areaAqui{
     display:flex;
     flex-direction: row;

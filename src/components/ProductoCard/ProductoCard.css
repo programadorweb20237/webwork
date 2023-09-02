@@ -8,6 +8,7 @@
     transition: background-color 180ms;
     width:22em;
     height:10em;
+    border-left: solid black 0.4em;
 
     
 }
