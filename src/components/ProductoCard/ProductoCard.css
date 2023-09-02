@@ -16,7 +16,7 @@
     background-color: rgba(81, 157, 185, 0.46);
 }
 .imgProdCard{
-    width:5em;
+    width:5.5em;
     transition: transform 0.4s;
 }
 .ProductoCard:hover .imgProdCard{
