@@ -5,7 +5,7 @@ import vaca1 from "./vaca1.jpg"
 import vaca2 from "./vaca2.jpg"
 
 const Nosotros = () => (
-  <div className="Nosotros">
+  <div className="Nosotros" id="areaNosotrostheId">
     <h3 className='h2Nosotros'>SOBRE NOSOTROS</h3>
     <div className='areaNosotros'>
 

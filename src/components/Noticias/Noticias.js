@@ -5,7 +5,7 @@ import NoticiasCard from '../NoticiasCard/NoticiasCard';
 import imgReunion from "./reunion.jpg"
 
 const Noticias = () => (
-  <div className="Noticias">
+  <div className="Noticias" id="areaNoticiastheId">
     <h2 className='h2Noticias'>NOTICIAS</h2>
     <div className='areaNoticias'>
       <NoticiasCard

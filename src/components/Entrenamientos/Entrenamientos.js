@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Entrenamientos.css';
 
 const Entrenamientos = () => (
-  <div className="Entrenamientos">
+  <div className="Entrenamientos" id="areaCaptheId">
     <h2 className='h2Capacitaciones'>CAPACITACIONES</h2>
     <div className='areaCapacitaciones'>
   

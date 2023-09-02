@@ -5,17 +5,21 @@ import './Box.css';
 const Box = () => (
   <div className="Box ocultar">
     <ul className='listaNavBox'>
-      <li><a href="#">Empresa</a></li>
-      <li><a href="#">Productos</a></li>
-      <li><a href="#">Capacitaciones</a></li>
-      <li><a href="#">Boumatic</a></li>
-      <li><a href="#">Noticias</a></li>
-      <li><a href="#">Contacto</a></li>
+      <li><a onClick={menuDes}href="#">Empresa</a></li>
+      <li><a onClick={menuDes}href="#areaProdtheId">Productos</a></li>
+      <li><a onClick={menuDes}href="#areaCaptheId">Capacitaciones</a></li>
+      <li><a onClick={menuDes}href="https://boumatic.com/" target="_blank">Boumatic</a></li>
+      <li><a onClick={menuDes}href="#areaNoticiastheId">Noticias</a></li>
+      <li><a onClick={menuDes}href="#areaContactotheId">Contacto</a></li>
   
-      <li><a href="#">Login</a></li>
+      <li><a onClick={menuDes}href="#">Login</a></li>
     </ul>
   </div>
 );
+
+function menuDes() {
+  document.querySelector(".Box").classList.toggle("ocultar");
+}
 
 Box.propTypes = {};
 

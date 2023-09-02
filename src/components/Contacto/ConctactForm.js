@@ -27,7 +27,7 @@ class ContactForm extends Component {
 
     render() {
         return (
-            <div className='Contacto22'>
+            <div className='Contacto22' id="areaContactotheId">
                 <h2 className='h2Contacto'>CONTACTO</h2>
                 <div className='Contacto'>
                     <div className='divJunta'>

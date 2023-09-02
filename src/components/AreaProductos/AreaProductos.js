@@ -10,7 +10,7 @@ import img5 from "./img5.png"
 import img6 from "./img6.png"
 
 const AreaProductos = () => (
-  <div className="AreaProductos">
+  <div className="AreaProductos" id="areaProdtheId">
     <h2 className='h2Productos'>PRODUCTOS</h2>
     <div className='areaAqui'>
       <ProductoCard name="Instalaciones de Ordeñe" img={img1} />

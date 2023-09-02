@@ -7,6 +7,7 @@ import login from "./login.svg"
 import downflecha from "./downflecha.svg"
 import menusvg from "./menu.svg"
 import logopalabra from "./logopalabra.png"
+import { Link } from 'react-router-dom';
 
 
 
@@ -25,11 +26,11 @@ function Navbar() {
 
 
       <img id="logopalabraId" src={logopalabra} />
-      <img id="logoId" className="logoimg" src={logo} />
+      <img id="logoId" className="logoimg" src={logo} onClick={IrInicio}/>
       <nav className='NavDef' id="menu">
         <ul className="listaNav2" id='listaNavUl'>
-          <li><a href="#">Empresa</a></li>
-          <li><a href="#">Productos <img className="downflecha" src={downflecha} />
+          <li><a href="#areaNosotrostheId">Empresa</a></li>
+          <li><a href="#areaProdtheId">Productos <img className="downflecha" src={downflecha} />
           </a>
 
 
@@ -53,10 +54,10 @@ function Navbar() {
 
 
           </li>
-          <li><a href="#">Capacitaciones</a></li>
+          <li><a href="#areaCaptheId">Capacitaciones</a></li>
           <li id="itemBoumatic"><a href="https://boumatic.com/" target="_blank">Boumatic</a></li>
-          <li><a href="#">Noticias</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#areaNoticiastheId">Noticias</a></li>
+          <li><a href="#areaContactotheId">Contacto</a></li>
         </ul>
         </nav>
     
@@ -70,6 +71,9 @@ function menuDes() {
   document.querySelector(".Box").classList.toggle("ocultar");
 }
 
+function IrInicio() {
+  window.location.href ="#";
+}
 
 
 export default Navbar;

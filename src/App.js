@@ -14,26 +14,52 @@ import Portada from './components/Portada/Portada';
 import Whats from "https://kit.fontawesome.com/eb496ab1a0.js"
 import Navegacion from './components/Navegacion/Navegacion';
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
+
+import NuevaPagina from "./components/NuevaPagina"
+
+
+
+const App = () =>  {
+  return (
+    <Router>
+
+      <Routes>
+       
+        <Route path='/' element={<Home/>} />
+
+        <Route path="/nueva-pagina" element={<NuevaPagina/>} />
+    
+        
+      </Routes>
+
+    </Router>
+  );
+};
+
+// Define tus componentes separadamente
+
+function Home() {
   return (
     <div className="App">
+      <Navbar />
+      <Box />
+      <Portada />
+      <Nosotros />
+      <AreaProductos />
+      <Entrenamientos />
+      <Noticias />
+      <ContactForm />
+      <Footer />
       
-      <Navbar/>
-      <Box/>
-      <Portada/>
-      <Nosotros/>
-      <AreaProductos/>
-      <Entrenamientos/>
-      <Noticias/>
-      <ContactForm/>
-      <Footer/>
-      <a href="https://api.whatsapp.com/send?phone=5491169074492" class="btn-wsp" target="_blank">
-	    <i class="fa fa-whatsapp icono"></i>
-	</a>
-      
+      <a href="https://api.whatsapp.com/send?phone=5491169074492" className="btn-wsp" target="_blank">
+        <i className="fa fa-whatsapp icono"></i>
+      </a>
     </div>
+
   );
-}
+};
+
 
 export default App;
