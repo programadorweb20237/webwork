@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/webwork/static/css/main.8aa3e4a5.css",
+    "main.js": "/webwork/static/js/main.1cab44ec.js",
+    "static/js/787.d4aba7ab.chunk.js": "/webwork/static/js/787.d4aba7ab.chunk.js",
+    "static/media/reunion.jpg": "/webwork/static/media/reunion.1cae91b7b669236d36ab.jpg",
+    "static/media/vaca2.jpg": "/webwork/static/media/vaca2.31e5670f34a4dba8f4e6.jpg",
+    "static/media/vaca1.jpg": "/webwork/static/media/vaca1.b7c3b596c4c192bc2d24.jpg",
+    "static/media/foto2.jpg": "/webwork/static/media/foto2.fdcd27d5187ab9a7db4b.jpg",
+    "static/media/img1.png": "/webwork/static/media/img1.59ca5c6f4e30380a165b.png",
+    "static/media/img2.png": "/webwork/static/media/img2.ffb297e44c076d627aae.png",
+    "static/media/img3.png": "/webwork/static/media/img3.110b0fc4beedb8342dfb.png",
+    "static/media/img6.png": "/webwork/static/media/img6.d73af84bfe8b8194a2c1.png",
+    "static/media/img5.png": "/webwork/static/media/img5.88fc33013f91950b78b4.png",
+    "static/media/foto1.jpg": "/webwork/static/media/foto1.185598ce0215c5f8bec7.jpg",
+    "static/media/img4.png": "/webwork/static/media/img4.7b38976547aad3e46d39.png",
+    "static/media/logo.jpg": "/webwork/static/media/logo.d85f8bb02600e1298d07.jpg",
+    "index.html": "/webwork/index.html",
+    "static/media/logo-twitter.svg": "/webwork/static/media/logo-twitter.12582cc48e9992bdfdb9624d3314f1ee.svg",
+    "static/media/logo-instagram.svg": "/webwork/static/media/logo-instagram.2be79881312eb022b29a62c1f2bbe6bb.svg",
+    "static/media/logo-facebook.svg": "/webwork/static/media/logo-facebook.bca70e133a9e787acbfd39838985da02.svg",
+    "static/media/login.svg": "/webwork/static/media/login.88b020260d29830426c3a8069d4a99de.svg",
+    "static/media/search.svg": "/webwork/static/media/search.9c27f3817bc9692b9b1cf51f9d89b8c4.svg",
+    "static/media/downflecha.svg": "/webwork/static/media/downflecha.83d870fad2fe7d7c6f518ee35750ddf1.svg",
+    "static/media/menu.svg": "/webwork/static/media/menu.bf5afa18e5a3610447b30564453709f3.svg",
+    "main.8aa3e4a5.css.map": "/webwork/static/css/main.8aa3e4a5.css.map",
+    "main.1cab44ec.js.map": "/webwork/static/js/main.1cab44ec.js.map",
+    "787.d4aba7ab.chunk.js.map": "/webwork/static/js/787.d4aba7ab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8aa3e4a5.css",
+    "static/js/main.1cab44ec.js"
+  ]
+}
