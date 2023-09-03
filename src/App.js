@@ -21,7 +21,8 @@ import NuevaPagina from "./components/NuevaPagina"
 
 const App = () =>  {
   return (
-    <HashRouter>
+    
+   
 
       <Routes>
        
@@ -32,12 +33,12 @@ const App = () =>  {
         
        
 
-        <Route path="/webwork/nueva-pagina" element={<NuevaPagina/>} />
+        <Route path="/nueva-pagina" element={<NuevaPagina/>} />
     
         
       </Routes>
-
-    </HashRouter>
+     
+    
   );
 };
 
