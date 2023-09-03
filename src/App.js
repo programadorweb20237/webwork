@@ -27,10 +27,12 @@ const App = () =>  {
        
         
         <Route path='/' element={<Home/>} />
+
+        <Route path='/webwork' element={<Home/>} />
         
        
 
-        <Route path="/nueva-pagina" element={<NuevaPagina/>} />
+        <Route path="/webwork/nueva-pagina" element={<NuevaPagina/>} />
     
         
       </Routes>
