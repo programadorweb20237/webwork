@@ -21,24 +21,20 @@ import NuevaPagina from "./components/NuevaPagina"
 
 const App = () =>  {
   return (
-    
-   
+    <HashRouter>
 
       <Routes>
        
         
         <Route path='/' element={<Home/>} />
-
-        <Route path='/webwork' element={<Home/>} />
-        
        
 
         <Route path="/nueva-pagina" element={<NuevaPagina/>} />
     
         
       </Routes>
-     
-    
+
+    </HashRouter>
   );
 };
 
