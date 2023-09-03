@@ -11,7 +11,7 @@ import Navbar from './components/Navbar/Navbar';
 import Nosotros from './components/Nosotros/Nosotros';
 import Noticias from './components/Noticias/Noticias';
 import Portada from './components/Portada/Portada';
-import Whats from "https://kit.fontawesome.com/eb496ab1a0.js"
+
 
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
