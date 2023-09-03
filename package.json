@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "homepage": "http://programadorweb20237.github.io/webwork",
+  "homepage": "https://programadorweb20237.github.io/webwork",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +10,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.1",
+    "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-awesome-slider": "^4.1.0",
     "react-dom": "^18.2.0",
