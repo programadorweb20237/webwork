@@ -11,9 +11,7 @@ import Navbar from './components/Navbar/Navbar';
 import Nosotros from './components/Nosotros/Nosotros';
 import Noticias from './components/Noticias/Noticias';
 import Portada from './components/Portada/Portada';
-
-
-
+import { ReactComponent as MiSVG } from "./components/Navbar/whatsapp.svg"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
@@ -28,6 +26,7 @@ const App = () =>  {
       <Routes>
        
         <Route path='/webwork' element={<Home/>} />
+        <Route path='/' element={<Home/>} />
 
         <Route path="/webwork/nueva-pagina" element={<NuevaPagina/>} />
     
@@ -54,7 +53,8 @@ function Home() {
       <Footer />
       
       <a href="https://api.whatsapp.com/send?phone=5491169074492" className="btn-wsp" target="_blank">
-        <i className="fa fa-whatsapp icono"></i>
+       <MiSVG class="icon-whats-fijo" />
+      
       </a>
     </div>
 
