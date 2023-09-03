@@ -27,6 +27,7 @@ const App = () =>  {
        
         
         <Route path='/' element={<Home/>} />
+        <Route path='/webwork' element={<Home/>} />
 
         <Route path="/webwork/nueva-pagina" element={<NuevaPagina/>} />
     
