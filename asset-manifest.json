@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/webwork/static/css/main.e8c09a88.css",
-    "main.js": "/webwork/static/js/main.5f0e3836.js",
+    "main.js": "/webwork/static/js/main.a17bf834.js",
     "static/js/787.d4aba7ab.chunk.js": "/webwork/static/js/787.d4aba7ab.chunk.js",
     "static/media/reunion.jpg": "/webwork/static/media/reunion.1cae91b7b669236d36ab.jpg",
     "static/media/vaca2.jpg": "/webwork/static/media/vaca2.31e5670f34a4dba8f4e6.jpg",
@@ -25,11 +25,11 @@
     "static/media/downflecha.svg": "/webwork/static/media/downflecha.83d870fad2fe7d7c6f518ee35750ddf1.svg",
     "static/media/menu.svg": "/webwork/static/media/menu.bf5afa18e5a3610447b30564453709f3.svg",
     "main.e8c09a88.css.map": "/webwork/static/css/main.e8c09a88.css.map",
-    "main.5f0e3836.js.map": "/webwork/static/js/main.5f0e3836.js.map",
+    "main.a17bf834.js.map": "/webwork/static/js/main.a17bf834.js.map",
     "787.d4aba7ab.chunk.js.map": "/webwork/static/js/787.d4aba7ab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e8c09a88.css",
-    "static/js/main.5f0e3836.js"
+    "static/js/main.a17bf834.js"
   ]
 }
