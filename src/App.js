@@ -12,7 +12,7 @@ import Nosotros from './components/Nosotros/Nosotros';
 import Noticias from './components/Noticias/Noticias';
 import Portada from './components/Portada/Portada';
 import { ReactComponent as MiSVG } from "./components/Navbar/whatsapp.svg"
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as HashRouter, Route, Routes } from 'react-router-dom';
 
 
 import NuevaPagina from "./components/NuevaPagina"
@@ -21,20 +21,20 @@ import NuevaPagina from "./components/NuevaPagina"
 
 const App = () =>  {
   return (
-    <Router>
+    <HashRouter>
 
       <Routes>
        
         
         <Route path='/' element={<Home/>} />
-        <Route path='/webwork' element={<Home/>} />
+       
 
-        <Route path="/webwork/nueva-pagina" element={<NuevaPagina/>} />
+        <Route path="/nueva-pagina" element={<NuevaPagina/>} />
     
         
       </Routes>
 
-    </Router>
+    </HashRouter>
   );
 };
 
