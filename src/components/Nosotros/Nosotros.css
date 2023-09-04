@@ -34,7 +34,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 0.4em 0em;
+    margin: 1.4em 0em;
 }
 .itemNosotros p {
     display: flex;
@@ -47,4 +47,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@media (width <=813px) {
+    .itemNosotros{
+        margin: 0.3em 0em;
+        background-color: transparent;
+    }
+
 }
