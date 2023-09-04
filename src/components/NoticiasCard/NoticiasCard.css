@@ -54,6 +54,13 @@
 .descNoticiasCard{
     display: flex;
     padding: 0.5em 1em;
+    word-break: break-word;
+    background-color: transparent;
+}
+
+.contenedorDescNoticia{
+    width: 100%;
+    background-color: transparent;
 }
 
 @media (width <=813px) {
