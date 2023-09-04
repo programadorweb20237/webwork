@@ -1,0 +1,75 @@
+.Footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--nav-color);
+    width: 100%;
+
+    padding-top:1.8em;
+    padding-bottom: 1em;
+    border-top: var(--two-color) solid 0.6em;
+
+}
+.footerContact{
+    padding-bottom: 2em;
+}
+.h3footer{
+    font-size: 1.35em;
+    padding-bottom: 0.2em;
+
+}
+.areaContactos div p{
+    font-size: 1.1em;
+    padding:0.3em 0em;
+    padding-left: 0.3em;
+    background-color: transparent;
+}
+.totalContacto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.itemContacto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.totalRedes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.areaLogos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.email-a{
+    all:unset;
+    cursor: pointer;
+}
+.tel-a{
+    all:unset;
+    cursor: pointer;
+}
+.redesIcon{
+    width:4.1em;
+    margin:0.6em;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.redesIcon:hover{
+    transform: rotate(-18deg);
+}
+
+

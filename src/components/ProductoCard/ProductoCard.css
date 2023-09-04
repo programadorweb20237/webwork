@@ -1,0 +1,28 @@
+.ProductoCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:2em 0.2em;
+    cursor: pointer;
+    transition: background-color 180ms;
+    width:22em;
+    height:10em;
+    border-left: solid black 0.4em;
+
+    
+}
+.ProductoCard:hover{
+    background-color: rgba(81, 157, 185, 0.46);
+}
+.imgProdCard{
+    width:5.5em;
+    transition: transform 0.4s;
+}
+.ProductoCard:hover .imgProdCard{
+    transform: rotate(22deg);
+
+}
+.nameProdCard{
+    font-size: 1.5em;
+}

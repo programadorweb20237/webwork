@@ -1,0 +1,46 @@
+.AreaProductos {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.4em;
+    margin-bottom: -10px;
+    border-top: solid 0.6em var(--two-color);
+}
+.h2Productos{
+    font-size: 2em;
+    margin-left: 0.6em;
+    margin-top:0.6em;
+    width: fit-content;
+    text-align: start;
+    text-decoration:underline;
+    margin-bottom: 0.3em;
+
+}
+
+
+
+
+
+.areaAqui{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.h3verProd{
+    display: none;
+    font-size: 1.8em;
+    text-align:center;
+}
+.h3verProd a:hover{
+    background-color: #0078c2c7;
+    
+
+}
+.h3verProd a{
+    font-style: none;
+    text-decoration: none;
+    color: black;
+    background-color: rgba(81, 157, 185, 0.46);
+    
+}
