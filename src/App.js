@@ -13,6 +13,9 @@ import Noticias from './components/Noticias/Noticias';
 import Portada from './components/Portada/Portada';
 import { ReactComponent as MiSVG } from "./components/Navbar/whatsapp.svg"
 import { BrowserRouter as HashRouter, Route, Routes } from 'react-router-dom';
+import Typewriter from "typewriter-effect";
+import React from 'react';
+
 
 
 import NuevaPagina from "./components/NuevaPagina"

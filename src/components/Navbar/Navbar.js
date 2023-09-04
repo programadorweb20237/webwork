@@ -12,17 +12,16 @@ import { Link } from 'react-router-dom';
 
 
 
+
+
 function Navbar() {
 
   return (
+   
 
     <nav className="Navbar">
 
-
-
-
-
-      <img src={menusvg} onClick={menuDes} id="menusvgId"></img>
+      <img src={menusvg} onClick={menuDes} id="menusvgId" />
 
 
       <img id="logopalabraId" src={logopalabra} />
@@ -56,7 +55,13 @@ function Navbar() {
           </li>
           <li><a href="#areaCaptheId">Capacitaciones</a></li>
           <li id="itemBoumatic"><a href="https://boumatic.com/" target="_blank">Boumatic</a></li>
-          <li><a href="#areaNoticiastheId">Noticias</a></li>
+          <li>
+
+
+          
+
+
+<a href="#areaNoticiastheId">Noticias</a></li>
           <li><a href="#areaContactotheId">Contacto</a></li>
         </ul>
         </nav>
