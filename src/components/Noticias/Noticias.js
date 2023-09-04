@@ -21,6 +21,17 @@ const Noticias = () => (
 
       />
 
+<NoticiasCard
+        img="https://blog.rindegastos.com/hubfs/1adaptaci%C3%B3n.png"
+        titulo="Cambio de proyectos."
+        descripcion="A finales de año, en un ambiente 
+      cordial y festivo para celebrar los logros del año y planificar el futuro. Durante la 
+      reunión, para el próximo año, enfocándose en la innovación y 
+      el crecimiento sostenible. La reunión fue 
+      los miembros del equipo y motivarlos para el futuro con entusiasmo y determinación."
+
+      />
+
 
 
 
