@@ -19,6 +19,7 @@ import React from 'react';
 
 
 import NuevaPagina from "./components/NuevaPagina"
+import ConsumirApi from './components/API/ConsumirApi';
 
 
 
@@ -51,6 +52,7 @@ function Home() {
       <Portada />
       <Nosotros />
       <AreaProductos />
+      <ConsumirApi />
       <Entrenamientos />
       <Noticias />
       <ContactForm />

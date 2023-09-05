@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './AreaProductos.css';
 import ProductoCard from '../ProductoCard/ProductoCard';
@@ -10,6 +10,8 @@ import img5 from "./img5.png"
 import img6 from "./img6.png"
 
 const AreaProductos = () => (
+
+
   <div className="AreaProductos" id="areaProdtheId">
     <h2 className='h2Productos'>PRODUCTOS</h2>
     <div className='areaAqui'>
@@ -23,6 +25,7 @@ const AreaProductos = () => (
     <h3 className='h3verProd'><a href='#'>Ver más...</a></h3>
   </div>
 );
+
 
 AreaProductos.propTypes = {};
 
