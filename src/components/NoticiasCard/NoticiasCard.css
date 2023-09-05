@@ -1,6 +1,6 @@
 .NoticiasCard {
     width: 100%;
-    max-width: 900px;
+    max-width: 787px;
     min-height: 380px;
     display: flex;
     flex-direction: row;
@@ -9,7 +9,7 @@
     align-items: center;
     background-color: transparent;
     border-bottom: 0.3em solid black;
-    margin:1em;
+    margin:1em 1em;
     cursor: pointer;
     background-color: transparent;
 }

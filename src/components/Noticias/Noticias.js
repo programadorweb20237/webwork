@@ -22,13 +22,13 @@ const Noticias = () => (
       />
 
 <NoticiasCard
-        img="https://blog.rindegastos.com/hubfs/1adaptaci%C3%B3n.png"
+        img="https://www.ceupe.com.ve/images/easyblog_articles/230/ges_proyec.png"
         titulo="Cambio de proyectos."
-        descripcion="A finales de año, en un ambiente 
-      cordial y festivo para celebrar los logros del año y planificar el futuro. Durante la 
-      reunión, para el próximo año, enfocándose en la innovación y 
-      el crecimiento sostenible. La reunión fue 
-      los miembros del equipo y motivarlos para el futuro con entusiasmo y determinación."
+        descripcion="En Dairy Solutions, siempre estamos en búsqueda de nuevas oportunidades
+         y desafíos. Hoy, nos complace compartir que estamos explorando nuevos proyectos que
+          nos permitirán seguir brindando soluciones innovadoras en línea con nuestra dedicación
+           a la industria lechera. Mantente informado para conocer más sobre nuestras próximas
+            iniciativas."
 
       />
 

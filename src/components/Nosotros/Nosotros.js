@@ -66,6 +66,8 @@ const Nosotros = () => (
 
       <div className='itemNosotros'>
 
+      
+
         <p className='parrafoNosotros'>
 
           <strong>La Vida de su Establo</strong>
@@ -126,6 +128,7 @@ const Nosotros = () => (
         </p>
 
         <img className="imgNosotros" src={vaca2} />
+        
 
       </div>
     </div>
