@@ -1,40 +1,42 @@
-import React, { useState, useEffect } from 'react';
+// Ejemplo de código en React con el componente renombrado a 'ConsumirApi'
+import React, { useEffect, useState } from 'react';
+import "./ConsumirApi.css"
 
 function ConsumirApi() {
-  const [employees, setEmployees] = useState([]);
-  const [error, setError] = useState(null);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Realiza una solicitud GET al backend en https://dairy-api-p1w5.onrender.com/api/employees
-    fetch('http://localhost:6170/api/employees')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('No se pudo obtener la lista de empleados');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Actualiza el estado con los datos recibidos del backend
-        setEmployees(data);
-      })
-      .catch((error) => {
-        console.error('Error al obtener datos del backend:', error);
-        setError(error);
-      });
+    fetch('http://localhost:6170/api/products')
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error('Error al obtener los datos:', error));
   }, []);
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
 
   return (
     <div>
-      <h1>Lista de Empleados</h1>
-      <ul>
-        {employees.map((employee) => (
-          <li key={employee.id}>{employee.name}</li>
-        ))}
-      </ul>
+      <h1>Tabla de Productos</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Presentación</th>
+            <th>Precio Mayorista</th>
+            <th>Precio Minorista</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product) => (
+            <tr key={product.productId}>
+              <td>{product.code}</td>
+              <td>{product.description}</td>
+              <td>{product.presentation}</td>
+              <td>{product.dealerPrice}</td>
+              <td>{product.retailPrice}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

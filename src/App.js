@@ -34,6 +34,7 @@ const App = () =>  {
        
 
         <Route path="/nueva-pagina" element={<NuevaPagina/>} />
+        <Route path="/products" element={<ConsumirApi/>} />
     
         
       </Routes>
@@ -52,7 +53,7 @@ function Home() {
       <Portada />
       <Nosotros />
       <AreaProductos />
-      <ConsumirApi />
+  
       <Entrenamientos />
       <Noticias />
       <ContactForm />
