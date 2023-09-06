@@ -18,7 +18,7 @@ import React from 'react';
 
 
 
-import NuevaPagina from "./components/NuevaPagina"
+import NuevaPagina2 from "./components/NuevaPagina"
 
 
 
@@ -32,7 +32,7 @@ const App = () =>  {
         <Route path='/' element={<Home/>} />
        
 
-        <Route path="/nueva-pagina" element={<NuevaPagina/>} />
+        <Route path="/nueva-pagina" element={<NuevaPagina2/>} />
     
         
       </Routes>
