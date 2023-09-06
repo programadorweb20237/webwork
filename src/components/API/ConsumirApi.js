@@ -13,7 +13,7 @@ function ConsumirApi() {
   }, []);
 
   return (
-    <div>
+    <div className='productosDivAPI'>
       <h1>Tabla de Productos</h1>
       <table>
         <thead>
