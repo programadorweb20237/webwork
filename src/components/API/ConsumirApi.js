@@ -6,7 +6,7 @@ function ConsumirApi() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:6170/api/products')
+    fetch('https://dairy-api-p1w5.onrender.com/api/products')
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error('Error al obtener los datos:', error));
