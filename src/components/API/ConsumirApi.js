@@ -1,4 +1,4 @@
-// Ejemplo de código en React con el componente renombrado a 'ConsumirApi'
+// Ejemplo de código en React con el componentee renombrado a 'ConsumirApi'
 import React, { useEffect, useState } from 'react';
 import "./ConsumirApi.css"
 
