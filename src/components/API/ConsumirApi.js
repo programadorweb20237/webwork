@@ -2,23 +2,30 @@ import React, { useEffect, useState } from 'react';
 import "./ConsumirApi.css"
 
 function ConsumirApi() {
-  const [products, setProducts] = useState([]);
-  const [quimicos, setQuimicos] = useState([]);
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetch('http://localhost:80/api-routes.php')
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setProducts(data.products);
-        setQuimicos(data.quimicos);
+        // Combina los datos de productos y químicos en una sola lista
+        const combinedData = [...data.products, ...data.quimicos];
+        setData(combinedData);
       })
       .catch((error) => console.error('Error al obtener los datos:', error));
   }, []);
 
   return (
     <div className='productosDivAPI'>
-      <h1>Tabla de Productos</h1>
+      <h1>Tabla de Productos y Químicos</h1>
+      <input className='buscadorProd'
+        type="text"
+        placeholder="Buscar..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <table>
         <thead>
           <tr>
@@ -27,44 +34,25 @@ function ConsumirApi() {
             <th>Presentación</th>
             <th>Precio Mayorista</th>
             <th>Precio Minorista</th>
+            <th>Costo por Kilo</th>
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => (
-            <tr key={product.productId}>
-              <td>{product.code}</td>
-              <td>{product.description}</td>
-              <td>{product.presentation}</td>
-              <td>{product.dealerPrice}</td>
-              <td>{product.retailPrice}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <h1>Tabla de Químicos</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Código</th>
-            <th>Descripción</th>
-            <th>Presentación</th>
-            <th>Precio Mayorista</th>
-            <th>Precio Minorista</th>
-            <th>Costo por Kilo </th>
-          </tr>
-        </thead>
-        <tbody>
-          {quimicos.map((quimico) => (
-            <tr key={quimico.quimicoId}>
-              <td>{quimico.code}</td>
-              <td>{quimico.description}</td>
-              <td>{quimico.presentation}</td>
-              <td>{quimico.dealerPrice}</td>
-              <td>{quimico.retailPrice}</td>
-              <td>{quimico.costoKilo}</td>
-            </tr>
-          ))}
+          {data
+            .filter((item) =>
+              item.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              item.description.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            .map((item, index) => (
+              <tr key={index}>
+                <td>{item.code}</td>
+                <td>{item.description}</td>
+                <td>{item.presentation}</td>
+                <td>{item.dealerPrice}</td>
+                <td>{item.retailPrice}</td>
+                <td>{item.costoKilo || ""}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
