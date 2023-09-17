@@ -20,7 +20,7 @@ const Nosotros = () => {
 
     fetch('http://localhost:80/registro.php', {
       method: 'POST',
-      headers: {
+      headers: { 
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
