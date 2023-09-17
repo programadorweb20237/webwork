@@ -1,9 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Nosotros.css';
 import vaca1 from './vaca1.jpg';
 import vaca2 from './vaca2.jpg';
 
+
+
 const Nosotros = () => {
+
+  const [formData, setFormData] = useState({
+    nombre_completo: '',
+    username: '',
+    email: '',
+    nuevaContraseña: '',
+    repetirContraseña: '',
+  });
+
+  const handleRegistroSubmit = (event) => {
+    event.preventDefault();
+
+    fetch('http://localhost:80/registro.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error('Error al enviar la solicitud:', error);
+        
+
+        console.log(formData);
+      });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
 
   return (
@@ -49,24 +86,24 @@ const Nosotros = () => {
               {/* Contenido del modal de inicio de sesión */}
               <form>
                 <div className="mb-3">
-                  <label htmlFor="username" className="form-label">
+                  <label htmlFor="username1" className="form-label">
                     Nombre de Usuario
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="username"
+                    id="username1"
                     placeholder="Ingrese su nombre de usuario"
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="password" className="form-label">
+                  <label htmlFor="password1" className="form-label">
                     Contraseña
                   </label>
                   <input
                     type="password"
                     className="form-control"
-                    id="password"
+                    id="password1"
                     placeholder="Ingrese su contraseña"
                   />
                 </div>
@@ -92,15 +129,8 @@ const Nosotros = () => {
       </div>
 
 
-
-      {/* Modal de registro */}
-      <div
-        className="modal fade"
-        id="registroModal"
-        tabIndex="-1"
-        aria-labelledby="registroModalLabel"
-        aria-hidden="true"
-      >
+      {/* Formulario de Registro */}
+      <div className="modal fade" id="registroModal" tabIndex="-1" aria-labelledby="registroModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -112,32 +142,34 @@ const Nosotros = () => {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-
               ></button>
             </div>
             <div className="modal-body">
-              {/* Contenido del modal de registro */}
-              <form>
+              <form onSubmit={handleRegistroSubmit}>
                 <div className="mb-3">
-                  <label htmlFor="nombreCompleto" className="form-label">
+                  <label htmlFor="nombre_completo" className="form-label">
                     Nombre Completo
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="nombreCompleto"
+                    name="nombre_completo"
                     placeholder="Ingrese su nombre completo"
+                    value={formData.nombre_completo}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="nuevoUsername" className="form-label">
+                  <label htmlFor="username" className="form-label">
                     Nombre de Usuario
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="nuevoUsername"
+                    name="username"
                     placeholder="Elija un nombre de usuario"
+                    value={formData.username}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -147,8 +179,10 @@ const Nosotros = () => {
                   <input
                     type="email"
                     className="form-control"
-                    id="email"
+                    name="email"
                     placeholder="Ingrese su correo electrónico"
+                    value={formData.email}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -158,8 +192,10 @@ const Nosotros = () => {
                   <input
                     type="password"
                     className="form-control"
-                    id="nuevaContraseña"
+                    name="nuevaContraseña"
                     placeholder="Ingrese su contraseña"
+                    value={formData.nuevaContraseña}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -169,8 +205,10 @@ const Nosotros = () => {
                   <input
                     type="password"
                     className="form-control"
-                    id="repetirContraseña"
+                    name="repetirContraseña"
                     placeholder="Repita su contraseña"
+                    value={formData.repetirContraseña}
+                    onChange={handleChange}
                   />
                 </div>
                 <button type="submit" className="btn btn-primary">
@@ -308,7 +346,7 @@ const Nosotros = () => {
 
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
