@@ -23,6 +23,7 @@
 }
 .Box ul {
     background-color: transparent;
+    padding-left: 0px;
     padding-bottom: 3.75em;
     height: 100%;
     width:100%;

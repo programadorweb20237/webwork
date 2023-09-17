@@ -72,4 +72,9 @@
     transform: rotate(-18deg);
 }
 
+img, svg {
+    vertical-align: middle;
+    margin-bottom: 13px;
+}
+
 
