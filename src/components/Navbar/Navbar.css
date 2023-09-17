@@ -169,8 +169,10 @@ display:block;
     background-color: transparent;
     width: 2.18em;
     height: fit-content;
-    margin-right: 0.8em;
+    margin: auto 0px;
+    margin-right: 3.8em;
     padding-left: 0.5em;
+   
 
     cursor: pointer;
 }

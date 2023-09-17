@@ -68,6 +68,11 @@ function Navbar() {
     
         <img id="searchId" className='searchimg' src={search} />
         <img id="loginId" className='loginimg' src={login} />
+
+
+
+
+
         </nav>
   );
 };
