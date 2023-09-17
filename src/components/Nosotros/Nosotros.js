@@ -7,6 +7,10 @@ import vaca2 from './vaca2.jpg';
 
 const Nosotros = () => {
 
+  const [registroExitoso, setRegistroExitoso] = useState(false);
+const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
+
+
   const [formData, setFormData] = useState({
     nombre_completo: '',
     username: '',
@@ -28,6 +32,8 @@ const Nosotros = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setRegistroExitoso(true);
+        setMensajeRegistroExitoso("¡Registro exitoso!");
       })
       .catch((error) => {
         console.error('Error al enviar la solicitud:', error);
@@ -46,6 +52,7 @@ const Nosotros = () => {
   return (
     <div className="Nosotros" id="areaNosotrostheId">
       <h3 className="h2Nosotros">SOBRE NOSOTROS</h3>
+
 
       {/* Botón de inicio de sesión */}
       <button
@@ -215,6 +222,24 @@ const Nosotros = () => {
                   Registrarse
                 </button>
               </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+{/* Modal para el mensaje de registro exitoso */}
+<div className={`modal fade ${registroExitoso ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: registroExitoso ? 'block' : 'none' }}>
+        <div className="modal-dialog modal-success" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title text-success">Registro Exitoso</h5>
+              <button type="button" className="btn-close text-success" data-bs-dismiss="modal" aria-label="Close" onClick={() => setRegistroExitoso(false)}></button>
+            </div>
+            <div className="modal-body">
+              <p className="text-success">Tu registro ha sido exitoso.</p>
             </div>
           </div>
         </div>
