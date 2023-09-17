@@ -14,10 +14,10 @@ const Nosotros = () => {
       <button
         type="button"
         className="btn btn-primary loginn-btn-modal"
-       
+
         data-bs-toggle="modal"  // Añade este atributo
         data-bs-target="#loginModal"  // Añade este atributo con el ID de tu modal
-      
+
 
       >
         Iniciar Sesión
@@ -25,163 +25,163 @@ const Nosotros = () => {
 
       {/* Modal de inicio de sesión */}
       <div
-          className="modal fade"
-          id="loginModal"
-          tabIndex="-1"
-          aria-labelledby="loginModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="loginModalLabel">
-                  Inicio de Sesión
-                </h5>
+        className="modal fade"
+        id="loginModal"
+        tabIndex="-1"
+        aria-labelledby="loginModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="loginModalLabel">
+                Inicio de Sesión
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+
+              ></button>
+            </div>
+            <div className="modal-body">
+              {/* Contenido del modal de inicio de sesión */}
+              <form>
+                <div className="mb-3">
+                  <label htmlFor="username" className="form-label">
+                    Nombre de Usuario
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="username"
+                    placeholder="Ingrese su nombre de usuario"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">
+                    Contraseña
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    placeholder="Ingrese su contraseña"
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Iniciar Sesión
+                </button>
+              </form>
+              {/* Enlace para abrir el modal de registro */}
+              <p className="creaCuentaParrafo">
+                ¿No tienes una cuenta?{' '}
                 <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                  
-                ></button>
-              </div>
-              <div className="modal-body">
-                {/* Contenido del modal de inicio de sesión */}
-                <form>
-                  <div className="mb-3">
-                    <label htmlFor="username" className="form-label">
-                      Nombre de Usuario
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="username"
-                      placeholder="Ingrese su nombre de usuario"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="password" className="form-label">
-                      Contraseña
-                    </label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="password"
-                      placeholder="Ingrese su contraseña"
-                    />
-                  </div>
-                  <button type="submit" className="btn btn-primary">
-                    Iniciar Sesión
-                  </button>
-                </form>
-                {/* Enlace para abrir el modal de registro */}
-                <p className="creaCuentaParrafo">
-                  ¿No tienes una cuenta?{' '}
-                  <button
-                    className="btn btn-link"
-                    data-bs-toggle="modal"  // Añade este atributo
-        data-bs-target="#registroModal"  // Añade este atributo con el ID de tu modal
-                  
-                  >
-                    Regístrate aquí.
-                  </button>
-                </p>
-              </div>
+                  className="btn btn-link"
+                  data-bs-toggle="modal"  // Añade este atributo
+                  data-bs-target="#registroModal"  // Añade este atributo con el ID de tu modal
+
+                >
+                  Regístrate aquí.
+                </button>
+              </p>
             </div>
           </div>
         </div>
-      
-      
+      </div>
+
+
 
       {/* Modal de registro */}
       <div
-          className="modal fade"
-          id="registroModal"
-          tabIndex="-1"
-          aria-labelledby="registroModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="registroModalLabel">
-                  Registro
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                  
-                ></button>
-              </div>
-              <div className="modal-body">
-                {/* Contenido del modal de registro */}
-                <form>
-                  <div className="mb-3">
-                    <label htmlFor="nombreCompleto" className="form-label">
-                      Nombre Completo
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="nombreCompleto"
-                      placeholder="Ingrese su nombre completo"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="nuevoUsername" className="form-label">
-                      Nombre de Usuario
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="nuevoUsername"
-                      placeholder="Elija un nombre de usuario"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="email" className="form-label">
-                      Correo Electrónico
-                    </label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      id="email"
-                      placeholder="Ingrese su correo electrónico"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="nuevaContraseña" className="form-label">
-                      Contraseña
-                    </label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="nuevaContraseña"
-                      placeholder="Ingrese su contraseña"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="repetirContraseña" className="form-label">
-                      Repetir Contraseña
-                    </label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="repetirContraseña"
-                      placeholder="Repita su contraseña"
-                    />
-                  </div>
-                  <button type="submit" className="btn btn-primary">
-                    Registrarse
-                  </button>
-                </form>
-              </div>
+        className="modal fade"
+        id="registroModal"
+        tabIndex="-1"
+        aria-labelledby="registroModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="registroModalLabel">
+                Registro
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+
+              ></button>
+            </div>
+            <div className="modal-body">
+              {/* Contenido del modal de registro */}
+              <form>
+                <div className="mb-3">
+                  <label htmlFor="nombreCompleto" className="form-label">
+                    Nombre Completo
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="nombreCompleto"
+                    placeholder="Ingrese su nombre completo"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="nuevoUsername" className="form-label">
+                    Nombre de Usuario
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="nuevoUsername"
+                    placeholder="Elija un nombre de usuario"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Correo Electrónico
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    placeholder="Ingrese su correo electrónico"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="nuevaContraseña" className="form-label">
+                    Contraseña
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="nuevaContraseña"
+                    placeholder="Ingrese su contraseña"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="repetirContraseña" className="form-label">
+                    Repetir Contraseña
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="repetirContraseña"
+                    placeholder="Repita su contraseña"
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Registrarse
+                </button>
+              </form>
             </div>
           </div>
         </div>
-    
+      </div>
+
 
 
 
