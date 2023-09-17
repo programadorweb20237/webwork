@@ -10,6 +10,51 @@ const Nosotros = () => (
   <div className="Nosotros" id="areaNosotrostheId">
 
     <h3 className='h2Nosotros'>SOBRE NOSOTROS</h3>
+
+
+
+    
+
+    <button type="button" class="btn btn-primary loginn-btn-modal" data-bs-toggle="modal" data-bs-target="#loginModal">
+  Iniciar Sesión
+</button>
+
+
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Inicio de Sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+     
+        <form>
+          <div class="mb-3">
+            <label for="username" class="form-label">Nombre de Usuario</label>
+            <input type="text" class="form-control" id="username" placeholder="Ingrese su nombre de usuario"/>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña"/>
+          </div>
+          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        </form>
+
+       
+        <p className='creaCuentaParrafo'>¿No tienes una cuenta? <a href="/registro">Regístrate aquí</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
     <div className='areaNosotros'>
 
       <h4 className='h4Nosotros'>Dairy Solutions: Transformando el Cuidado de sus Vacas</h4>

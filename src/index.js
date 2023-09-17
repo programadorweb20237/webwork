@@ -7,6 +7,7 @@ import { HashRouter } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import bootstrap from 'bootstrap'
 
 
 

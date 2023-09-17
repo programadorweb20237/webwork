@@ -49,6 +49,13 @@
     align-items: center;
 }
 
+.creaCuentaParrafo{
+    padding-top: 18px;
+}
+.loginn-btn-modal{
+    display: none;
+}
+
 @media (width <=813px) {
     .itemNosotros{
         margin: 0.3em 0em;
