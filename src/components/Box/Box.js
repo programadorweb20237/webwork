@@ -12,13 +12,18 @@ const Box = () => (
       <li><a onClick={menuDes}href="#areaNoticiastheId">Noticias</a></li>
       <li><a onClick={menuDes}href="#areaContactotheId">Contacto</a></li>
   
-      <li><a onClick={menuDes}href="#">Login</a></li>
+      <li><a onClick={abrirModalLogin}href="#">Login</a></li>
     </ul>
   </div>
 );
 
 function menuDes() {
   document.querySelector(".Box").classList.toggle("ocultar");
+}
+function abrirModalLogin(){
+  document.querySelector(".Box").classList.toggle("ocultar");
+  const botonLogin = document.querySelector(".loginn-btn-modal");
+  botonLogin.click();
 }
 
 Box.propTypes = {};

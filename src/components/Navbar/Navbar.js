@@ -67,8 +67,17 @@ function Navbar() {
         </nav>
     
         <img id="searchId" className='searchimg' src={search} />
-        <img id="loginId" className='loginimg' src={login} />
+        <img id="loginId" onClick={abrirModalLogin} className='loginimg' src={login} />
+
+
+
+
+
+
         </nav>
+
+
+
   );
 };
 
@@ -79,6 +88,10 @@ function menuDes() {
 
 function IrInicio() {
   window.location.href ="#";
+}
+function abrirModalLogin(){
+  const botonLogin = document.querySelector(".loginn-btn-modal");
+  botonLogin.click();
 }
 
 
