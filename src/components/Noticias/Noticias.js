@@ -4,9 +4,21 @@ import './Noticias.css';
 import NoticiasCard from '../NoticiasCard/NoticiasCard';
 import imgReunion from "./reunion.jpg"
 
+
+// Este es el objeto Usuario que usamos si ya esta logeado el usuario
+const storedUser = JSON.parse(localStorage.getItem('user'));
+
+
 const Noticias = () => (
+
+
+
+
+
   <div className="Noticias" id="areaNoticiastheId">
     <h2 className='h2Noticias'>NOTICIAS</h2>
+
+
     <div className='areaNoticias'>
       <NoticiasCard
         img={imgReunion}

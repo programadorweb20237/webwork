@@ -37,6 +37,13 @@ const Nosotros = () => {
 
         // Aquí puedes manejar la respuesta del servidor, por ejemplo, mostrar un mensaje de éxito o error.
         console.log(data);
+        console.log(data.user);
+
+        // Guardo el objeto usuario en el local storage
+        localStorage.setItem('user', JSON.stringify(data.user));
+
+
+      
       })
       .catch((error) => {
 
