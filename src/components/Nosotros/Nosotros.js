@@ -9,7 +9,40 @@ import { apiUrl } from '../API/ApiConfig';
 const Nosotros = () => {
 
   const [registroExitoso, setRegistroExitoso] = useState(false);
-const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
+  const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
+
+  const handleLoginSubmit = (event) => {
+    event.preventDefault();
+  
+    const formData = new FormData(event.target);
+    const requestData = {
+      usernameOrEmail: formData.get('usernameOrEmail'), // Utiliza el nombre correcto del campo
+      password: formData.get('password'), // Utiliza el nombre correcto del campo
+    };
+  
+    console.log('Datos que se enviarán:', requestData);
+  
+    // Resto de tu código de manejo de la solicitud
+
+    fetch(`${apiUrl}/login.php`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestData),
+    })
+      // ...
+      .then((response) => response.json())
+      .then((data) => {
+
+        // Aquí puedes manejar la respuesta del servidor, por ejemplo, mostrar un mensaje de éxito o error.
+        console.log(data);
+      })
+      .catch((error) => {
+
+        console.error('Error al enviar la solicitud:', error);
+      });
+  };
 
 
   const [formData, setFormData] = useState({
@@ -25,7 +58,7 @@ const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
 
     fetch(`${apiUrl}/registro.php`, {
       method: 'POST',
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
@@ -38,7 +71,7 @@ const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
       })
       .catch((error) => {
         console.error('Error al enviar la solicitud:', error);
-        
+
 
         console.log(formData);
       });
@@ -61,7 +94,7 @@ const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
         className="btn btn-primary loginn-btn-modal"
 
         data-bs-toggle="modal"  // Añade este atributo
-        data-bs-target="#loginModal"  // Añade este atributo con el ID de tu modal
+        data-bs-target="#loginModal"  // Añade estte atributo con el ID de tu modal
 
 
       >
@@ -91,17 +124,19 @@ const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
               ></button>
             </div>
             <div className="modal-body">
+
               {/* Contenido del modal de inicio de sesión */}
-              <form>
+              <form onSubmit={handleLoginSubmit}>
                 <div className="mb-3">
-                  <label htmlFor="username1" className="form-label">
-                    Nombre de Usuario
+                  <label htmlFor="usernameOrEmail" className="form-label">
+                    Nombre de Usuario o Email
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="username1"
-                    placeholder="Ingrese su nombre de usuario"
+                    id="usernameOrEmail"
+                    name="usernameOrEmail" // Cambia el nombre del campo
+                    placeholder="Ingrese su nombre de usuario o email"
                   />
                 </div>
                 <div className="mb-3">
@@ -112,6 +147,7 @@ const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
                     type="password"
                     className="form-control"
                     id="password1"
+                    name="password" // Cambia el nombre del campo
                     placeholder="Ingrese su contraseña"
                   />
                 </div>
@@ -119,6 +155,7 @@ const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
                   Iniciar Sesión
                 </button>
               </form>
+
               {/* Enlace para abrir el modal de registro */}
               <p className="creaCuentaParrafo">
                 ¿No tienes una cuenta?{' '}
@@ -231,8 +268,8 @@ const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
 
 
 
-{/* Modal para el mensaje de registro exitoso */}
-<div className={`modal fade ${registroExitoso ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: registroExitoso ? 'block' : 'none' }}>
+      {/* Modal para el mensaje de registro exitoso */}
+      <div className={`modal fade ${registroExitoso ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: registroExitoso ? 'block' : 'none' }}>
         <div className="modal-dialog modal-success" role="document">
           <div className="modal-content">
             <div className="modal-header">
