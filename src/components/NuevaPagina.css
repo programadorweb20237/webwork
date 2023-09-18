@@ -1,0 +1,99 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Fondo gris claro */
+  margin: 0;
+  padding: 0;
+}
+
+.form-pago-1{
+
+    padding: 13px;
+
+}
+.form-pago-h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Estilos para encabezado */
+h2 {
+  color: #0074e4; /* Azul */
+}
+
+/* Estilos para select y input (excluyendo el cliente) */
+select,
+input[type="number"],
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #0074e4; /* Borde azul */
+  border-radius: 5px;
+  background-color: #e4f2ff; /* Fondo azul claro */
+  font-size: 16px;
+  color: #0074e4; /* Texto azul */
+}
+
+/* Estilos para el campo "Elige un cliente" */
+#cliente {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  margin-bottom: 29px;
+  border: 1px solid #0074e4; /* Borde azul */
+  border-radius: 5px;
+  background-color: #e4f2ff; /* Fondo azul claro */
+  font-size: 16px;
+  color: #0074e4; /* Texto azul */
+  padding-bottom: 15px; /* Agregado el padding-bottom */
+}
+
+.agregar-pago1{
+    background-color: #2d76ba;
+}
+
+/* Estilos para botones */
+button {
+  background-color:  #11426f;/* Azul */
+  color: #fff; /* Texto blanco */
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Estilos para etiquetas y campos */
+label {
+  font-weight: bold;
+  color: #333; /* Texto gris oscuro */
+  padding: 5px;
+  border-radius: 5px;
+  background-color: transparent; /* Fondo transparente */
+  color: #333; /* Texto gris oscuro */
+}
+
+/* Estilos para mensajes de error (si es necesario) */
+.error-message {
+  color: #ff5722; /* Rojo */
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.pago{
+    margin-bottom: 25px;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+}
