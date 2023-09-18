@@ -6,7 +6,8 @@ import imgReunion from "./reunion.jpg"
 
 
 // Este es el objeto Usuario que usamos si ya esta logeado el usuario
-const storedUser = JSON.parse(localStorage.getItem('user'));
+// const storedUser = JSON.parse(localStorage.getItem('user'));
+
 
 
 const Noticias = () => (

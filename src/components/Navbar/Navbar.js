@@ -12,6 +12,9 @@ import { Link } from 'react-router-dom';
 
 
 
+// Este es el objeto Usuario que usamos si ya esta logeado el usuario
+// const storedUser = JSON.parse(localStorage.getItem('user'));
+
 
 
 function Navbar() {
@@ -65,7 +68,11 @@ function Navbar() {
           <li><a href="#areaContactotheId">Contacto</a></li>
         </ul>
         </nav>
-    
+
+        {storedUser !== undefined && storedUser.rol === 'Jefe' && (
+  <button className='btn btn-danger'>Recibos</button>
+)}
+
         <img id="searchId" className='searchimg' src={search} />
         <img id="loginId" onClick={abrirModalLogin} className='loginimg' src={login} />
 
