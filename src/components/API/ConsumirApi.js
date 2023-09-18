@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import "./ConsumirApi.css"
+import { apiUrl } from './ApiConfig';
+
 
 function ConsumirApi() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch('http://localhost:80/api-routes.php')
+    fetch(`${apiUrl}/api-routes.php`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

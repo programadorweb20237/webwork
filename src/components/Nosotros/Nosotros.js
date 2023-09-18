@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Nosotros.css';
 import vaca1 from './vaca1.jpg';
 import vaca2 from './vaca2.jpg';
+import { apiUrl } from '../API/ApiConfig';
 
 
 
@@ -22,7 +23,7 @@ const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
   const handleRegistroSubmit = (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:80/registro.php', {
+    fetch(`${apiUrl}/registro.php`, {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
