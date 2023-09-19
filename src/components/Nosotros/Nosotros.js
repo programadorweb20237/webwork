@@ -6,7 +6,14 @@ import { apiUrl } from '../API/ApiConfig';
 
 
 
-const Nosotros = () => {
+const Nosotros = ({ handleLogin }) => {
+
+
+  //MANEJAR LOGIN
+
+  //FIN MANEJAR LOGIN
+
+
 
   const [registroExitoso, setRegistroExitoso] = useState(false);
   const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
@@ -19,6 +26,8 @@ const Nosotros = () => {
       usernameOrEmail: formData.get('usernameOrEmail'), // Utiliza el nombre correcto del campo
       password: formData.get('password'), // Utiliza el nombre correcto del campo
     };
+
+   
   
     console.log('Datos que se enviarán:', requestData);
   
@@ -35,12 +44,23 @@ const Nosotros = () => {
       .then((response) => response.json())
       .then((data) => {
 
+      
+        
+        
+
         // Aquí puedes manejar la respuesta del servidor, por ejemplo, mostrar un mensaje de éxito o error.
         console.log(data);
         console.log(data.user);
+        if(data.success){
+          alert("Bien Logueado!");
+          handleLogin();
+
+        }else{
+          alert("Contraseña o usuario incorrectos.")
+        }
 
         // Guardo el objeto usuario en el local storage
-        localStorage.setItem('user', JSON.stringify(data.user));
+      
 
 
       

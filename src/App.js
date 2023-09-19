@@ -1,5 +1,6 @@
 
 import './App.css';
+import { useState } from 'react';
 
 import AreaProductos from './components/AreaProductos/AreaProductos';
 import Box from './components/Box/Box';
@@ -23,20 +24,23 @@ import ConsumirApi from './components/API/ConsumirApi';
 
 
 
-const App = () =>  {
+const App = () => {
+
+
+
   return (
     <HashRouter>
 
       <Routes>
-       
-        
-        <Route path='/' element={<Home/>} />
-       
 
-        <Route path="/nueva-pagina" element={<NuevaPagina/>} />
-        <Route path="/products" element={<ConsumirApi/>} />
-    
-        
+
+        <Route path='/' element={<Home />} />
+
+
+        <Route path="/nueva-pagina" element={<NuevaPagina />} />
+        <Route path="/products" element={<ConsumirApi />} />
+
+
       </Routes>
 
     </HashRouter>
@@ -46,22 +50,38 @@ const App = () =>  {
 // Define tus componentes separadamente
 
 function Home() {
+  const [usuarioObj, setUsuarioObj] = useState(null);
+
+  // Estado para guardar la sesion login
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Función para cambiar el estado de autenticación
+  const handleLogin = () => {
+    alert("Se ha ejecutado handleLogin")
+    setIsLoggedIn(true);
+  };
+
+  // Función para cerrar la sesión
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <div className="App">
       <Navbar />
       <Box />
       <Portada />
-      <Nosotros />
+      <Nosotros handleLogin={handleLogin}/>
       <AreaProductos />
-  
+
       <Entrenamientos />
       <Noticias />
       <ContactForm />
       <Footer />
-      
+
       <a href="https://api.whatsapp.com/send?phone=5491169074492" className="btn-wsp" target="_blank">
-       <MiSVG class="icon-whats-fijo" />
-      
+        <MiSVG class="icon-whats-fijo" />
+
       </a>
     </div>
 

@@ -69,9 +69,9 @@ function Navbar() {
         </ul>
         </nav>
 
-        {storedUser !== undefined && storedUser.rol === 'Jefe' && (
+     
   <button className='btn btn-danger'>Recibos</button>
-)}
+
 
         <img id="searchId" className='searchimg' src={search} />
         <img id="loginId" onClick={abrirModalLogin} className='loginimg' src={login} />
