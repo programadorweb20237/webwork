@@ -18,7 +18,14 @@ function NuevaPagina() {
 
     const handleImagenChange = (index, event) => {
         const nuevaImagen = event.target.files[0];
-        handleChange(index, 'imagen', nuevaImagen);
+        
+        // Usar FileReader para convertirr la imagen a base64
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const base64Image = e.target.result;
+            handleChange(index, 'imagen', base64Image);
+        };
+        reader.readAsDataURL(nuevaImagen);
     };
 
     const handleSubmit = (event) => {
