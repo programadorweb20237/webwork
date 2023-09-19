@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './NuevaPagina.css';
 
-
 function NuevaPagina() {
     const [cliente, setCliente] = useState('');
     const [pagos, setPagos] = useState([{ precio: '', tipoPago: 'efectivo', imagen: null }]);
@@ -24,17 +23,50 @@ function NuevaPagina() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // Aquí puedes enviar los datos del formulario al servidor
-        const datosFormulario = {
-            cliente,
-            pagos: pagos.map((pago) => ({
-                precio: pago.precio,
-                tipoPago: pago.tipoPago,
-                imagen: pago.imagen,
-            })),
-        };
+        const formData = new FormData();
 
-        console.log(datosFormulario); // Mostrar en la consola por ahora
+        // Agregar datos de cliente
+        formData.append('cliente', cliente);
+
+        // Agregar datos de pagos
+        pagos.forEach((pago, index) => {
+            formData.append(`pagos[${index}][tipoPago]`, pago.tipoPago);
+            formData.append(`pagos[${index}][precio]`, pago.precio);
+            if (pago.imagen) {
+                formData.append(`pagos[${index}][imagen]`, pago.imagen);
+            }
+        });
+
+
+        // Imprimir los datos por consola
+    console.log('Datos enviados:', {
+        cliente,
+        pagos: pagos.map(pago => ({
+            tipoPago: pago.tipoPago,
+            precio: pago.precio,
+            imagen: pago.imagen,
+        })),
+    });
+
+
+        // Enviar solicitud POST de manera síncrona
+        alert("hasta aquí todo bien");
+        fetch('http://localhost:80/sendmail.php', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if (response.ok) {
+                // El correo se envió con éxito
+                console.log('Correo enviado con éxito frontend');
+            } else {
+                // Hubo un error en la solicitud
+                console.error('Error al enviar el formulario');
+            }
+        })
+        .catch(error => {
+            console.error('Error en la solicitud:', error);
+        });
     };
 
     return (
@@ -51,12 +83,12 @@ function NuevaPagina() {
                     <option value="trossero">Trossero</option>
                     <option value="supp">Supp Cereales</option>
                     <option value="ferrer">La Ferrer</option>
+                    <option value="nicoben1x@gmail.com">nicoben1x@gmail.com</option>
                 </select>
 
                 <div id="pagos-container">
                     {pagos.map((pago, index) => (
                         <div key={index} className="pago">
-
                             <label htmlFor={`tipo-pago-${index}`}>Tipo de Pago:</label>
                             <select
                                 id={`tipo-pago-${index}`}
@@ -79,8 +111,6 @@ function NuevaPagina() {
                                 placeholder="Ingrese el precio"
                                 required
                             />
-
-
 
                             <label htmlFor={`imagen-${index}`}>Subir una Imagen (opcional):</label>
                             <input
