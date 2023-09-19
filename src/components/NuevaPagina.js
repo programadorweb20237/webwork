@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './NuevaPagina.css';
+import { apiUrl } from './API/ApiConfig'; // Asegúrate de importar apiUrl correctamente
 
 function NuevaPagina() {
     const [cliente, setCliente] = useState('');
@@ -38,35 +39,26 @@ function NuevaPagina() {
         });
 
 
-        // Imprimir los datos por consola
-    console.log('Datos enviados:', {
-        cliente,
-        pagos: pagos.map(pago => ({
-            tipoPago: pago.tipoPago,
-            precio: pago.precio,
-            imagen: pago.imagen,
-        })),
-    });
-
+        alert("Se ha ejecutado handleSubmit()")
 
         // Enviar solicitud POST de manera síncrona
-        alert("hasta aquí todo bien");
-        fetch('http://localhost:80/sendmail.php', {
+        fetch(`${apiUrl}/sendmail.php`, {
             method: 'POST',
             body: formData,
         })
-        .then(response => {
-            if (response.ok) {
-                // El correo se envió con éxito
-                console.log('Correo enviado con éxito frontend');
-            } else {
-                // Hubo un error en la solicitud
-                console.error('Error al enviar el formulario');
-            }
-        })
-        .catch(error => {
-            console.error('Error en la solicitud:', error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // El correo se envió con éxito
+                    console.log('Correo enviado con éxito frontend', data.message);
+                } else {
+                    // Hubo un error en el servidor PHP, muestra el mensaje de error
+                    console.error('Error al enviar el formulario:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error en la solicitud:', error);
+            });
     };
 
     return (
