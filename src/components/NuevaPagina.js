@@ -23,28 +23,24 @@ function NuevaPagina() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        const formData = new FormData();
-
-        // Agregar datos de cliente
-        formData.append('cliente', cliente);
-
-        // Agregar datos de pagos
-        pagos.forEach((pago, index) => {
-            formData.append(`pagos[${index}][tipoPago]`, pago.tipoPago);
-            formData.append(`pagos[${index}][precio]`, pago.precio);
-            if (pago.imagen) {
-                formData.append(`pagos[${index}][imagen]`, pago.imagen);
-            }
-        });
+    
+        // Crear un objeto con los datos a enviar en formato JSON
+        const data = {
+            cliente: cliente,
+            pagos: pagos,
+        };
 
 
-        alert("Se ha ejecutado handleSubmit()")
-
-        // Enviar solicitud POST de manera síncrona
+        alert("Se ha ejecutado handleSubmit()");
+        console.log( JSON.stringify(data));
+    
+        // Enviar la solicitud POST
         fetch(`${apiUrl}/sendmail.php`, {
             method: 'POST',
-            body: formData,
+            headers: {
+                'Content-Type': 'application/json', // Indicar que los datos son JSON
+            },
+            body: JSON.stringify(data), // Convertir el objeto a JSON
         })
             .then(response => response.json())
             .then(data => {
