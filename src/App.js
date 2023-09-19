@@ -50,15 +50,19 @@ const App = () => {
 // Define tus componentes separadamente
 
 function Home() {
-  const [usuarioObj, setUsuarioObj] = useState(null);
+
+  // Estado para guardar el objeto Usuario
+  const [usuarioObj, setUsuarioObj] = useState({});
 
   // Estado para guardar la sesion login
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // Función para cambiar el estado de autenticación
-  const handleLogin = () => {
+  const handleLogin = (usuario) => {
     alert("Se ha ejecutado handleLogin")
     setIsLoggedIn(true);
+    setUsuarioObj(usuario);
+    
   };
 
   // Función para cerrar la sesión
@@ -68,10 +72,10 @@ function Home() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} />
       <Box />
       <Portada />
-      <Nosotros handleLogin={handleLogin}/>
+      <Nosotros handleLogin={handleLogin} usuarioObj={usuarioObj}/>
       <AreaProductos />
 
       <Entrenamientos />

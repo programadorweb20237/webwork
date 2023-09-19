@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom';
 
 
 
-function Navbar() {
+function Navbar({ isLoggedIn, usuarioObj }) {
 
   return (
    
@@ -69,8 +69,12 @@ function Navbar() {
         </ul>
         </nav>
 
-     
+
+{/*Solo se renderiza si esta un usuario logeado y si es rol Jefe */}
+        {isLoggedIn && usuarioObj && usuarioObj.rol === 'Jefe' && (
   <button className='btn btn-danger'>Recibos</button>
+)}
+
 
 
         <img id="searchId" className='searchimg' src={search} />

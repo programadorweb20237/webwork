@@ -6,7 +6,7 @@ import { apiUrl } from '../API/ApiConfig';
 
 
 
-const Nosotros = ({ handleLogin }) => {
+const Nosotros = ({ handleLogin, usuarioObj }) => {
 
 
   //MANEJAR LOGIN
@@ -20,17 +20,17 @@ const Nosotros = ({ handleLogin }) => {
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
-  
+
     const formData = new FormData(event.target);
     const requestData = {
       usernameOrEmail: formData.get('usernameOrEmail'), // Utiliza el nombre correcto del campo
       password: formData.get('password'), // Utiliza el nombre correcto del campo
     };
 
-   
-  
+
+
     console.log('Datos que se enviarán:', requestData);
-  
+
     // Resto de tu código de manejo de la solicitud
 
     fetch(`${apiUrl}/login.php`, {
@@ -44,26 +44,27 @@ const Nosotros = ({ handleLogin }) => {
       .then((response) => response.json())
       .then((data) => {
 
-      
-        
-        
+
+
+
 
         // Aquí puedes manejar la respuesta del servidor, por ejemplo, mostrar un mensaje de éxito o error.
         console.log(data);
         console.log(data.user);
-        if(data.success){
+        if (data.success) {
           alert("Bien Logueado!");
-          handleLogin();
+          alert(data.user)
+          handleLogin(data.user);
 
-        }else{
+        } else {
           alert("Contraseña o usuario incorrectos.")
         }
 
         // Guardo el objeto usuario en el local storage
-      
 
 
-      
+
+
       })
       .catch((error) => {
 
@@ -314,6 +315,18 @@ const Nosotros = ({ handleLogin }) => {
 
 
       <div className='areaNosotros'>
+
+
+
+
+        <div>
+          {usuarioObj && (
+            <h1>{usuarioObj.email}</h1>
+          )}
+        </div>
+
+
+
 
 
         <h4 className='h4Nosotros'>Dairy Solutions: Transformando el Cuidado de sus Vacas</h4>
