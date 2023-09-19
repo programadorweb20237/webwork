@@ -24,7 +24,7 @@ function NuevaPagina() {
     const handleSubmit = (event) => {
         event.preventDefault();
     
-        // Crear un objeto con los datos a enviar en formato JSON
+        // Crear un objeto con los datoss a enviar en formato JSON
         const data = {
             cliente: cliente,
             pagos: pagos,
