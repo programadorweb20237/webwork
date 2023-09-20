@@ -6,12 +6,15 @@ import { apiUrl } from '../API/ApiConfig';
 
 
 
-const Nosotros = ({ handleLogin, usuarioObj }) => {
+const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
 
 
   //MANEJAR LOGIN
 
   //FIN MANEJAR LOGIN
+
+  const [showError, setShowError] = useState(false);
+
 
 
 
@@ -53,11 +56,17 @@ const Nosotros = ({ handleLogin, usuarioObj }) => {
         console.log(data.user);
         if (data.success) {
           alert("Bien Logueado!");
-          alert(data.user)
+
+
+
           handleLogin(data.user);
+          // Obtén una referencia al modal por su ID
+
+
+          
 
         } else {
-          alert("Contraseña o usuario incorrectos.")
+          setShowError(true);
         }
 
         // Guardo el objeto usuario en el local storage
@@ -179,6 +188,13 @@ const Nosotros = ({ handleLogin, usuarioObj }) => {
                     placeholder="Ingrese su contraseña"
                   />
                 </div>
+
+                {showError && (
+                  <div className="alert alert-danger mt-3">
+                    Contraseña o datos incorrectos.
+                  </div>
+                )}
+
                 <button type="submit" className="btn btn-primary">
                   Iniciar Sesión
                 </button>

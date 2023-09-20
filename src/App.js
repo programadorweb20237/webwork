@@ -75,7 +75,7 @@ function Home() {
       <Navbar isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} />
       <Box />
       <Portada />
-      <Nosotros handleLogin={handleLogin} usuarioObj={usuarioObj}/>
+      <Nosotros handleLogin={handleLogin} usuarioObj={usuarioObj} isLoggedIn={isLoggedIn} />
       <AreaProductos />
 
       <Entrenamientos />
