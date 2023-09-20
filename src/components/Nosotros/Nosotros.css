@@ -55,6 +55,9 @@
 .loginn-btn-modal{
     display: none;
 }
+.registro-btn-modal{
+    display: none;
+}
 
 @media (width <=813px) {
     .itemNosotros{

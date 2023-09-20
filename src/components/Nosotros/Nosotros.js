@@ -20,6 +20,10 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
 
   const [registroExitoso, setRegistroExitoso] = useState(false);
   const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
+  const abrirModalRegistro=()=>{
+    const botonRegistro = document.querySelector(".registro-btn-modal");
+    botonRegistro.click();
+  }
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
@@ -138,6 +142,20 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
         Iniciar Sesión
       </button>
 
+
+  {/* Botón de registro */}
+      <button
+        type="button"
+        className="btn btn-primary registro-btn-modal"
+
+        data-bs-toggle="modal"  // Añade este atributo
+        data-bs-target="#registroModal"  // Añade estte atributo con el ID de tu modal
+
+
+      >
+        Iniciar Sesión
+      </button>
+
       {/* Modal de inicio de sesión */}
       <div
         className="modal fade"
@@ -205,8 +223,8 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
                 ¿No tienes una cuenta?{' '}
                 <button
                   className="btn btn-link"
-                  data-bs-toggle="modal"  // Añade este atributo
-                  data-bs-target="#registroModal"  // Añade este atributo con el ID de tu modal
+                  data-bs-dismiss="modal"
+                  onClick={abrirModalRegistro}
 
                 >
                   Regístrate aquí.
