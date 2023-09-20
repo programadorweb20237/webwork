@@ -1,0 +1,61 @@
+/* Estilos para el componente StockQuimicos */
+
+/* Estilos para el título general */
+h1 {
+    text-align: center;
+    background-color: #f39c12; /* Naranja */
+    color: white;
+    padding: 10px;
+    margin-top: 20px; /* Agregamos margen arriba */
+  }
+  
+  /* Estilos para la tabla */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; /* Reducimos el margen superior */
+  }
+  
+  th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd; /* Borde derecho en las celdas */
+  }
+  
+  th {
+    background-color: #f39c12; /* Naranja */
+    color: white;
+  }
+  
+  /* Estilos para la primera fila */
+  tr:first-child {
+    border-top: 2px solid #ddd; /* Borde superior en la primera fila */
+  }
+  
+  /* Estilos para la última fila */
+  tr:last-child {
+    border-bottom: 2px solid #ddd; /* Borde inferior en la última fila */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #f7dc6f; /* Naranja claro */
+  }
+  
+  .productosDivAPI {
+    min-width: 825px;
+  }
+  
+  .buscadorProd {
+    width: 300px;
+    height: 46px;
+    font-size: 25px;
+    border: 4px solid #f39c12; /* Naranja */
+    margin-top: 18px;
+    margin-left: 10px;
+  }
+  

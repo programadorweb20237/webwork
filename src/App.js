@@ -20,6 +20,7 @@ import React from 'react';
 
 
 import NuevaPagina from "./components/NuevaPagina"
+import StockQuimicos from './components/StockQuimicos/StockQuimicos';
 import ConsumirApi from './components/API/ConsumirApi';
 
 
@@ -53,6 +54,7 @@ const App = () => {
         handleLogout={handleLogout}
          />} />
         <Route path="/nueva-pagina" element={<NuevaPagina usuarioObj={usuarioObj} />} />
+        <Route path="/stockquimicos" element={<StockQuimicos />} />
         <Route path="/products" element={<ConsumirApi />} />
       </Routes>
     </HashRouter>
