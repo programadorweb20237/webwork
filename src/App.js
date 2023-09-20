@@ -25,50 +25,43 @@ import ConsumirApi from './components/API/ConsumirApi';
 
 
 const App = () => {
+  // Estado para guardar el objeto Usuario
+  const [usuarioObj, setUsuarioObj] = useState({});
 
+  // Estado para guardar la sesión de inicio de sesión
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  // Función para cambiar el estado de autenticación
+  const handleLogin = (usuario) => {
+    alert("Se ha ejecutado handleLogin");
+    setIsLoggedIn(true);
+    setUsuarioObj(usuario);
+  };
+
+  // Función para cerrar la sesión
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUsuarioObj({});
+  };
 
   return (
     <HashRouter>
-
       <Routes>
-
-
-        <Route path='/' element={<Home />} />
-
-
-        <Route path="/nueva-pagina" element={<NuevaPagina />} />
+        <Route path='/' element={<Home usuarioObj={usuarioObj}
+        isLoggedIn={isLoggedIn}
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
+         />} />
+        <Route path="/nueva-pagina" element={<NuevaPagina usuarioObj={usuarioObj} />} />
         <Route path="/products" element={<ConsumirApi />} />
-
-
       </Routes>
-
     </HashRouter>
   );
 };
 
 // Define tus componentes separadamente
 
-function Home() {
-
-  // Estado para guardar el objeto Usuario
-  const [usuarioObj, setUsuarioObj] = useState({});
-
-  // Estado para guardar la sesion login
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // Función para cambiar el estado de autenticación
-  const handleLogin = (usuario) => {
-    alert("Se ha ejecutado handleLogin")
-    setIsLoggedIn(true);
-    setUsuarioObj(usuario);
-    
-  };
-
-  // Función para cerrar la sesión
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
+function Home({ usuarioObj,isLoggedIn,handleLogin,handleLogout }) {
 
   return (
     <div className="App">

@@ -8,6 +8,8 @@ import downflecha from "./downflecha.svg"
 import menusvg from "./menu.svg"
 import logopalabra from "./logopalabra.png"
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+
 
 
 
@@ -18,6 +20,9 @@ import { Link } from 'react-router-dom';
 
 
 function Navbar({ isLoggedIn, usuarioObj }) {
+
+  const navigate = useNavigate(); // Obtiene la función de navegación
+
 
   return (
    
@@ -72,7 +77,8 @@ function Navbar({ isLoggedIn, usuarioObj }) {
 
 {/*Solo se renderiza si esta un usuario logeado y si es rol Jefe */}
         {isLoggedIn && usuarioObj && usuarioObj.rol === 'Jefe' && (
-  <button className='btn btn-danger'>Recibos</button>
+       <button className='btn btn-danger' onClick={() => navigate('/nueva-pagina')}>Recibos</button>
+
 )}
 
 
