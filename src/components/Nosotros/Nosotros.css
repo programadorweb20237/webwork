@@ -24,7 +24,7 @@
 .imgNosotros{
     width: 90%;
     object-fit: cover;
-    max-width: 530px;
+    max-width: 30em;
     padding:1em;
     border-radius: 10%;
 }

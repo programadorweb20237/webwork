@@ -108,6 +108,8 @@
     background-color: rgba(81, 157, 185, 0.46);
 }
 
+
+
 @media (width <=1370px) {
 
     .Contacto {
@@ -116,6 +118,7 @@
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
+        padding:0em 4em;
     
     
     }
@@ -226,5 +229,16 @@
         background-color: rgba(81, 157, 185, 0.46);
     }
 
+
+}
+
+@media (width <=813px) {
+
+    .Contacto {
+    
+        padding:0em;
+    
+    
+    }
 
 }

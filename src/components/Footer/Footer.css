@@ -80,7 +80,7 @@ img, svg {
 @media (width <=1370px) {
 
     .Footer {
-        height: 15em;
+        height: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -88,7 +88,7 @@ img, svg {
         align-items: center;
         background-color: var(--nav-color);
         width: 100%;
-        padding:0em;
+        padding:1em 2em;
     
         border-top: var(--two-color) solid 0.6em;
     
@@ -97,7 +97,7 @@ img, svg {
         display: flex;
         flex-direction: column;
         height: 100%;
-        overflow:auto;
+        
         justify-content: center;
         align-items: center;
         
@@ -139,12 +139,16 @@ img, svg {
         margin:-0.25em;
     
     }
+    .footerRedes{
+        padding:2em 0em;
+    }
     
     .totalRedes{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+       
     
     }
     .areaLogos{
