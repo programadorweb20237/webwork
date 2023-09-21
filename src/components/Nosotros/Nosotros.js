@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef  } from 'react';
 import './Nosotros.css';
 import vaca1 from './vaca1.jpg';
 import vaca2 from './vaca2.jpg';
@@ -7,6 +7,7 @@ import { apiUrl } from '../API/ApiConfig';
 
 
 const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
+
 
 
   //MANEJAR LOGIN
@@ -127,7 +128,7 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
 
   return (
     <div className="Nosotros" id="areaNosotrostheId">
-      <h3 className="h2Nosotros">SOBRE NOSOTROS</h3>
+      <h2 className="h2Nosotros">SOBRE NOSOTROS</h2>
 
 
       {/* Botón de inicio de sesión */}
@@ -354,9 +355,9 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
 
 
 
-        <div>
+        <div >
           {usuarioObj && (
-            <h1>{usuarioObj.email}</h1>
+            <h1 className='temporalDiv'>{usuarioObj.email}</h1>
           )}
         </div>
 
@@ -411,6 +412,8 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
 
 
           </p>
+
+      
 
           <img className="imgNosotros" src={vaca1} />
 

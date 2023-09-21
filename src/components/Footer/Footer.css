@@ -186,4 +186,22 @@ img, svg {
 
 }
 
+@media (width <=813px) {
+    .Footer {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: var(--nav-color);
+        width: 100%;
+        padding:1em 1em;
+    
+        border-top: var(--two-color) solid 0.6em;
+    
+    }
+
+}
+
 

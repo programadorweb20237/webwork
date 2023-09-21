@@ -39,9 +39,20 @@
     display: flex;
     max-width: 40em;
     padding: 1em;
+   
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top:0px;
     margin-bottom:4px;
+}
+
+@media (width <=813px) {
+
+    .areaCapacitaciones{
+       
+        padding: 0em 0.3em;
+    
+    }
+
 }

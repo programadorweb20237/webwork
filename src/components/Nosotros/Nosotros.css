@@ -13,6 +13,9 @@
     text-decoration:underline;
 
 }
+.temporalDiv{
+    background-color:rgba(81, 157, 185, 0.46);
+}
 .h4Nosotros{
     font-size: 1.3em;
     text-align: center;
@@ -24,9 +27,11 @@
 .imgNosotros{
     width: 90%;
     object-fit: cover;
-    max-width: 30em;
+    max-width: 32.7em;
     padding:1em;
     border-radius: 10%;
+
+    
 }
 .itemNosotros{
     display: flex;
@@ -36,6 +41,8 @@
     align-items: center;
     margin: 1.4em 0em;
 }
+
+
 .itemNosotros p {
     display: flex;
     flex-direction: column;
@@ -48,6 +55,8 @@
     justify-content: center;
     align-items: center;
 }
+
+
 
 .creaCuentaParrafo{
     padding-top: 18px;
@@ -63,6 +72,10 @@
     .itemNosotros{
         margin: 0.3em 0em;
         background-color: transparent;
+    }
+    .imgNosotros{
+       
+        margin-left:0em;
     }
 
 }
