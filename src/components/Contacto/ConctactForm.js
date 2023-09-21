@@ -44,7 +44,7 @@ class ContactForm extends Component {
                                 value={this.state.nombre}
                                 onChange={this.handleChange}
                                 required
-                            /><br /><br />
+                            /><br />
 
                             <label htmlFor="telefono">Teléfono:</label>
                             <input
@@ -55,7 +55,7 @@ class ContactForm extends Component {
                                 value={this.state.telefono}
                                 onChange={this.handleChange}
                                 required
-                            /><br /><br />
+                            /><br />
 
                             <label htmlFor="email">Correo Electrónico:</label>
                             <input
@@ -66,7 +66,7 @@ class ContactForm extends Component {
                                 value={this.state.email}
                                 onChange={this.handleChange}
                                 required
-                            /><br /><br />
+                            /><br />
 
                             <label htmlFor="consulta">Consulta:</label>
                             <textarea
@@ -77,7 +77,7 @@ class ContactForm extends Component {
                                 onChange={this.handleChange}
                                 rows="4"
                                 required
-                            /><br /><br />
+                            /><br />
 
                             <input id="formBtn" type="submit" value="Enviar" />
                         </form>
