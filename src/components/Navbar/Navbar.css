@@ -125,20 +125,6 @@ display:block;
 
 
 
-#listaprodlist li {
-    background-color: rgb(161, 208, 221) !important;
-    width: 300px !important;
-
-
-}
-
-#listaprodlist li:hover {
-    background: var(--contrast-color) !important;
-}
-
-
-
-
 
 
 .logoimg {

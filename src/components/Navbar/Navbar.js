@@ -37,30 +37,7 @@ function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
       <nav className='NavDef' id="menu">
         <ul className="listaNav2" id='listaNavUl'>
           <li><a href="#areaNosotrostheId">Empresa</a></li>
-          <li ><a href="#areaProdtheId">Productos <img className="downflecha" src={downflecha} />
-          </a>
-
-
-            <ul className="classlistaprodlist" id='listaprodlist'>
-              <li><a href="#">Automatizacion</a></li>
-              <li><a href="#">Bombas de vacio lobulares y a paleta</a></li>
-              <li><a href="#">Confort Animal</a></li>
-              <li><a href="#">Enfriamiento</a></li>
-              <li><a href="#">Equipo de ordeño</a></li>
-              <li><a href="#">Feed Pusher, robot empuja comida</a></li>
-              <li><a href="#">Instalaciones de ordeño</a></li>
-              <li><a href="#">Manejo de Efluentes</a></li>
-              <li><a href="#">Pisos de Goma</a></li>
-              <li><a href="#">Productos de higiene</a></li>
-              <li><a href="#">Real Time, sistema de deteccion de celo y vacas</a></li>
-              <li><a href="#">Robot Sellador</a></li>
-              <li><a href="#">Sistema de Pulsado</a></li>
-              <li><a href="#">Robots de ordeño</a></li>
-              <li><a href="#">Ventiladores</a></li>
-            </ul>
-
-
-          </li>
+          <li ><a href="#areaProdtheId">Productos</a></li>
           <li><a href="#areaCaptheId">Capacitaciones</a></li>
           <li id="itemBoumatic"><a href="https://boumatic.com/" target="_blank">Boumatic</a></li>
           <li>
