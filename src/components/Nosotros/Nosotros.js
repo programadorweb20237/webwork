@@ -60,7 +60,8 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
         console.log(data.user);
         if (data.success) {
           alert("Bien Logueado!");
-
+          const btnCerrarLogin = document.querySelector(".btn-close-moddal-login");
+          btnCerrarLogin.click();
 
 
           handleLogin(data.user);
@@ -170,9 +171,9 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
               <h5 className="modal-title" id="loginModalLabel">
                 Inicio de Sesión
               </h5>
-              <button
+              <button 
                 type="button"
-                className="btn-close"
+                className="btn-close btn-close-moddal-login"
                 data-bs-dismiss="modal"
                 aria-label="Close"
 
