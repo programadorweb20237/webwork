@@ -59,7 +59,7 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
         console.log(data);
         console.log(data.user);
         if (data.success) {
-          alert("Bien Logueado!");
+          console.log("Bien Logueado!");
           const btnCerrarLogin = document.querySelector(".btn-close-moddal-login");
           btnCerrarLogin.click();
 

@@ -34,7 +34,7 @@ const App = () => {
 
   // Función para cambiar el estado de autenticación
   const handleLogin = (usuario) => {
-    alert("Se ha ejecutado handleLogin");
+    console.log("Se ha ejecutado handleLogin");
     setIsLoggedIn(true);
     setUsuarioObj(usuario);
   };
@@ -67,7 +67,7 @@ function Home({ usuarioObj,isLoggedIn,handleLogin,handleLogout }) {
 
   return (
     <div className="App">
-      <Navbar isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} />
+      <Navbar isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
       <Box />
       <Portada />
       <Nosotros handleLogin={handleLogin} usuarioObj={usuarioObj} isLoggedIn={isLoggedIn} />

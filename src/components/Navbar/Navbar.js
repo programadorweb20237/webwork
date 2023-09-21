@@ -19,7 +19,7 @@ import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 
 
-function Navbar({ isLoggedIn, usuarioObj }) {
+function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
 
   const navigate = useNavigate(); // Obtiene la función de navegación
 
@@ -77,14 +77,24 @@ function Navbar({ isLoggedIn, usuarioObj }) {
 
 {/*Solo se renderiza si esta un usuario logeado y si es rol Jefe */}
         {isLoggedIn && usuarioObj && usuarioObj.rol === 'Jefe' && (
-       <button className='btn btn-danger' onClick={() => navigate('/nueva-pagina')}>Recibos</button>
+       <button className='btn btn-success' onClick={() => navigate('/nueva-pagina')}>Recibos</button>
 
 )}
 
 
 
         <img id="searchId" className='searchimg' src={search} />
+
+        {!isLoggedIn && (
         <img id="loginId" onClick={abrirModalLogin} className='loginimg' src={login} />
+        )}
+
+{isLoggedIn && (
+         <button onClick={handleLogout} className="btn btn-danger">
+         Cerrar Sesión
+       </button>
+        )}
+
 
 
 
