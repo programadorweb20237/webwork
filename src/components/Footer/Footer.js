@@ -20,18 +20,18 @@ const Footer = () => (
       <div className='areaContactos'>
 
         <div className='itemContacto'>
-        <MdPlace/>
+        <MdPlace className='svgContact'/>
           <p>Sadi Carnot 2390, Grand Bourg, Buenos Aires.</p>
         </div>
 
         <div className='itemContacto'>
         
-          <BsFillTelephoneFill/>
+          <BsFillTelephoneFill className='svgContact'/>
           <p><a className="tel-a" href="tel:+5491169074492" target='_blank'>(011) 6907.4492 / 6907.3337</a></p>
         </div>
 
         <div className='itemContacto'>
-          <IoLogoWhatsapp/>
+          <IoLogoWhatsapp className='svgContact'/>
 
 
          
@@ -42,12 +42,12 @@ const Footer = () => (
         </div>
 
         <div className='itemContacto'>
-          <MdEmail/>
+          <MdEmail className='svgContact'/>
           <p><a className="email-a"href="mailto:dairy@dairy.com.ar" target='_blank'>dairy@dairy.com.ar</a></p>
         </div>
 
         <div className='itemContacto'>
-          <BsFillClockFill/>
+          <BsFillClockFill className='svgContact'/>
           <p>8 a 17 hs.</p>
         </div>
 
