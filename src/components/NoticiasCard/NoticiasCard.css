@@ -11,7 +11,7 @@
     border-bottom: 0.3em solid black;
     margin:1em 1em;
     cursor: pointer;
-    background-color: transparent;
+    background-color: rgba(185, 217, 233, 0.281);
 }
 .subNoticiasCard{
     display: flex;
@@ -34,9 +34,7 @@
     align-items: center;
 }
 
-.NoticiasCard:hover{
-    background-color: rgba(173, 207, 224, 0.728);
-}
+
 .imgNoticiasCard{
     width: 22em;
     height: 15em;

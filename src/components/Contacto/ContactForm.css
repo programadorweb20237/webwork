@@ -241,4 +241,19 @@
     
     }
 
+    .formulario input{
+        width:90%;
+        height:2.29em;
+        font-size: 1.15em;
+        
+    }
+    
+    .formulario textarea{
+        width:90%;
+        height:5em;
+        max-height: 8em;
+        font-size: 1.15em;
+        
+    }
+
 }
