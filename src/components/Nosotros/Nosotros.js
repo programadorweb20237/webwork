@@ -356,8 +356,8 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
 
 
         <div >
-          {usuarioObj && (
-            <h1 className='temporalDiv'>{usuarioObj.email}</h1>
+          {usuarioObj && usuarioObj.username &&(
+            <h1 className='temporalDiv'>{usuarioObj.username}</h1>
           )}
         </div>
 

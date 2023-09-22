@@ -163,6 +163,10 @@ display:block;
     cursor: pointer;
 }
 
+.contenedor-dairy-en-nav {
+    display: none;
+}
+
 .downflecha {
     display: none;
     width: 1em;
@@ -245,12 +249,37 @@ display:block;
     }
 
     #logopalabraId {
-        display: flex;
+        display: none;
         height: 2.4em;
         margin: auto 0px;
         padding: 0px;
         margin-left: -0.6em;
 
+    }
+    .contenedor-dairy-en-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centra horizontalmente */
+        align-items:center; /* Centra verticalmente */
+        height: 100%; /* Ajusta la altura al 100% del viewport */
+        background-color: transparent;
+        margin:0em;
+        padding: 0em;
+        margin-left: 0.3em;
+        margin-right: 0.7em;
+      }
+    .dairy-en-nav{
+        margin: 0em;
+        padding: 0em;
+       
+        background-color: transparent;
+       
+        font-size: 2.45em;
+       
+    }
+
+    .btn-recibos-y-logout{
+        display: none;
     }
 
 }

@@ -25,7 +25,7 @@ function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
 
 
   return (
-   
+
 
     <nav className="Navbar">
 
@@ -33,7 +33,11 @@ function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
 
 
       <img id="logopalabraId" src={logopalabra} />
-      <img id="logoId" className="logoimg" src={logo} onClick={IrInicio}/>
+      <div className='contenedor-dairy-en-nav'>
+        <p className='dairy-en-nav'>Dairy Solutions</p>
+      </div>
+
+      <img id="logoId" className="logoimg" src={logo} onClick={IrInicio} />
       <nav className='NavDef' id="menu">
         <ul className="listaNav2" id='listaNavUl'>
           <li><a href="#areaNosotrostheId">Empresa</a></li>
@@ -43,42 +47,42 @@ function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
           <li>
 
 
-          
 
 
-<a href="#areaNoticiastheId">Noticias</a></li>
+
+            <a href="#areaNoticiastheId">Noticias</a></li>
           <li><a href="#areaContactotheId">Contacto</a></li>
         </ul>
-        </nav>
+      </nav>
 
 
-{/*Solo se renderiza si esta un usuario logeado y si es rol Jefe */}
-        {isLoggedIn && usuarioObj && usuarioObj.rol === 'Jefe' && (
-       <button className='btn btn-success' onClick={() => navigate('/nueva-pagina')}>Recibos</button>
+      {/*Solo se renderiza si esta un usuario logeado y si es rol Jefe */}
+      {isLoggedIn && usuarioObj && usuarioObj.rol === 'Jefe' && (
+        <button className='btn btn-success btn-recibos-y-logout' onClick={() => navigate('/nueva-pagina')}>Recibos</button>
 
-)}
+      )}
 
 
 
-        <img id="searchId" className='searchimg' src={search} />
+      <img id="searchId" className='searchimg' src={search} />
 
-        {!isLoggedIn && (
+      {!isLoggedIn && (
         <img id="loginId" onClick={abrirModalLogin} className='loginimg' src={login} />
-        )}
+      )}
 
-{isLoggedIn && (
-         <button onClick={handleLogout} className="btn btn-danger">
-         Cerrar Sesión
-       </button>
-        )}
-
-
+      {isLoggedIn && (
+        <button onClick={handleLogout} className="btn btn-danger btn-recibos-y-logout">
+          Cerrar Sesión
+        </button>
+      )}
 
 
 
 
 
-        </nav>
+
+
+    </nav>
 
 
 
@@ -91,9 +95,9 @@ function menuDes() {
 
 
 function IrInicio() {
-  window.location.href ="#";
+  window.location.href = "#";
 }
-function abrirModalLogin(){
+function abrirModalLogin() {
   const botonLogin = document.querySelector(".loginn-btn-modal");
   botonLogin.click();
 }
