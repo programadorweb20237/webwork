@@ -68,15 +68,15 @@ function Home({ usuarioObj,isLoggedIn,handleLogin,handleLogout }) {
   return (
     <div className="App">
       <Navbar isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
-      <Box />
-      <Portada />
+      <Box isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
+      <Portada isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout}  />
       <Nosotros handleLogin={handleLogin} usuarioObj={usuarioObj} isLoggedIn={isLoggedIn} />
-      <AreaProductos />
+      <AreaProductos isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout}  />
 
-      <Entrenamientos />
-      <Noticias />
-      <ContactForm />
-      <Footer />
+      <Entrenamientos isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
+      <Noticias isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
+      <ContactForm isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
+      <Footer isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
 
       <a href="https://api.whatsapp.com/send?phone=5491169074492" className="btn-wsp" target="_blank">
         <MiSVG class="icon-whats-fijo" />
