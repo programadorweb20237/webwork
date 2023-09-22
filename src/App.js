@@ -68,7 +68,7 @@ function Home({ usuarioObj,isLoggedIn,handleLogin,handleLogout }) {
   return (
     <div className="App">
       <Navbar isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
-      <Box isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
+      <Box isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
       <Portada isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout}  />
       <Nosotros handleLogin={handleLogin} usuarioObj={usuarioObj} isLoggedIn={isLoggedIn} />
       <AreaProductos isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout}  />
