@@ -1,21 +1,17 @@
-/* Estilos generales */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0; /* Fondo gris claro */
-  margin: 0;
-  padding: 0;
-}
 
-.form-pago-1{
+
+.form-pago-1 {
 
     padding: 13px;
+   
+
 
 }
 .form-pago-h2{
     text-align: center;
     margin-bottom: 10px;
 }
-.container {
+.form-pago-1 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -25,12 +21,12 @@ body {
 }
 
 /* Estilos para encabezado */
-h2 {
+.form-pago-1 h2 {
   color: #0074e4; /* Azul */
 }
 
 /* Estilos para select y input (excluyendo el cliente) */
-select,
+.form-pago-1 select,
 input[type="number"],
 button {
   width: 100%;
@@ -44,7 +40,7 @@ button {
 }
 
 /* Estilos para el campo "Elige un cliente" */
-#cliente {
+.form-pago-1 #cliente {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -57,12 +53,12 @@ button {
   padding-bottom: 15px; /* Agregado el padding-bottom */
 }
 
-.agregar-pago1{
+.form-pago-1 .agregar-pago1{
     background-color: #2d76ba;
 }
 
 /* Estilos para botones */
-button {
+.form-pago-1 button {
   background-color:  #11426f;/* Azul */
   color: #fff; /* Texto blanco */
   font-weight: bold;
@@ -70,7 +66,7 @@ button {
 }
 
 /* Estilos para etiquetas y campos */
-label {
+.form-pago-1 label {
   font-weight: bold;
   color: #333; /* Texto gris oscuro */
   padding: 5px;
@@ -80,19 +76,19 @@ label {
 }
 
 /* Estilos para mensajes de error (si es necesario) */
-.error-message {
+.form-pago-1 .error-message {
   color: #ff5722; /* Rojo */
   font-size: 14px;
   margin-top: 5px;
 }
 
-.pago{
+.form-pago-1 .pago{
     margin-bottom: 25px;
 }
 
 /* Estilos para dispositivos móviles */
 @media (max-width: 600px) {
-  .container {
+  .form-pago-1 .container {
     max-width: 100%;
     padding: 10px;
   }
