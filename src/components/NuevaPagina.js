@@ -67,7 +67,7 @@ function NuevaPagina({ usuarioObj }) {
     };
 
     // Verifica si el usuario está autenticado y si su nombre es "Nico"
-    if (usuarioObj.username === 'nico') {
+    if (usuarioObj.username === 'Nico') {
 
         return (
             <div className="form-pago-1">
