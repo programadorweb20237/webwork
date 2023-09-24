@@ -22,6 +22,7 @@ import React from 'react';
 import NuevaPagina from "./components/NuevaPagina"
 import StockQuimicos from './components/StockQuimicos/StockQuimicos';
 import ConsumirApi from './components/API/ConsumirApi';
+import ItemLimpieza from './components/API/ItemLimpieza/ItemLimpieza';
 
 
 
@@ -56,6 +57,7 @@ const App = () => {
         <Route path="/nueva-pagina" element={<NuevaPagina usuarioObj={usuarioObj} />} />
         <Route path="/stockquimicos" element={<StockQuimicos />} />
         <Route path="/products" element={<ConsumirApi />} />
+        <Route path="/limpieza" element={<ItemLimpieza />} />
       </Routes>
     </HashRouter>
   );
