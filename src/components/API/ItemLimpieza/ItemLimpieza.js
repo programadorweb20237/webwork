@@ -65,9 +65,9 @@ function ItemLimpieza() {
                   {item.imagen ? (
                     <img
                       className="img-item-limpieza"
-                      src={`http://localhost:80/${item.imagen}`}
+                      src={`${apiUrl}/${item.imagen}`}
                       alt={`Imagen de ${item.nombre}`}
-                      onClick={() => openLightbox(`http://localhost:80/${item.imagen}`)}
+                      onClick={() => openLightbox(`${apiUrl}/${item.imagen}`)}
                     />
                   ) : (
                     '-'
