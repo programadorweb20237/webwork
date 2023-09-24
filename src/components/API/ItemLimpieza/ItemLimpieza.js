@@ -53,7 +53,7 @@ function ItemLimpieza() {
                 <td>{item.presentacion}</td>
                 <td>
                   {item.imagen ? (
-                    <img src={item.imagen} alt={`Imagen de ${item.nombre}`} />
+                    <img className="img-item-limpieza" src={`http://localhost:80/${item.imagen}`} alt={`Imagen de ${item.nombre}`} />
                   ) : (
                     '-'
                   )}
