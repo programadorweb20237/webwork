@@ -27,10 +27,10 @@ function ItemLimpieza() {
   };
 
   return (
-    <div className='productosDivAPI"'>
+    <div className='productosDivAPI2"'>
       <h1 className='tituloh1-item-limpieza'>Tabla de Productos de Limpieza</h1>
       <input
-        className='buscadorProd'
+        className='buscadorProd2'
         type='text'
         placeholder='Buscar...'
         value={searchTerm}
