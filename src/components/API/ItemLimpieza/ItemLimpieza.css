@@ -1,15 +1,16 @@
-.tituloh1-item-limpieza {
-    width: 100%;
 
-}
+  .tituloh1-item-limpieza{
+    width:100%;
 
+  }
+  
 
-.img-item-limpieza {
+  .img-item-limpieza {
     max-width: 100%;
     height: auto;
     cursor: pointer;
-}
-
+  }
+  
 /* Estilos para el lightbox */
 .lightbox {
     display: none;
@@ -25,20 +26,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.lightbox-image {
-    max-width: 90%;
-    max-height: 90%;
+  }
+  
+  .lightbox-image {
+    max-width: 90%; /* Ocupa el 90% del ancho de la ventana */
+    max-height: 90vh; /* Ocupa el 90% de la altura de la ventana */
     width: auto;
     height: auto;
     cursor: zoom-out;
-}
-
-/* Resto de estilos igual */
-
-
-.close-button {
+  }
+  
+  /* Resto de estilos igual */
+  
+  
+  
+  .close-button {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -46,8 +48,9 @@
     cursor: pointer;
     color: #fff;
     transition: 0.3s;
-}
-
-.close-button:hover {
+  }
+  
+  .close-button:hover {
     color: #ccc;
-}
+  }
+  
