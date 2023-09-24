@@ -5,6 +5,7 @@ import { apiUrl } from "../ApiConfig";
 function ItemLimpieza() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [lightboxImage, setLightboxImage] = useState(null);
 
   useEffect(() => {
     fetch(`${apiUrl}/api-item-limpieza.php`)
@@ -16,6 +17,20 @@ function ItemLimpieza() {
       })
       .catch((error) => console.error('Error al obtener los datos:', error));
   }, []);
+
+  const openLightbox = (imageSrc) => {
+    setLightboxImage(imageSrc);
+  };
+
+  const closeLightbox = () => {
+    setLightboxImage(null);
+  };
+
+  const handleLightboxClick = (e) => {
+    if (e.target.className === 'lightbox') {
+      closeLightbox();
+    }
+  };
 
   return (
     <div className='productosDivAPI'>
@@ -30,13 +45,12 @@ function ItemLimpieza() {
       <table>
         <thead>
           <tr>
-          <th>Imagen</th>
+            <th>Imagen</th>
             <th>Nombre</th>
             <th>Acción</th>
             <th>Aplicación</th>
             <th>Empleo</th>
             <th>Presentación</th>
-            
           </tr>
         </thead>
         <tbody>
@@ -49,7 +63,12 @@ function ItemLimpieza() {
               <tr key={index}>
                 <td>
                   {item.imagen ? (
-                    <img className="img-item-limpieza" src={`http://localhost:80/${item.imagen}`} alt={`Imagen de ${item.nombre}`} />
+                    <img
+                      className="img-item-limpieza"
+                      src={`http://localhost:80/${item.imagen}`}
+                      alt={`Imagen de ${item.nombre}`}
+                      onClick={() => openLightbox(`http://localhost:80/${item.imagen}`)}
+                    />
                   ) : (
                     '-'
                   )}
@@ -59,11 +78,16 @@ function ItemLimpieza() {
                 <td>{item.aplicacion || '-'}</td>
                 <td>{item.empleo || '-'}</td>
                 <td>{item.presentacion}</td>
-                
               </tr>
             ))}
         </tbody>
       </table>
+      {lightboxImage && (
+        <div className="lightbox" onClick={handleLightboxClick}>
+          <span className="close-button" onClick={closeLightbox}>&times;</span>
+          <img className="lightbox-image" src={lightboxImage} alt="Imagen ampliada" />
+        </div>
+      )}
     </div>
   );
 }
