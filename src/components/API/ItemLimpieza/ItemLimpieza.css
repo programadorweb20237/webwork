@@ -1,44 +1,92 @@
-
-  .tituloh1-item-limpieza{
-    width:100%;
-
+.productosDivAPI {
+    text-align: center;
+    padding: 20px;
   }
   
+  .tituloh1-item-limpieza {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .buscadorProd {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .item-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content:end;
 
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width:23em;
+    min-height: 40em;
+    margin:1em;
+  }
+  
   .img-item-limpieza {
-    max-width: 100%;
+    background-color: red;
+    width: 90%;
+    height: 90%;
+
+    max-width: 24em;
+
     height: auto;
     cursor: pointer;
+    margin:auto;
   }
   
-/* Estilos para el lightbox */
-.lightbox {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1;
-  text-align: center;
-  overflow: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.lightbox-image {
-  max-width: 90%; /* Ocupa el 90% del ancho de la ventana */
-  max-height: 90vh; /* Ocupa el 90% de la altura de la ventana */
-  width: auto;
-  height: auto;
-  cursor: zoom-out;
-}
-
-/* Resto de estilos igual */
-
+  .item-details {
+    margin-top: 10px;
+    text-align: left;
+    max-width: 50em;
+  }
   
+  .item-details strong {
+    font-weight: bold;
+  }
+  
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    text-align: center;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lightbox-image {
+    max-width: 95%;
+    max-height: 95vh;
+    width: auto;
+    height: auto;
+    cursor: zoom-out;
+  }
   
   .close-button {
     position: absolute;

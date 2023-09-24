@@ -27,7 +27,7 @@ function ItemLimpieza() {
   };
 
   return (
-    <div className='productosDivAPI'>
+    <div className='productosDivAPI"'>
       <h1 className='tituloh1-item-limpieza'>Tabla de Productos de Limpieza</h1>
       <input
         className='buscadorProd'
@@ -36,46 +36,32 @@ function ItemLimpieza() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <table>
-        <thead>
-          <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>Acción</th>
-            <th>Aplicación</th>
-            <th>Empleo</th>
-            <th>Presentación</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data
-            .filter((item) =>
-              item.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-              item.accion.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-            .map((item, index) => (
-              <tr key={index}>
-                <td>
-                  {item.imagen ? (
-                    <img
-                      className="img-item-limpieza"
-                      src={`${apiUrl}/${item.imagen}`}
-                      alt={`Imagen de ${item.nombre}`}
-                      onClick={() => openLightbox(`${apiUrl}/${item.imagen}`)}
-                    />
-                  ) : (
-                    '-'
-                  )}
-                </td>
-                <td>{item.nombre}</td>
-                <td>{item.accion}</td>
-                <td>{item.aplicacion || '-'}</td>
-                <td>{item.empleo || '-'}</td>
-                <td>{item.presentacion}</td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      <div className="item-list">
+        {data
+          .filter((item) =>
+            item.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            item.accion.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+          .map((item, index) => (
+            <div key={index} className="item">
+              {item.imagen && (
+                <img
+                  className="img-item-limpieza"
+                  src={`${apiUrl}/${item.imagen}`}
+                  alt={`Imagen de ${item.nombre}`}
+                  onClick={() => openLightbox(`${apiUrl}/${item.imagen}`)}
+                />
+              )}
+              <div className="item-details">
+                <div><strong>Nombre:</strong> {item.nombre}</div>
+                <div><strong>Acción:</strong> {item.accion}</div>
+                <div><strong>Aplicación:</strong> {item.aplicacion || '-'}</div>
+                <div><strong>Empleo:</strong> {item.empleo || '-'}</div>
+                <div><strong>Presentación:</strong> {item.presentacion}</div>
+              </div>
+            </div>
+          ))}
+      </div>
       {lightboxImage && (
         <div className="lightbox" onClick={closeLightbox}>
           <span className="close-button" onClick={closeLightbox}>&times;</span>
