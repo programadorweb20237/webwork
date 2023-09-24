@@ -26,15 +26,9 @@ function ItemLimpieza() {
     setLightboxImage(null);
   };
 
-  const handleLightboxClick = (e) => {
-    if (e.target.className === 'lightbox') {
-      closeLightbox();
-    }
-  };
-
   return (
     <div className='productosDivAPI'>
-      <h1>Tabla de Productos de Limpieza</h1>
+      <h1 className='tituloh1-item-limpieza'>Tabla de Productos de Limpieza</h1>
       <input
         className='buscadorProd'
         type='text'
@@ -83,7 +77,7 @@ function ItemLimpieza() {
         </tbody>
       </table>
       {lightboxImage && (
-        <div className="lightbox" onClick={handleLightboxClick}>
+        <div className="lightbox" onClick={closeLightbox}>
           <span className="close-button" onClick={closeLightbox}>&times;</span>
           <img className="lightbox-image" src={lightboxImage} alt="Imagen ampliada" />
         </div>
