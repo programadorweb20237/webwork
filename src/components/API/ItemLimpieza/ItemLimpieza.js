@@ -30,12 +30,13 @@ function ItemLimpieza() {
       <table>
         <thead>
           <tr>
+          <th>Imagen</th>
             <th>Nombre</th>
             <th>Acción</th>
             <th>Aplicación</th>
             <th>Empleo</th>
             <th>Presentación</th>
-            <th>Imagen</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -46,11 +47,6 @@ function ItemLimpieza() {
             )
             .map((item, index) => (
               <tr key={index}>
-                <td>{item.nombre}</td>
-                <td>{item.accion}</td>
-                <td>{item.aplicacion || '-'}</td>
-                <td>{item.empleo || '-'}</td>
-                <td>{item.presentacion}</td>
                 <td>
                   {item.imagen ? (
                     <img className="img-item-limpieza" src={`http://localhost:80/${item.imagen}`} alt={`Imagen de ${item.nombre}`} />
@@ -58,6 +54,12 @@ function ItemLimpieza() {
                     '-'
                   )}
                 </td>
+                <td>{item.nombre}</td>
+                <td>{item.accion}</td>
+                <td>{item.aplicacion || '-'}</td>
+                <td>{item.empleo || '-'}</td>
+                <td>{item.presentacion}</td>
+                
               </tr>
             ))}
         </tbody>
