@@ -45,12 +45,14 @@ function ItemLimpieza() {
           .map((item, index) => (
             <div key={index} className="item">
               {item.imagen && (
+                <div className='div-imagen-item-limpieza'>
                 <img
                   className="img-item-limpieza"
                   src={`${apiUrl}/${item.imagen}`}
                   alt={`Imagen de ${item.nombre}`}
                   onClick={() => openLightbox(`${apiUrl}/${item.imagen}`)}
                 />
+                </div>
               )}
               <div className="item-details">
                 <div><strong>Nombre:</strong> {item.nombre}</div>
