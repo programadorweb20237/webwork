@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './NuevaPagina.css';
-import { apiUrl } from './API/ApiConfig'; // Asegúrate de importar apiUrl correctamente
-import { Navigate } from 'react-router-dom'; // Importa Navigate para la redirección
+import { apiUrl } from './API/ApiConfig';
+import { Navigate } from 'react-router-dom';
 
 function NuevaPagina({ usuarioObj }) {
     const [cliente, setCliente] = useState('');
     const [pagos, setPagos] = useState([{ precio: '', tipoPago: 'Efectivo', imagen: null }]);
     const [clientesData, setClientesData] = useState([]);
+    const [mensaje, setMensaje] = useState(null); // Estado para el mensaje
+    const [mensajeEstilo, setMensajeEstilo] = useState(null); // Estilo del mensaje
 
     useEffect(() => {
         // Realizar la solicitud a la API cuando el componente se monte
@@ -37,7 +39,6 @@ function NuevaPagina({ usuarioObj }) {
     const handleImagenChange = (index, event) => {
         const nuevaImagen = event.target.files[0];
 
-        // Usar FileReader para convertir la imagen a base64
         const reader = new FileReader();
         reader.onload = (e) => {
             const base64Image = e.target.result;
@@ -48,37 +49,51 @@ function NuevaPagina({ usuarioObj }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        alert("Enviando correo...");
 
-        // Crear un objeto con los datos a enviar en formato JSON
         const data = {
             cliente: cliente,
-            nombreCliente: clientesData.find(c => c.email === cliente)?.nombre, // Obtener el nombre del cliente seleccionado
-
+            nombreCliente: clientesData.find(c => c.email === cliente)?.nombre,
             pagos: pagos,
         };
 
-        alert("Se ha ejecutado handleSubmit()");
-        console.log(JSON.stringify(data));
+        console.log(data);
 
         // Enviar la solicitud POST
         fetch(`${apiUrl}/sendmail.php`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json', // Indicar que los datos son JSON
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data), // Convertir el objeto a JSON
+            body: JSON.stringify(data),
         })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // El correo se envió con éxito
+                    // Éxito: Configura el mensaje de éxito
+                
+                    setMensaje('Correo enviado con éxito');
+                    setMensajeEstilo('alert alert-success');
                     console.log('Correo enviado con éxito frontend', data.message);
+
+
+                    // Después de 5 segundos, borra el mensaje de éxito
+                setTimeout(() => {
+                    setMensaje(null);
+                    setMensajeEstilo(null);
+                }, 5000); // 5000 milisegundos (5 segundos)
+
                 } else {
-                    // Hubo un error en el servidor PHP, muestra el mensaje de error
+                    // Fallo: Configura el mensaje de fallo
+                    setMensaje('Error al enviar el formulario: ' + data.message);
+                    setMensajeEstilo('alert alert-danger');
                     console.error('Error al enviar el formulario:', data.message);
                 }
             })
             .catch(error => {
+                // Fallo en la solicitud: Configura el mensaje de fallo
+                setMensaje('Error en la solicitud: ' + error);
+                setMensajeEstilo('alert alert-danger');
                 console.error('Error en la solicitud:', error);
             });
     };
@@ -147,11 +162,12 @@ function NuevaPagina({ usuarioObj }) {
                     <button className="agregar-pago1" type="button" onClick={agregarPago}>Agregar Pago</button>
 
                     <button type="submit">Enviar</button>
+
+                    {mensaje && <div className={mensajeEstilo}>{mensaje}</div>}
                 </form>
             </div>
         );
     } else {
-        // Si el usuario no es "Nico", redirige a la página principal
         return <Navigate to="/" />;
     }
 }
