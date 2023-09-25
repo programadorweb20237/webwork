@@ -11,7 +11,7 @@ function StockQuimicos() {
                 <h1>Stock de Químicos</h1> {/* Título general */}
                 <table>
                     <tr>
-                        <td>fecha</td>
+                        <td>Fecha:</td>
                         <td>9/20/23</td>
                         <td></td>
                         <td></td>
@@ -25,14 +25,14 @@ function StockQuimicos() {
                         <td></td>
                     </tr>
                     <tr>
-                        <td>Prducto</td>
+                        <td>Producto</td>
                         <td>-</td>
-                        <td>Stock Seguridad</td>
-                        <td></td>
-                        <td>Stock actual</td>
-                        <td></td>
-                        <td>Pedido</td>
-                        <td></td>
+                        <td colspan="2">Stock Seguridad</td>
+                        
+                        <td colspan="2">Stock actual</td>
+                        
+                        <td colspan="2">Pedido</td>
+                        
                         <td>Total</td>
                         <td></td>
                         <td></td>
