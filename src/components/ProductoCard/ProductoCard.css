@@ -12,6 +12,11 @@
 
     
 }
+.ProductoCardLink{
+    text-decoration: none; /* Quita el subrayado */
+    color:black;
+
+}
 .ProductoCard:hover{
     background-color: rgba(81, 157, 185, 0.46);
 }

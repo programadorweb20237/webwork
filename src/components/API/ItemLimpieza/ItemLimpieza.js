@@ -28,7 +28,7 @@ function ItemLimpieza() {
 
   return (
     <div className='productosDivAPI2"'>
-      <h1 className='tituloh1-item-limpieza'>Tabla de Productos de Limpieza</h1>
+      <h1 className='tituloh1-item-limpieza'>Productos de Higiene</h1>
       <input
         className='buscadorProd2'
         type='text'
