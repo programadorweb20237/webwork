@@ -9,7 +9,7 @@ function StockQuimicos() {
         <div>
             <div>
                 <h1>Stock de Químicos</h1> {/* Título general */}
-                <table>
+                <table className='table-container'>
                     <tr className='tr-prod-stock-quim' >
                         <td>Fecha:</td>
                         <td>9/20/23</td>
