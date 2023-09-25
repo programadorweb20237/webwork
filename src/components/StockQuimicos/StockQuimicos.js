@@ -10,21 +10,13 @@ function StockQuimicos() {
             <div>
                 <h1>Stock de Químicos</h1> {/* Título general */}
                 <table>
-                    <tr>
+                    <tr className='tr-prod-stock-quim' >
                         <td>Fecha:</td>
                         <td>9/20/23</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td colspan="9"></td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <tr className='tr-prod-stock-quim' >
                         <td>Producto</td>
                         <td>-</td>
                         <td colspan="2">Stock Seguridad</td>
@@ -38,8 +30,8 @@ function StockQuimicos() {
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
+                    <tr className='tr-prod-stock-quim2'>
+                        <td>PRODUCTO</td>
                         <td>PROVEEDOR</td>
                         <td>cantidad</td>
                         <td>presentacion en KG</td>

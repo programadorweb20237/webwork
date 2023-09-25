@@ -45,6 +45,17 @@ h1 {
   tr:hover {
     background-color: #f7dc6f; /* Naranja claro */
   }
+
+  .tr-prod-stock-quim td{
+    background-color: #e2a440; /* Naranja */
+    text-align: center;
+    
+  }
+  .tr-prod-stock-quim2 td{
+    background-color: #d8b885; /* Naranja */
+    text-align: center;
+    
+  }
   
   .productosDivAPI {
     min-width: 825px;
