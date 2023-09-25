@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './NuevaPagina.css';
 import { apiUrl } from './API/ApiConfig'; // Asegúrate de importar apiUrl correctamente
 import { Navigate } from 'react-router-dom'; // Importa Navigate para la redirección
 
-
 function NuevaPagina({ usuarioObj }) {
     const [cliente, setCliente] = useState('');
     const [pagos, setPagos] = useState([{ precio: '', tipoPago: 'Efectivo', imagen: null }]);
+    const [clientesData, setClientesData] = useState([]);
+
+    useEffect(() => {
+        // Realizar la solicitud a la API cuando el componente se monte
+        fetch(`${apiUrl}/api-email-clientes.php`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.EmailClientes) {
+                    setClientesData(data.EmailClientes);
+                } else {
+                    console.error('Error al obtener datos de clientes desde la API');
+                }
+            })
+            .catch(error => {
+                console.error('Error en la solicitud a la API:', error);
+            });
+    }, []);
 
     const agregarPago = () => {
         setPagos([...pagos, { precio: '', tipoPago: 'Efectivo', imagen: null }]);
@@ -21,7 +37,7 @@ function NuevaPagina({ usuarioObj }) {
     const handleImagenChange = (index, event) => {
         const nuevaImagen = event.target.files[0];
 
-        // Usar FileReader para convertirr la imagenn a base64
+        // Usar FileReader para convertir la imagen a base64
         const reader = new FileReader();
         reader.onload = (e) => {
             const base64Image = e.target.result;
@@ -33,12 +49,13 @@ function NuevaPagina({ usuarioObj }) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // Crear un objeto con los datoss a enviar en formato JSON
+        // Crear un objeto con los datos a enviar en formato JSON
         const data = {
             cliente: cliente,
+            nombreCliente: clientesData.find(c => c.email === cliente)?.nombre, // Obtener el nombre del cliente seleccionado
+
             pagos: pagos,
         };
-
 
         alert("Se ha ejecutado handleSubmit()");
         console.log(JSON.stringify(data));
@@ -66,9 +83,15 @@ function NuevaPagina({ usuarioObj }) {
             });
     };
 
-    // Verifica si el usuario está autenticado y si su nombre es "Nico"
-    if (usuarioObj.username === 'Nico') {
+    // Renderizar las opciones del select
+    const opcionesClientes = clientesData.map(cliente => (
+        <option key={cliente.email} value={cliente.email}>
+            {cliente.nombre}
+        </option>
+    ));
 
+    // Verificar si el usuario está autenticado y si su nombre es "Nico"
+    if (usuarioObj.username === 'Nico') {
         return (
             <div className="form-pago-1">
                 <h2 className='form-pago-h2'>Formulario de Pagos</h2>
@@ -80,10 +103,7 @@ function NuevaPagina({ usuarioObj }) {
                         value={cliente}
                         onChange={(event) => setCliente(event.target.value)}
                     >
-                        <option value="trossero">Trossero</option>
-                        <option value="supp">Supp Cereales</option>
-                        <option value="ferrer">La Ferrer</option>
-                        <option value="nicoben1x@gmail.com">nicoben1x@gmail.com</option>
+                        {opcionesClientes}
                     </select>
 
                     <div id="pagos-container">
