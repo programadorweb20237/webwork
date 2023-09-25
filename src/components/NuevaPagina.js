@@ -6,10 +6,10 @@ import { Navigate } from 'react-router-dom'; // Importa Navigate para la redirec
 
 function NuevaPagina({ usuarioObj }) {
     const [cliente, setCliente] = useState('');
-    const [pagos, setPagos] = useState([{ precio: '', tipoPago: 'efectivo', imagen: null }]);
+    const [pagos, setPagos] = useState([{ precio: '', tipoPago: 'Efectivo', imagen: null }]);
 
     const agregarPago = () => {
-        setPagos([...pagos, { precio: '', tipoPago: 'efectivo', imagen: null }]);
+        setPagos([...pagos, { precio: '', tipoPago: 'Efectivo', imagen: null }]);
     };
 
     const handleChange = (index, field, value) => {
@@ -96,8 +96,8 @@ function NuevaPagina({ usuarioObj }) {
                                     value={pago.tipoPago}
                                     onChange={(event) => handleChange(index, 'tipoPago', event.target.value)}
                                 >
-                                    <option value="efectivo">Efectivo</option>
-                                    <option value="cheque">Cheque</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Cheque">Cheque</option>
                                 </select>
 
                                 <label htmlFor={`precio-${index}`}>Precio:</label>
