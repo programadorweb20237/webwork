@@ -71,6 +71,7 @@ function NuevaPagina({ usuarioObj }) {
             .then(data => {
                 if (data.success) {
                     // Éxito: Configura el mensaje de éxito
+                    alert('Correo enviado con éxito!');
                 
                     setMensaje('Correo enviado con éxito');
                     setMensajeEstilo('alert alert-success');
