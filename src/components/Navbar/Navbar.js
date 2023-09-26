@@ -58,7 +58,7 @@ function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
 
       {/*Solo se renderiza si esta un usuario logeado y si es rol Jefe */}
       {isLoggedIn && usuarioObj && usuarioObj.rol === 'Jefe' && (
-        <button className='btn btn-success btn-recibos-y-logout' onClick={() => navigate('/nueva-pagina')}>Recibos</button>
+        <button className='btn btn-success btn-recibos-y-logout btn-recibos' onClick={() => navigate('/nueva-pagina')}>Recibos</button>
 
       )}
 

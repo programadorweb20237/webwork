@@ -88,6 +88,7 @@ function NuevaPagina({ usuarioObj }) {
                     setMensaje('Error al enviar el formulario: ' + data.message);
                     setMensajeEstilo('alert alert-danger');
                     console.error('Error al enviar el formulario:', data.message);
+                    alert(data.message)
                 }
             })
             .catch(error => {
@@ -106,7 +107,7 @@ function NuevaPagina({ usuarioObj }) {
     ));
 
     // Verificar si el usuario está autenticado y si su nombre es "Nico"
-    if (usuarioObj.username === 'Nico') {
+    if (usuarioObj.username === 'psiri') {
         return (
             <div className="form-pago-1">
                 <h2 className='form-pago-h2'>Formulario de Pagos</h2>

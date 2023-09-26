@@ -355,12 +355,6 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
 
 
 
-        <div >
-          {usuarioObj && usuarioObj.username &&(
-            <h1 className='temporalDiv'>{usuarioObj.username}</h1>
-          )}
-        </div>
-
 
 
 
