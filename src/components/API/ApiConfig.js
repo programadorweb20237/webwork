@@ -8,4 +8,4 @@
 // 192.168.1.26
 
 
-export const apiUrl = 'http://localhost:80';
+export const apiUrl = 'https://backend.dairy.com.ar';

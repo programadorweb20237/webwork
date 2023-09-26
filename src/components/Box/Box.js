@@ -8,7 +8,7 @@ const Box = ({isLoggedIn, handleLogout,usuarioObj}) => (
       <li><a onClick={menuDes}href="#">Empresa</a></li>
       <li><a onClick={menuDes}href="#areaProdtheId">Productos</a></li>
       <li><a onClick={menuDes}href="#areaCaptheId">Capacitaciones</a></li>
-      <li><a onClick={menuDes}href="https://boumatic.com/" target="_blank">Boumatic</a></li>
+  
       <li><a onClick={menuDes}href="#areaNoticiastheId">Noticias</a></li>
       <li><a onClick={menuDes}href="#areaContactotheId">Contacto</a></li>
 
