@@ -6,7 +6,7 @@ function StockQuimicos() {
 
     return (
 
-        <div>
+        <div className='parent-stock-quim-container'>
             <div className='stock-quim-container'>
                 <h1>Stock de Químicos</h1> {/* Título general */}
                 <table className='table-container'>

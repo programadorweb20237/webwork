@@ -2,7 +2,9 @@
 
 /* Estilo para el contenedor de la tabla */
 .table-container {
-  width: 25em;
+ 
+  min-width: 25em;
+  width: 100%;
   overflow-x: auto; /* Habilitar el desplazamiento horizontal */
   
   margin-bottom: 2em;
@@ -12,9 +14,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  width: 100%;
+  background-color: transparent;
 }
-
+.parent-stock-quim-container{
+  width: 100%;
+  background-color: transparent;
+}
 /* Estilos para el título general */
 h1 {
     text-align: center;
