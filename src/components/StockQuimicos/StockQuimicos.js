@@ -14,21 +14,21 @@ function StockQuimicos() {
                         <td>Fecha:</td>
                         <td>9/20/23</td>
                         <td colspan="9"></td>
-                        
+
                     </tr>
                     <tr className='tr-prod-stock-quim' >
                         <td>Producto</td>
                         <td>-</td>
                         <td colspan="2">Stock Seguridad</td>
-                        
+
                         <td colspan="2">Stock actual</td>
-                        
+
                         <td colspan="2">Pedido</td>
-                        
+
                         <td>Total</td>
                         <td></td>
                         <td></td>
-                        
+
                     </tr>
                     <tr className='tr-prod-stock-quim2'>
                         <td>PRODUCTO</td>
@@ -42,7 +42,7 @@ function StockQuimicos() {
                         <td></td>
                         <td>Ubicación</td>
                         <td>FORMATO</td>
-                        
+
                     </tr>
                     <tr>
                         <td>acido citrico</td>
@@ -56,7 +56,7 @@ function StockQuimicos() {
                         <td>25</td>
                         <td>C-1-1</td>
                         <td>BOLSA</td>
-                        
+
                     </tr>
                     <tr>
                         <td>acido fosforico</td>
@@ -83,7 +83,7 @@ function StockQuimicos() {
                         <td>25</td>
                         <td>C-1-1</td>
                         <td>BIDON</td>
-                        
+
                     </tr>
                     <tr>
                         <td>acido metanosulfonico</td>
@@ -97,7 +97,7 @@ function StockQuimicos() {
                         <td>200</td>
                         <td>C-5-1</td>
                         <td>TAMBOR</td>
-                        
+
                     </tr>
                     <tr>
                         <td>acido nitrico</td>
@@ -111,7 +111,7 @@ function StockQuimicos() {
                         <td>500</td>
                         <td>C-4-1</td>
                         <td>TAMBOR</td>
-                        
+
                     </tr>
                     <tr>
                         <td>acido sulfonico </td>
@@ -138,7 +138,7 @@ function StockQuimicos() {
                         <td>180</td>
                         <td>C-1-1</td>
                         <td>BIDON</td>
-                  
+
                     </tr>
                     <tr>
                         <td>alchol etilico</td>
@@ -178,7 +178,7 @@ function StockQuimicos() {
                         <td>250</td>
                         <td>C-2-1 / C-2-4</td>
                         <td>BOLSA</td>
-               
+
                     </tr>
                     <tr>
                         <td>clorito de sodio</td>
@@ -192,7 +192,7 @@ function StockQuimicos() {
                         <td>25</td>
                         <td>C-1-1</td>
                         <td>BIDON</td>
-                 
+
                     </tr>
                     <tr>
                         <td>cloro en polvo</td>
@@ -206,7 +206,7 @@ function StockQuimicos() {
                         <td>5</td>
                         <td>C-1-1</td>
                         <td>BOLSA DE 1kG</td>
-                  
+
                     </tr>
                     <tr>
                         <td>cloro liquido hipoclorito de sodio</td>
@@ -220,7 +220,7 @@ function StockQuimicos() {
                         <td>1000</td>
                         <td>AFUERA</td>
                         <td>TANQUE AFUERA</td>
-        
+
                     </tr>
                     <tr>
                         <td>conservante NipaGuard</td>
@@ -234,7 +234,7 @@ function StockQuimicos() {
                         <td>20</td>
                         <td>C-1-1</td>
                         <td>BIDON</td>
-                    
+
                     </tr>
                     <tr>
                         <td>dehypon</td>
@@ -248,7 +248,7 @@ function StockQuimicos() {
                         <td>200</td>
                         <td></td>
                         <td>BIDON</td>
-                     
+
                     </tr>
                     <tr>
                         <td>dm13</td>
@@ -301,7 +301,7 @@ function StockQuimicos() {
                         <td>100</td>
                         <td>C-1-1</td>
                         <td>BOLSA</td>
-      
+
                     </tr>
                     <tr>
                         <td>iodo</td>
@@ -315,7 +315,7 @@ function StockQuimicos() {
                         <td>60</td>
                         <td>C-1-2</td>
                         <td>CUÑETE</td>
-              
+
                     </tr>
                     <tr>
                         <td>ioduro de potasio</td>
@@ -329,7 +329,7 @@ function StockQuimicos() {
                         <td>25</td>
                         <td>C-1-1</td>
                         <td>CUÑETE</td>
-           
+
                     </tr>
                     <tr>
                         <td>peroxido de hidrogeno</td>
@@ -343,7 +343,7 @@ function StockQuimicos() {
                         <td>175</td>
                         <td>C-1-1</td>
                         <td>BIDON</td>
-               
+
                     </tr>
                     <tr>
                         <td>pigmento azul</td>
@@ -357,7 +357,7 @@ function StockQuimicos() {
                         <td>20</td>
                         <td>C-1-1</td>
                         <td>TACHO</td>
-               
+
                     </tr>
                     <tr>
                         <td>Sal</td>
@@ -371,7 +371,7 @@ function StockQuimicos() {
                         <td>100</td>
                         <td>C-1-2</td>
                         <td>BOLSA</td>
-                   
+
                     </tr>
                     <tr>
                         <td>soda caustica al 50</td>
@@ -385,7 +385,7 @@ function StockQuimicos() {
                         <td>2000</td>
                         <td>C-6-1/C-5-1</td>
                         <td>CONTENEDOR 1000l</td>
-               
+
                     </tr>
                     <tr>
                         <td>soda caustica perlada al 99</td>
@@ -399,7 +399,7 @@ function StockQuimicos() {
                         <td>250</td>
                         <td>C-2-1  </td>
                         <td>BOLSA</td>
-       
+
                     </tr>
                     <tr>
                         <td>solan o lanolil</td>
@@ -413,7 +413,7 @@ function StockQuimicos() {
                         <td>20</td>
                         <td>C-1-1</td>
                         <td>CAJA (BOLSA ADENTRO)</td>
-                 
+
                     </tr>
                     <tr>
                         <td>sulfetal</td>
@@ -427,7 +427,7 @@ function StockQuimicos() {
                         <td>200</td>
                         <td>C-1-1</td>
                         <td>TAMBOR CHICO</td>
-              
+
                     </tr>
                     <tr>
                         <td>tripolisfosfato de sodio</td>
@@ -441,7 +441,7 @@ function StockQuimicos() {
                         <td>25</td>
                         <td>C-2-1</td>
                         <td>BOLSA</td>
-                   
+
                     </tr>
                     <tr>
                         <td>urea </td>
@@ -455,7 +455,7 @@ function StockQuimicos() {
                         <td>50</td>
                         <td>C-2-2</td>
                         <td>BOLSA</td>
-                   
+
                     </tr>
                     <tr>
                         <td>Colorante Azul</td>
@@ -469,7 +469,7 @@ function StockQuimicos() {
                         <td></td>
                         <td>C-1-1</td>
                         <td>BIDON CHICO</td>
-                  
+
                     </tr>
                     <tr>
                         <td>Colorante Verde</td>
@@ -483,7 +483,7 @@ function StockQuimicos() {
                         <td></td>
                         <td>C-1-1</td>
                         <td>BIDON CHICO</td>
-                  
+
                     </tr>
                     <tr>
                         <td>Colorante Rojo</td>
@@ -497,7 +497,7 @@ function StockQuimicos() {
                         <td></td>
                         <td>C-1-1</td>
                         <td>BIDON CHICO</td>
-                      
+
                     </tr>
                     <tr>
                         <td>Lauril</td>
@@ -512,7 +512,129 @@ function StockQuimicos() {
                         <td></td>
                         <td>TAMBOR</td>
                     </tr>
+
+                </table>
+                <table className='table-bidones-container'>
+                    <tr className='tr-prod-stock-quim' >
+                        <td>Producto</td>
+                        <td colspan="2">Stock Seguridad</td>
+                        
+                        <td colspan="2">Stock actual</td>
+                        
+                        <td colspan="2">Pedido</td>
+                        
+                        <td>Total</td>
+                        <td></td>
+                      
+                    </tr>
+                    <tr className='tr-prod-stock-quim2'>
+                        <td>Producto</td>
+                        <td>cantidad</td>
+                        <td>presentacion en KG</td>
+                        <td>cantidad</td>
+                        <td>presentacion en Kg</td>
+                        <td>cantidad</td>
+                        <td>presentacion en Kg</td>
+                        <td>Total</td>
+                        <td>Ubicación</td>
+                     
+                    </tr>
+                    <tr>
+                        <td>bidones azul</td>
+                        <td>240</td>
+                        <td>25</td>
+                        <td></td>
+                        <td>25</td>
+                        <td>240</td>
+                        <td>25</td>
+                        <td>6000</td>
+                        <td></td>
+                       
+                    </tr>
+                    <tr>
+                        <td>bidones blancos </td>
+                        <td>240</td>
+                        <td>25</td>
+                        <td></td>
+                        <td>25</td>
+                        <td>240</td>
+                        <td>25</td>
+                        <td>6000</td>
+                        <td></td>
+                     
+                    </tr>
+                    <tr>
+                        <td>bines </td>
+                        <td>4</td>
+                        <td>1000</td>
+                        <td></td>
+                        <td>1000</td>
+                        <td>4</td>
+                        <td>1000</td>
+                        <td>4000</td>
+                        <td></td>
+                       
+                    </tr>
+                    <tr>
+                        <td>palets</td>
+                        <td>10</td>
+                        <td>1</td>
+                        <td></td>
+                        <td>1</td>
+                        <td>10</td>
+                        <td>1</td>
+                        <td>10</td>
+                        <td></td>
+                     
+                    </tr>
+                    <tr>
+                        <td>tambores de iodo</td>
+                        <td>30</td>
+                        <td>200</td>
+                        <td></td>
+                        <td>200</td>
+                        <td>30</td>
+                        <td>200</td>
+                        <td>6000</td>
+                        <td></td>
                     
+                    </tr>
+                    <tr>
+                        <td>tambores resto</td>
+                        <td>30</td>
+                        <td>200</td>
+                        <td></td>
+                        <td>200</td>
+                        <td>30</td>
+                        <td>200</td>
+                        <td>6000</td>
+                        <td></td>
+                       
+                    </tr>
+                    <tr>
+                        <td>tapas comun</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td></td>
+                        <td>1</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>4</td>
+                        <td></td>
+                      
+                    </tr>
+                    <tr>
+                        <td>tapas valvulas </td>
+                        <td>10</td>
+                        <td>1</td>
+                        <td></td>
+                        <td>1</td>
+                        <td>10</td>
+                        <td>1</td>
+                        <td>10</td>
+                        <td></td>
+                       
+                    </tr>
                 </table>
             </div>
         </div>
