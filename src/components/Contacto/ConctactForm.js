@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ContactForm.css';
 import { MdPlace } from 'react-icons/md';
+import { apiUrl } from '../API/ApiConfig';
 
 
 class ContactForm extends Component {
@@ -23,6 +24,31 @@ class ContactForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         // Aquí puedes agregar la lógica para manejar el envío del formulario
+        console.log(this.state);
+
+
+
+        
+  // Aquí puedes enviar los datos del formulario al servidor PHP
+  fetch( `${apiUrl}/api-contact-email.php`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.state),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data); // Muestra la respuesta del servidor
+    })
+    .catch((error) => {
+      console.error('Error al enviar el formulario:', error);
+    });
+
+
+
+
+
         // Puedes acceder a los valores en this.state.nombre, this.state.telefono, etc.
         // Por ejemplo, puedes enviarlos a un servidor o mostrarlos en la consola.
     }
