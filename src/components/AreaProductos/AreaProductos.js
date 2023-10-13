@@ -17,7 +17,7 @@ const AreaProductos = () => (
     <div className='areaAqui'>
       <ProductoCard name="Instalaciones de Ordeñe" img={img1} />
       <ProductoCard name="Manejo de Efluentes" img={img2} />
-      <ProductoCard name="Pisos de Goma" img={img3}  />
+      <ProductoCard name="Pisos de Goma" img={img3}   linki="/pisos"/>
       <ProductoCard name="Productos de Higiene" img={img4} linki="/limpieza"/>
       <ProductoCard name="Ventiladores" img={img5} />
       <ProductoCard name="VER TODOS" img={img6} />

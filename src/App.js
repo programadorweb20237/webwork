@@ -23,6 +23,7 @@ import NuevaPagina from "./components/NuevaPagina"
 import StockQuimicos from './components/StockQuimicos/StockQuimicos';
 import ConsumirApi from './components/API/ConsumirApi';
 import ItemLimpieza from './components/API/ItemLimpieza/ItemLimpieza';
+import ItemPisos from './components/API/ItemPisos/ItemPisos';
 
 
 
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/stockquimicos" element={<StockQuimicos />} />
         <Route path="/products" element={<ConsumirApi />} />
         <Route path="/limpieza" element={<ItemLimpieza />} />
+        <Route path="/pisos" element={<ItemPisos />} />
       </Routes>
     </HashRouter>
   );
