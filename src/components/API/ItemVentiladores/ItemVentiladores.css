@@ -1,0 +1,12 @@
+.area-img-ventiladores{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.area-img-ventiladores img{
+    width:300px;
+    margin: 0.5em;
+
+}

@@ -1,0 +1,15 @@
+.area-pdf-ordeñe{
+  display: flex;
+  flex-direction: column;
+}
+.area-video-ordeñe{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.area-video-ordeñe div{
+    margin: 0.5em;
+
+}

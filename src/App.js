@@ -24,7 +24,9 @@ import StockQuimicos from './components/StockQuimicos/StockQuimicos';
 import ConsumirApi from './components/API/ConsumirApi';
 import ItemLimpieza from './components/API/ItemLimpieza/ItemLimpieza';
 import ItemPisos from './components/API/ItemPisos/ItemPisos';
-
+import ItemVentiladores from './components/API/ItemVentiladores/ItemVentiladores';
+import ItemEfluentes from './components/API/ItemEfluentes/ItemEfluentes';
+import ItemOrdeñe from './components/API/ItemOrdeñe/ItemOrdeñe';
 
 
 const App = () => {
@@ -60,6 +62,9 @@ const App = () => {
         <Route path="/products" element={<ConsumirApi />} />
         <Route path="/limpieza" element={<ItemLimpieza />} />
         <Route path="/pisos" element={<ItemPisos />} />
+        <Route path="/ventiladores" element={<ItemVentiladores />} />
+        <Route path="/efluentes" element={<ItemEfluentes />} />
+        <Route path="/ordeñe" element={<ItemOrdeñe />} />
       </Routes>
     </HashRouter>
   );
