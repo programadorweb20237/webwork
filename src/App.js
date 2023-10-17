@@ -28,6 +28,8 @@ import ItemVentiladores from './components/API/ItemVentiladores/ItemVentiladores
 import ItemEfluentes from './components/API/ItemEfluentes/ItemEfluentes';
 import ItemOrdeñe from './components/API/ItemOrdeñe/ItemOrdeñe';
 
+import ItemNoticias from './components/API/ItemNoticias/ItemNoticias';
+
 
 const App = () => {
   // Estado para guardar el objeto Usuario
@@ -65,6 +67,8 @@ const App = () => {
         <Route path="/ventiladores" element={<ItemVentiladores />} />
         <Route path="/efluentes" element={<ItemEfluentes />} />
         <Route path="/ordeñe" element={<ItemOrdeñe />} />
+
+        <Route path="/noticias" element={<ItemNoticias />} />
       </Routes>
     </HashRouter>
   );

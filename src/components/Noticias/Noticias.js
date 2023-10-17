@@ -48,6 +48,8 @@ const Noticias = () => (
 
 
     </div>
+
+    <a href='/noticias'>Ver más.</a>
   </div>
 );
 
