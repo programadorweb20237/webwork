@@ -52,6 +52,33 @@ function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
 
             <a href="#areaNoticiastheId">Noticias</a></li>
           <li><a href="#areaContactotheId">Contacto</a></li>
+
+       
+
+         
+
+            {/*Solo se renderiza si esta un usuario logeado y si es rol Jefe */}
+      {isLoggedIn && usuarioObj && usuarioObj.rol === 'Jefe' && (
+         <li onClick={() => navigate('/nueva-pagina')}>
+         <a href='#'>Recibos</a>
+       </li>
+
+      )}
+
+            
+              {isLoggedIn &&(
+         <li onClick={handleLogout}>
+         <a href='#'>X</a>
+       </li>
+
+      )}
+
+
+
+
+
+
+
         </ul>
       </nav>
 
