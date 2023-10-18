@@ -139,6 +139,12 @@ function NuevaPagina({ usuarioObj }) {
        
     };
 
+       // Controlador de eventos para reiniciar campos
+       const reiniciarCampos = () => {
+        setCliente('');
+        setPagos([{ precio: '', tipoPago: 'Efectivo', imagen: null }]);
+    };
+
 
 
     // Renderizar las opciones del select
@@ -153,6 +159,12 @@ function NuevaPagina({ usuarioObj }) {
         return (
             <div className="form-pago-1">
                 <h2 className='form-pago-h2'>Formulario de Pagos</h2>
+
+
+ {/* Botón de reinicio para restablecer campos */}
+ <button type="button" onClick={reiniciarCampos}>Reiniciar Campos</button>
+
+
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="cliente">Elige un cliente:</label>
                     <select
