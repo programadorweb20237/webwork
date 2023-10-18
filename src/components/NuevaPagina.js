@@ -59,7 +59,7 @@ function NuevaPagina({ usuarioObj }) {
 
     const abrirModal = () => {
         setIsModalOpen(true);
-        alert("modal abierto");
+      
     };
 
     const cerrarModal = () => {
@@ -71,9 +71,14 @@ function NuevaPagina({ usuarioObj }) {
 
     const enviarSolicitudPOST = (event) => {
         event.preventDefault();
+        document.getElementById("btn-confirmar-modal-cerrar").click();
        
 
-        alert("Enviando correo...");
+
+        setTimeout(function() {
+            alert("Enviando correo...");
+        }, 300); // 1000 milisegundos (1 segundo)
+       
 
         const data = {
             cliente: cliente,
@@ -205,28 +210,38 @@ function NuevaPagina({ usuarioObj }) {
                 </form>
 
 
-
                 {isModalOpen && (
-                <div className="modal2">
-                    <div className="modal2-content">
-                        <h3>Confirmar Información</h3>
-                        <p>Cliente: {clientesData.find(c => c.email === cliente)?.nombre}</p>
+                <div className="modal fade show" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ display: "block" }}>
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Confirmar Información</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={cerrarModal}></button>
+                            </div>
+                            <div className="modal-body">
+                                <p>Cliente: {clientesData.find(c => c.email === cliente)?.nombre}</p>
 
-                        <h4>Detalles de los Pagos:</h4>
-                        {pagos.map((pago, index) => (
+                                <h4>Detalles de los Pagos:</h4>
+                                {pagos.map((pago, index) => (
                             <div key={index}>
                                 <p>Tipo de Pago: {pago.tipoPago}</p>
                                 <p>Valor: ${pago.precio}</p>
                             </div>
                         ))}
-                        
-                        <p>Total: ${calcularTotal()}</p>
-                        {/* Muestra los detalles de los pagos según sea necesario */}
-                        <button onClick={enviarSolicitudPOST}>Confirmar</button>
-                        <button onClick={cerrarModal}>Cancelar</button>
+                                <p>Total: ${calcularTotal()}</p>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-primary" onClick={enviarSolicitudPOST}>Confirmar</button>
+                                <button type="button" id="btn-confirmar-modal-cerrar" className="btn btn-secondary" data-bs-dismiss="modal" onClick={cerrarModal}>Cancelar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}
+
+
+
+
 
 
 
