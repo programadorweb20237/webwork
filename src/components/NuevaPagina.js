@@ -10,6 +10,9 @@ function NuevaPagina({ usuarioObj }) {
     const [mensaje, setMensaje] = useState(null); // Estado para el mensaje
     const [mensajeEstilo, setMensajeEstilo] = useState(null); // Estilo del mensaje
 
+    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal
+
+
     useEffect(() => {
         // Realizar la solicitud a la API cuando el componente se monte
         fetch(`${apiUrl}/api-email-clientes.php`)
@@ -47,8 +50,29 @@ function NuevaPagina({ usuarioObj }) {
         reader.readAsDataURL(nuevaImagen);
     };
 
-    const handleSubmit = (event) => {
+
+
+    const calcularTotal = () => {
+        const total = pagos.reduce((sum, pago) => sum + parseFloat(pago.precio || 0), 0);
+        return total.toFixed(2);
+    };
+
+    const abrirModal = () => {
+        setIsModalOpen(true);
+        alert("modal abierto");
+    };
+
+    const cerrarModal = () => {
+        setIsModalOpen(false);
+    };
+
+
+
+
+    const enviarSolicitudPOST = (event) => {
         event.preventDefault();
+       
+
         alert("Enviando correo...");
 
         const data = {
@@ -99,6 +123,18 @@ function NuevaPagina({ usuarioObj }) {
                 console.error('Error en la solicitud:', error);
             });
     };
+
+
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        abrirModal(); // Abre el modal antes de enviar la solicitud POST
+
+       
+    };
+
+
 
     // Renderizar las opciones del select
     const opcionesClientes = clientesData.map(cliente => (
@@ -167,6 +203,33 @@ function NuevaPagina({ usuarioObj }) {
 
                     {mensaje && <div className={mensajeEstilo}>{mensaje}</div>}
                 </form>
+
+
+
+                {isModalOpen && (
+                <div className="modal2">
+                    <div className="modal2-content">
+                        <h3>Confirmar Información</h3>
+                        <p>Cliente: {clientesData.find(c => c.email === cliente)?.nombre}</p>
+
+                        <h4>Detalles de los Pagos:</h4>
+                        {pagos.map((pago, index) => (
+                            <div key={index}>
+                                <p>Tipo de Pago: {pago.tipoPago}</p>
+                                <p>Valor: ${pago.precio}</p>
+                            </div>
+                        ))}
+                        
+                        <p>Total: ${calcularTotal()}</p>
+                        {/* Muestra los detalles de los pagos según sea necesario */}
+                        <button onClick={enviarSolicitudPOST}>Confirmar</button>
+                        <button onClick={cerrarModal}>Cancelar</button>
+                    </div>
+                </div>
+            )}
+
+
+
             </div>
         );
     } else {
