@@ -30,6 +30,13 @@ function StockQuimicos() {
 
 
 
+    const [buttonDisabled, setButtonDisabled] = useState(false);
+
+
+
+
+
+
     const [editingCell, setEditingCell] = useState({ rowIndex: null, columnName: null });
     const [editedValue, setEditedValue] = useState("");
 
@@ -147,6 +154,10 @@ function StockQuimicos() {
     {/* GUARDAR CAMBIOS   */}
 
     const handleSaveChanges = () => {
+        // Deshabilita el botón al hacer clic
+    setButtonDisabled(true);
+
+
         alert('Estás a punto de guardar los cambios, esto puede tardar aproximadamente 15 segundos. Por favor, espere el mensaje de confirmación.');
     
         // Obtener la fecha actual en el formato deseado (DD/MM/YYYY)
@@ -160,6 +171,12 @@ function StockQuimicos() {
         const updatedData = { quimicoStock: data, bidonesStock: data2, fecha: formattedDate };
     
         console.log(JSON.stringify(updatedData));
+
+        
+
+
+
+        
     
         // Realizar una solicitud POST al servidor para guardar los cambios
         fetch(`${apiUrl}/api-guardar-stock.php`, {
@@ -178,6 +195,16 @@ function StockQuimicos() {
             }
         })
         .catch((error) => console.error('Error al guardar los cambios:', error));
+
+
+
+          // Habilita el botón después de un período de tiempo (por ejemplo, 10 segundos)
+    setTimeout(() => {
+        setButtonDisabled(false);
+      }, 18000); // 10000 ms = 10 segundos
+
+
+        
     };
 
 
@@ -187,7 +214,7 @@ function StockQuimicos() {
         <div className='parent-stock-quim-container'>
             <div className='stock-quim-container'>
                 <h1>Stock de Químicos</h1> {/* Título general */}
-                <button class="btn btn-primary"  onClick={handleSaveChanges}>Guardar Cambios</button>
+                <button class="btn btn-primary"   disabled={buttonDisabled} onClick={handleSaveChanges}>Guardar Cambios</button>
 
                 <table className='table-container'>
                     <tr className='tr-prod-stock-quim' >
