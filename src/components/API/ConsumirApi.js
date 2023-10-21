@@ -12,7 +12,7 @@ function ConsumirApi() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        // Combina los datos de productoss y químicos en una sola lista
+        // Combina los datos de productosss y químicos en una sola lista
         const combinedData = [...data.products, ...data.quimicos];
         setData(combinedData);
       })
