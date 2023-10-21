@@ -143,12 +143,42 @@ function StockQuimicos() {
 
 
 
+
+    {/* GUARDAR CAMBIOS  */}
+
+    const handleSaveChanges = () => {
+        // Preparar los datos para enviar al servidor
+        const updatedData = { quimicoStock: data, bidonesStock: data2 };
+        console.log(JSON.stringify(updatedData));
+
+        // Realizar una solicitud POST al servidor para guardar los cambios
+        fetch(`${apiUrl}/api-guardar-stock.php`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedData),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.success) {
+                    alert('Cambios guardados exitosamente');
+                } else {
+                    alert('Error al guardar los cambios');
+                }
+            })
+            .catch((error) => console.error('Error al guardar los cambios:', error));
+    };
+
+
+
+
     return (
 
         <div className='parent-stock-quim-container'>
             <div className='stock-quim-container'>
                 <h1>Stock de Químicos</h1> {/* Título general */}
-                <button class="btn btn-primary">Guardar</button>
+                <button class="btn btn-primary"  onClick={handleSaveChanges}>Guardar</button>
 
                 <table className='table-container'>
                     <tr className='tr-prod-stock-quim' >
