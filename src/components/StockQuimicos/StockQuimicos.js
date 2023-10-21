@@ -147,6 +147,7 @@ function StockQuimicos() {
     {/* GUARDAR CAMBIOS  */}
 
     const handleSaveChanges = () => {
+        alert('Esta a punto de guardar los cambios , esto puede tardar aproximadamente 15 segundos, luego de aceptar, por favor espere el mensaje de confimación, darle a aceptar para continuar.');
         // Preparar los datos para enviar al servidor
         const updatedData = { quimicoStock: data, bidonesStock: data2 };
         console.log(JSON.stringify(updatedData));
@@ -162,7 +163,7 @@ function StockQuimicos() {
             .then((response) => response.json())
             .then((result) => {
                 if (result.success) {
-                    alert('Cambios guardados exitosamente');
+                    alert('Cambios guardados exitosamente.');
                 } else {
                     alert('Error al guardar los cambios');
                 }
