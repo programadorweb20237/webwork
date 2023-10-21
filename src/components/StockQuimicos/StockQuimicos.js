@@ -85,6 +85,63 @@ function StockQuimicos() {
 
 
 
+    {/* MISMA LOGICA PARA BIDONES  */}
+
+    const [editingCellB, setEditingCellB] = useState({ rowIndex: null, columnName: null });
+    const [editedValueB, setEditedValueB] = useState("");
+
+
+    const handleEditCantidadB = (index) => {
+        setEditingCellB({ rowIndex: index, columnName: "cantidads" });
+        setEditedValueB(data2[index].cantidads);
+    };
+
+    const handleCantidadChangeB = (event) => {
+        const newValue = event.target.value;
+        setEditedValueB(newValue);
+    };
+
+    const handleSaveCantidadB = () => {
+        if (editingCellB.rowIndex !== null && editingCellB.columnName === "cantidads") {
+            const rowIndex = editingCellB.rowIndex;
+            const newData = [...data2];
+            const newCantidads = parseFloat(editedValueB);
+            newData[rowIndex].cantidads = newCantidads;
+            newData[rowIndex].cantidadp = Math.max(newCantidads - newData[rowIndex].cantidada, 0);
+            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacionp;
+            setData2(newData);
+        }
+        setEditingCellB({ rowIndex: null, columnName: null });
+    };
+
+    const [editingCantidadAB, setEditingCantidadAB] = useState({ rowIndex: null, columnName: null });
+    const [editedValueCantidadAB, setEditedValueCantidadAB] = useState("");
+
+    const handleEditCantidadAB = (index) => {
+        setEditingCantidadAB({ rowIndex: index, columnName: "cantidada" });
+        setEditedValueCantidadAB(data2[index].cantidada);
+    };
+
+    const handleCantidadAChangeB = (event) => {
+        const newValue = event.target.value;
+        setEditedValueCantidadAB(newValue);
+    };
+
+    const handleSaveCantidadAB = () => {
+        if (editingCantidadAB.rowIndex !== null && editingCantidadAB.columnName === "cantidada") {
+            const rowIndex = editingCantidadAB.rowIndex;
+            const newData = [...data2];
+            const newCantidada = parseFloat(editedValueCantidadAB);
+            newData[rowIndex].cantidada = newCantidada;
+            newData[rowIndex].cantidadp = Math.max(newData[rowIndex].cantidads - newCantidada, 0);
+            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacionp;
+            setData2(newData);
+        }
+        setEditingCantidadAB({ rowIndex: null, columnName: null });
+    };
+
+
+
 
     return (
 
@@ -213,9 +270,41 @@ function StockQuimicos() {
                         <tr key={index}>
                             <td>{item.producto}</td>
 
-                            <td>{item.cantidads}</td>
+                            {editingCellB.rowIndex === index && editingCellB.columnName === "cantidads" ? (
+                                <input
+                                    type="number"
+                                    value={editedValueB}
+                                    onChange={handleCantidadChangeB}
+                                    onBlur={handleSaveCantidadB}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSaveCantidadB();
+                                        }
+                                    }}
+                                />
+                            ) : (
+                                <td onClick={() => handleEditCantidadB(index)} className="editable">
+                                    {item.cantidads}
+                                </td>
+                            )}
                             <td>{item.presentacions}</td>
-                            <td></td>
+                            {editingCantidadAB.rowIndex === index && editingCantidadAB.columnName === "cantidada" ? (
+                                <input
+                                    type="number"
+                                    value={editedValueCantidadAB}
+                                    onChange={handleCantidadAChangeB}
+                                    onBlur={handleSaveCantidadAB}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSaveCantidadAB();
+                                        }
+                                    }}
+                                />
+                            ) : (
+                                <td onClick={() => handleEditCantidadAB(index)} className="editable">
+                                    {item.cantidada}
+                                </td>
+                            )}
                             <td>{item.presentaciona}</td>
                             <td>{item.cantidadp}</td>
                             <td>{item.presentacionp}</td>
