@@ -4,6 +4,10 @@ import { apiUrl } from "../API/ApiConfig";
 
 function StockQuimicos() {
 
+
+
+
+
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
 
@@ -22,10 +26,12 @@ function StockQuimicos() {
             .catch((error) => console.error('Error al obtener los datos:', error));
     }, []);
 
+
+
+
+
     const [editingCell, setEditingCell] = useState({ rowIndex: null, columnName: null });
     const [editedValue, setEditedValue] = useState("");
-
- 
 
 
     const handleEditCantidad = (index) => {
@@ -47,6 +53,32 @@ function StockQuimicos() {
         }
         setEditingCell({ rowIndex: null, columnName: null });
     };
+
+
+
+    const [editingCantidadA, setEditingCantidadA] = useState({ rowIndex: null, columnName: null });
+    const [editedValueCantidadA, setEditedValueCantidadA] = useState("");
+
+    const handleEditCantidadA = (index) => {
+        setEditingCantidadA({ rowIndex: index, columnName: "cantidada" });
+        setEditedValueCantidadA(data[index].cantidada);
+    };
+
+    const handleCantidadAChange = (event) => {
+        const newValue = event.target.value;
+        setEditedValueCantidadA(newValue);
+    };
+
+    const handleSaveCantidadA = () => {
+        if (editingCantidadA.rowIndex !== null && editingCantidadA.columnName === "cantidada") {
+            const rowIndex = editingCantidadA.rowIndex;
+            const newData = [...data];
+            newData[rowIndex].cantidada = editedValueCantidadA;
+            setData(newData);
+        }
+        setEditingCantidadA({ rowIndex: null, columnName: null });
+    };
+
 
 
     return (
@@ -115,7 +147,23 @@ function StockQuimicos() {
                                 </td>
                             )}
                             <td>{item.presentacions}</td>
-                            <td></td>
+                            {editingCantidadA.rowIndex === index && editingCantidadA.columnName === "cantidada" ? (
+                                <input
+                                    type="number"
+                                    value={editedValueCantidadA}
+                                    onChange={handleCantidadAChange}
+                                    onBlur={handleSaveCantidadA}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSaveCantidadA();
+                                        }
+                                    }}
+                                />
+                            ) : (
+                                <td onClick={() => handleEditCantidadA(index)} className="editable">
+                                    {item.cantidada}
+                                </td>
+                            )}
                             <td>{item.presentaciona}</td>
                             <td>{item.cantidadp}</td>
                             <td>{item.presentacionp}</td>
