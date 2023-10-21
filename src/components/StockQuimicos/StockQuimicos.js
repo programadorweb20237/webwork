@@ -144,7 +144,7 @@ function StockQuimicos() {
 
 
 
-    {/* GUARDAR CAMBIOS  */}
+    {/* GUARDAR CAMBIOS   */}
 
     const handleSaveChanges = () => {
         alert('Estás a punto de guardar los cambios, esto puede tardar aproximadamente 15 segundos. Por favor, espere el mensaje de confirmación.');
