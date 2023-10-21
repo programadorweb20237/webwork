@@ -19,7 +19,7 @@ function ConsumirApi() {
       .catch((error) => console.error('Error al obtener los datos:', error));
   }, []);
 
-  // Función para reemplazar 42 con "-"
+  // Función para reemplaazar 42 con "-"
   const replace42 = (value) => {
     if (value === 42 || value === "42") {
       return "-";
@@ -42,9 +42,9 @@ function ConsumirApi() {
             <th>Código</th>
             <th>Descripción</th>
             <th>Presentación</th>
-            {/* <th >Precio Mayorista</th> */}
-            {/* <th>Precio Minorista</th> */}
-            {/* <th>Costo por Kilo</th> */}
+             <th >Precio Mayorista</th>
+             <th>Precio Minorista</th>
+            <th>Costo por Kilo</th> 
           </tr>
         </thead>
         <tbody>
@@ -58,11 +58,11 @@ function ConsumirApi() {
                 <td>{item.code}</td>
                 <td>{replace42(item.description)}</td>
                 <td>{item.presentation}</td>
-                {/* 
+                
                 <td>{replace42(item.dealerPrice)}</td>
                 <td>{replace42(item.retailPrice)}</td>
                 <td>{item.costoKilo === 42 ? "0" : item.costoKilo || ""}</td>
-                */}
+                
               </tr>
             ))}
         </tbody>
