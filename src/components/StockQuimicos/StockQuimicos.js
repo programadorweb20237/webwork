@@ -147,11 +147,20 @@ function StockQuimicos() {
     {/* GUARDAR CAMBIOS  */}
 
     const handleSaveChanges = () => {
-        alert('Esta a punto de guardar los cambios , esto puede tardar aproximadamente 15 segundos, luego de aceptar, por favor espere el mensaje de confimación, darle a aceptar para continuar.');
+        alert('Estás a punto de guardar los cambios, esto puede tardar aproximadamente 15 segundos. Por favor, espere el mensaje de confirmación.');
+    
+        // Obtener la fecha actual en el formato deseado (DD/MM/YYYY)
+        const currentDate = new Date();
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Los meses comienzan desde 0
+        const year = currentDate.getFullYear();
+        const formattedDate = `${day}/${month}/${year}`;
+    
         // Preparar los datos para enviar al servidor
-        const updatedData = { quimicoStock: data, bidonesStock: data2 };
+        const updatedData = { quimicoStock: data, bidonesStock: data2, fecha: formattedDate };
+    
         console.log(JSON.stringify(updatedData));
-
+    
         // Realizar una solicitud POST al servidor para guardar los cambios
         fetch(`${apiUrl}/api-guardar-stock.php`, {
             method: 'POST',
@@ -160,17 +169,16 @@ function StockQuimicos() {
             },
             body: JSON.stringify(updatedData),
         })
-            .then((response) => response.json())
-            .then((result) => {
-                if (result.success) {
-                    alert('Cambios guardados exitosamente.');
-                } else {
-                    alert('Error al guardar los cambios');
-                }
-            })
-            .catch((error) => console.error('Error al guardar los cambios:', error));
+        .then((response) => response.json())
+        .then((result) => {
+            if (result.success) {
+                alert('Cambios guardados exitosamente.');
+            } else {
+                alert('Error al guardar los cambios');
+            }
+        })
+        .catch((error) => console.error('Error al guardar los cambios:', error));
     };
-
 
 
 
@@ -179,12 +187,12 @@ function StockQuimicos() {
         <div className='parent-stock-quim-container'>
             <div className='stock-quim-container'>
                 <h1>Stock de Químicos</h1> {/* Título general */}
-                <button class="btn btn-primary"  onClick={handleSaveChanges}>Guardar</button>
+                <button class="btn btn-primary"  onClick={handleSaveChanges}>Guardar Cambios</button>
 
                 <table className='table-container'>
                     <tr className='tr-prod-stock-quim' >
                         <td>Fecha:</td>
-                        <td>9/20/23</td>
+                        <td>{data.length > 0 ? data[0].fecha : 'Sin fecha'}</td>
                         <td colspan="9"></td>
 
                     </tr>
