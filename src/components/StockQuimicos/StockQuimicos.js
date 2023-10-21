@@ -50,14 +50,12 @@ function StockQuimicos() {
             const newData = [...data];
             const newCantidads = parseFloat(editedValue);
             newData[rowIndex].cantidads = newCantidads;
-            // Calcular cantidadp y asegurarse de que sea >= 0
             newData[rowIndex].cantidadp = Math.max(newCantidads - newData[rowIndex].cantidada, 0);
+            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacionp;
             setData(newData);
         }
         setEditingCell({ rowIndex: null, columnName: null });
     };
-
-
 
     const [editingCantidadA, setEditingCantidadA] = useState({ rowIndex: null, columnName: null });
     const [editedValueCantidadA, setEditedValueCantidadA] = useState("");
@@ -78,8 +76,8 @@ function StockQuimicos() {
             const newData = [...data];
             const newCantidada = parseFloat(editedValueCantidadA);
             newData[rowIndex].cantidada = newCantidada;
-            // Calcular cantidadp y asegurarse de que sea >= 0
             newData[rowIndex].cantidadp = Math.max(newData[rowIndex].cantidads - newCantidada, 0);
+            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacionp;
             setData(newData);
         }
         setEditingCantidadA({ rowIndex: null, columnName: null });
