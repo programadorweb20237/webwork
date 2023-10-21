@@ -17,10 +17,36 @@ function StockQuimicos() {
                 setData(stockQuimicos);
                 const stockBidones = data.bidonesStock;
                 setData2(stockBidones);
-                
+
             })
             .catch((error) => console.error('Error al obtener los datos:', error));
     }, []);
+
+    const [editingCell, setEditingCell] = useState({ rowIndex: null, columnName: null });
+    const [editedValue, setEditedValue] = useState("");
+
+ 
+
+
+    const handleEditCantidad = (index) => {
+        setEditingCell({ rowIndex: index, columnName: "cantidads" });
+        setEditedValue(data[index].cantidads);
+    };
+
+    const handleCantidadChange = (event) => {
+        const newValue = event.target.value;
+        setEditedValue(newValue);
+    };
+
+    const handleSaveCantidad = () => {
+        if (editingCell.rowIndex !== null && editingCell.columnName === "cantidads") {
+            const rowIndex = editingCell.rowIndex;
+            const newData = [...data];
+            newData[rowIndex].cantidads = editedValue;
+            setData(newData);
+        }
+        setEditingCell({ rowIndex: null, columnName: null });
+    };
 
 
     return (
@@ -28,6 +54,8 @@ function StockQuimicos() {
         <div className='parent-stock-quim-container'>
             <div className='stock-quim-container'>
                 <h1>Stock de Químicos</h1> {/* Título general */}
+                <button class="btn btn-primary">Guardar</button>
+
                 <table className='table-container'>
                     <tr className='tr-prod-stock-quim' >
                         <td>Fecha:</td>
@@ -69,7 +97,23 @@ function StockQuimicos() {
                         <tr key={index}>
                             <td>{item.PRODUCTO}</td>
                             <td>{item.PROVEEDOR}</td>
-                            <td>{item.cantidads}</td>
+                            {editingCell.rowIndex === index && editingCell.columnName === "cantidads" ? (
+                                <input
+                                    type="number"
+                                    value={editedValue}
+                                    onChange={handleCantidadChange}
+                                    onBlur={handleSaveCantidad}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSaveCantidad();
+                                        }
+                                    }}
+                                />
+                            ) : (
+                                <td onClick={() => handleEditCantidad(index)} className="editable">
+                                    {item.cantidads}
+                                </td>
+                            )}
                             <td>{item.presentacions}</td>
                             <td></td>
                             <td>{item.presentaciona}</td>
@@ -111,11 +155,11 @@ function StockQuimicos() {
                         <td>Ubicación</td>
 
                     </tr>
-               
+
                     {data2.map((item, index) => (
                         <tr key={index}>
                             <td>{item.producto}</td>
-                            
+
                             <td>{item.cantidads}</td>
                             <td>{item.presentacions}</td>
                             <td></td>
@@ -124,7 +168,7 @@ function StockQuimicos() {
                             <td>{item.presentacionp}</td>
                             <td>{item.total}</td>
                             <td>{item.ubicacion}</td>
-    
+
                         </tr>
                     ))}
 
