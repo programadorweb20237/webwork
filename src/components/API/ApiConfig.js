@@ -7,5 +7,7 @@
 // IP de Maquina del Trabajo
 // 192.168.1.26
 
+// IP backend Dairy
+// https://backend.dairy.com.ar
 
 export const apiUrl = 'http://localhost:80';

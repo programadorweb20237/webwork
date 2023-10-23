@@ -65,6 +65,14 @@ function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
 
       )}
 
+             {/*Solo se renderiza si esta un usuario logeado y si es rol Jefe */}
+             {isLoggedIn && usuarioObj && usuarioObj.rol === 'Jefe' && (
+         <li onClick={() => navigate('/stockquimicos')}>
+         <a href='#'>Stock</a>
+       </li>
+
+      )}
+
             
               {isLoggedIn &&(
          <li onClick={handleLogout}>
