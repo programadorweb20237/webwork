@@ -58,7 +58,7 @@ function StockQuimicos() {
             const newCantidads = parseFloat(editedValue);
             newData[rowIndex].cantidads = newCantidads;
             newData[rowIndex].cantidadp = Math.max(newCantidads - newData[rowIndex].cantidada, 0);
-            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacionp;
+            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacions;
             setData(newData);
         }
         setEditingCell({ rowIndex: null, columnName: null });
@@ -84,7 +84,7 @@ function StockQuimicos() {
             const newCantidada = parseFloat(editedValueCantidadA);
             newData[rowIndex].cantidada = newCantidada;
             newData[rowIndex].cantidadp = Math.max(newData[rowIndex].cantidads - newCantidada, 0);
-            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacionp;
+            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacions;
             setData(newData);
         }
         setEditingCantidadA({ rowIndex: null, columnName: null });
@@ -92,7 +92,7 @@ function StockQuimicos() {
 
 
 
-    {/* MISMA LOGICA PARA BIDONES  */}
+    {/* MISMA LOGICA PARA BIDONES  */ }
 
     const [editingCellB, setEditingCellB] = useState({ rowIndex: null, columnName: null });
     const [editedValueB, setEditedValueB] = useState("");
@@ -115,7 +115,7 @@ function StockQuimicos() {
             const newCantidads = parseFloat(editedValueB);
             newData[rowIndex].cantidads = newCantidads;
             newData[rowIndex].cantidadp = Math.max(newCantidads - newData[rowIndex].cantidada, 0);
-            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacionp;
+            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacions;
             setData2(newData);
         }
         setEditingCellB({ rowIndex: null, columnName: null });
@@ -141,7 +141,7 @@ function StockQuimicos() {
             const newCantidada = parseFloat(editedValueCantidadAB);
             newData[rowIndex].cantidada = newCantidada;
             newData[rowIndex].cantidadp = Math.max(newData[rowIndex].cantidads - newCantidada, 0);
-            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacionp;
+            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacions;
             setData2(newData);
         }
         setEditingCantidadAB({ rowIndex: null, columnName: null });
@@ -151,33 +151,83 @@ function StockQuimicos() {
 
 
 
-    {/* GUARDAR CAMBIOS   */}
+
+
+
+
+    {/* MISMA LOGICA PARA presentacion KG  */ }
+
+    // Agregar estados y funciones para editar item.presentacions
+    const [editingPresentacions, setEditingPresentacions] = useState({ rowIndex: null, columnName: null });
+    const [editedValuePresentacions, setEditedValuePresentacions] = useState("");
+
+    const handleEditPresentacions = (index) => {
+        setEditingPresentacions({ rowIndex: index, columnName: "presentacions" });
+        setEditedValuePresentacions(data[index].presentacions);
+    };
+
+    const handlePresentacionsChange = (event) => {
+        const newValue = event.target.value;
+        setEditedValuePresentacions(newValue);
+    };
+
+    const handleSavePresentacions = () => {
+        if (editingPresentacions.rowIndex !== null && editingPresentacions.columnName === "presentacions") {
+            const rowIndex = editingPresentacions.rowIndex;
+            const newData = [...data];
+            const newPresentacions = parseFloat(editedValuePresentacions);
+            newData[rowIndex].presentacions = newPresentacions;
+            // Aquí puedes realizar las actualizaciones necesarias en otros campos si es necesario.
+
+
+            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacions;
+
+            setData(newData);
+        }
+        setEditingPresentacions({ rowIndex: null, columnName: null });
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {/* GUARDAR CAMBIOS   */ }
 
     const handleSaveChanges = () => {
         // Deshabilita el botón al hacer clic
-    setButtonDisabled(true);
+        setButtonDisabled(true);
 
 
         alert('Estás a punto de guardar los cambios, esto puede tardar aproximadamente 15 segundos. Por favor, espere el mensaje de confirmación.');
-    
+
         // Obtener la fecha actual en el formato deseado (DD/MM/YYYY)
         const currentDate = new Date();
         const day = String(currentDate.getDate()).padStart(2, '0');
         const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Los meses comienzan desde 0
         const year = currentDate.getFullYear();
         const formattedDate = `${day}/${month}/${year}`;
-    
+
         // Preparar los datos para enviar al servidor
         const updatedData = { quimicoStock: data, bidonesStock: data2, fecha: formattedDate };
-    
+
         console.log(JSON.stringify(updatedData));
 
-        
 
 
 
-        
-    
+
+
+
         // Realizar una solicitud POST al servidor para guardar los cambios
         fetch(`${apiUrl}/api-guardar-stock.php`, {
             method: 'POST',
@@ -186,25 +236,25 @@ function StockQuimicos() {
             },
             body: JSON.stringify(updatedData),
         })
-        .then((response) => response.json())
-        .then((result) => {
-            if (result.success) {
-                alert('Cambios guardados exitosamente.');
-            } else {
-                alert('Error al guardar los cambios');
-            }
-        })
-        .catch((error) => console.error('Error al guardar los cambios:', error));
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.success) {
+                    alert('Cambios guardados exitosamente.');
+                } else {
+                    alert('Error al guardar los cambios');
+                }
+            })
+            .catch((error) => console.error('Error al guardar los cambios:', error));
 
 
 
-          // Habilita el botón después de un período de tiempo (por ejemplo, 10 segundos)
-    setTimeout(() => {
-        setButtonDisabled(false);
-      }, 18000); // 10000 ms = 10 segundos
+        // Habilita el botón después de un período de tiempo (por ejemplo, 10 segundos)
+        setTimeout(() => {
+            setButtonDisabled(false);
+        }, 18000); // 10000 ms = 10 segundos
 
 
-        
+
     };
 
 
@@ -214,7 +264,7 @@ function StockQuimicos() {
         <div className='parent-stock-quim-container'>
             <div className='stock-quim-container'>
                 <h1>Stock de Químicos</h1> {/* Título general */}
-                <button class="btn btn-primary"   disabled={buttonDisabled} onClick={handleSaveChanges}>Guardar Cambios</button>
+                <button class="btn btn-primary" disabled={buttonDisabled} onClick={handleSaveChanges}>Guardar Cambios</button>
 
                 <table className='table-container'>
                     <tr className='tr-prod-stock-quim' >
@@ -274,7 +324,35 @@ function StockQuimicos() {
                                     {item.cantidads}
                                 </td>
                             )}
-                            <td>{item.presentacions}</td>
+                            
+
+
+                            {/* Presentaciones (nueva sección para edición) */}
+                            {editingPresentacions.rowIndex === index && editingPresentacions.columnName === "presentacions" ? (
+                                // Campo de edición
+                                <input
+                                    type="number"
+                                    value={editedValuePresentacions}
+                                    onChange={handlePresentacionsChange}
+                                    onBlur={handleSavePresentacions}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSavePresentacions();
+                                        }
+                                    }}
+                                />
+                            ) : (
+                                // Valor actual (editable al hacer clic)
+                                <td onClick={() => handleEditPresentacions(index)} className="editable">
+                                    {item.presentacions}
+                                </td>
+                            )}
+                            {/* Resto de las columnas y celdas */}
+                            {/* ... */}
+
+
+
+
                             {editingCantidadA.rowIndex === index && editingCantidadA.columnName === "cantidada" ? (
                                 <input
                                     type="number"
@@ -292,9 +370,9 @@ function StockQuimicos() {
                                     {item.cantidada}
                                 </td>
                             )}
-                            <td>{item.presentaciona}</td>
+                            <td>{item.presentacions}</td>
                             <td>{item.cantidadp}</td>
-                            <td>{item.presentacionp}</td>
+                            <td>{item.presentacions}</td>
                             <td>{item.total}</td>
                             <td>{item.Ubicación}</td>
                             <td>{item.FORMATO}</td>
@@ -371,9 +449,9 @@ function StockQuimicos() {
                                     {item.cantidada}
                                 </td>
                             )}
-                            <td>{item.presentaciona}</td>
+                            <td>{item.presentacions}</td>
                             <td>{item.cantidadp}</td>
-                            <td>{item.presentacionp}</td>
+                            <td>{item.presentacions}</td>
                             <td>{item.total}</td>
                             <td>{item.ubicacion}</td>
 
