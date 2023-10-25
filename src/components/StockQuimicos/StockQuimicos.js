@@ -195,6 +195,47 @@ function StockQuimicos() {
 
 
 
+        {/* MISMA LOGICA PARA presentacion KG  BIDONES*/ }
+
+    // Agregar estados y funciones para editar item.presentacions
+    const [editingPresentacionsB, setEditingPresentacionsB] = useState({ rowIndex: null, columnName: null });
+    const [editedValuePresentacionsB, setEditedValuePresentacionsB] = useState("");
+
+    const handleEditPresentacionsB = (index) => {
+        setEditingPresentacionsB({ rowIndex: index, columnName: "presentacions" });
+        setEditedValuePresentacionsB(data2[index].presentacions);
+    };
+
+    const handlePresentacionsChangeB = (event) => {
+        const newValue = event.target.value;
+        setEditedValuePresentacionsB(newValue);
+    };
+
+    const handleSavePresentacionsB = () => {
+        if (editingPresentacionsB.rowIndex !== null && editingPresentacionsB.columnName === "presentacions") {
+            const rowIndex = editingPresentacionsB.rowIndex;
+            const newData = [...data2];
+            const newPresentacions = parseFloat(editedValuePresentacionsB);
+            newData[rowIndex].presentacions = newPresentacions;
+            // Aquí puedes realizar las actualizaciones necesarias en otros campos si es necesario.
+
+
+            newData[rowIndex].total = newData[rowIndex].cantidadp * newData[rowIndex].presentacions;
+
+            setData2(newData);
+        }
+        setEditingPresentacionsB({ rowIndex: null, columnName: null });
+    };
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -475,7 +516,35 @@ function StockQuimicos() {
                                     {item.cantidads}
                                 </td>
                             )}
-                            <td className='oculta-stock' >{item.presentacions}</td>
+                            
+
+
+                              {/* Presentaciones (nueva sección para edición) */}
+                              {editingPresentacionsB.rowIndex === index && editingPresentacionsB.columnName === "presentacions" ? (
+                                // Campo de edición
+                                <input
+                                    type="number"
+                                    value={editedValuePresentacionsB}
+                                    onChange={handlePresentacionsChangeB}
+                                    onBlur={handleSavePresentacionsB}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSavePresentacionsB();
+                                        }
+                                    }}
+                                />
+                            ) : (
+                                // Valor actual (editable al hacer clic)
+                                <td onClick={() => handleEditPresentacionsB(index)} className="editable oculta-stock">
+                                    {item.presentacions}
+                                </td>
+                            )}
+                            {/* Resto de las columnas y celdas */}
+                            {/* ... */}
+
+
+
+
                             {editingCantidadAB.rowIndex === index && editingCantidadAB.columnName === "cantidada" ? (
                                 <input
                                     type="number"
@@ -493,9 +562,51 @@ function StockQuimicos() {
                                     {item.cantidada}
                                 </td>
                             )}
-                            <td>{item.presentacions}</td>
+                            {/* Presentaciones (nueva sección para edición) */}
+                            {editingPresentacionsB.rowIndex === index && editingPresentacionsB.columnName === "presentacions" ? (
+                                // Campo de edición
+                                <input
+                                    type="number"
+                                    value={editedValuePresentacionsB}
+                                    onChange={handlePresentacionsChangeB}
+                                    onBlur={handleSavePresentacionsB}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSavePresentacionsB();
+                                        }
+                                    }}
+                                />
+                            ) : (
+                                // Valor actual (editable al hacer clic)
+                                <td onClick={() => handleEditPresentacionsB(index)} className="editable ">
+                                    {item.presentacions}
+                                </td>
+                            )}
+                            {/* Resto de las columnas y celdas */}
+                            {/* ... */}
                             <td className='oculta-stock'>{item.cantidadp}</td>
-                            <td className='oculta-stock'>{item.presentacions}</td>
+                            {/* Presentaciones (nueva sección para edición) */}
+                            {editingPresentacionsB.rowIndex === index && editingPresentacionsB.columnName === "presentacions" ? (
+                                // Campo de edición
+                                <input
+                                    type="number"
+                                    value={editedValuePresentacionsB}
+                                    onChange={handlePresentacionsChangeB}
+                                    onBlur={handleSavePresentacionsB}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSavePresentacionsB();
+                                        }
+                                    }}
+                                />
+                            ) : (
+                                // Valor actual (editable al hacer clic)
+                                <td onClick={() => handleEditPresentacionsB(index)} className="editable oculta-stock">
+                                    {item.presentacions}
+                                </td>
+                            )}
+                            {/* Resto de las columnas y celdas */}
+                            {/* ... */}
                             <td className='oculta-stock'>{item.total}</td>
                             <td className='oculta-stock'>{item.ubicacion}</td>
 
