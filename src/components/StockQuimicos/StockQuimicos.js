@@ -276,29 +276,29 @@ function StockQuimicos() {
                     <tr className='tr-prod-stock-quim' >
                         <td>Producto</td>
                         <td>-</td>
-                        <td colspan="2">Stock Seguridad</td>
+                        <td className="oculta-stock" colspan="2">Stock Seguridad</td>
 
                         <td colspan="2">Stock actual</td>
 
-                        <td colspan="2">Pedido</td>
+                        <td className="oculta-stock" colspan="2">Pedido</td>
 
-                        <td>Total</td>
-                        <td></td>
-                        <td></td>
+                        <td className="oculta-stock">Total</td>
+                        <td className="oculta-stock"></td>
+                        <td className="oculta-stock"></td>
 
                     </tr>
                     <tr className='tr-prod-stock-quim2'>
                         <td>PRODUCTO</td>
                         <td>PROVEEDOR</td>
-                        <td>cantidad</td>
-                        <td>presentacion en KG</td>
-                        <td>cantidad</td>
-                        <td>presentacion en Kg</td>
+                        <td className="oculta-stock" >cantidad</td>
+                        <td className="oculta-stock" >presentacion en KG</td>
                         <td>cantidad</td>
                         <td>presentacion en Kg</td>
-                        <td></td>
-                        <td>Ubicación</td>
-                        <td>FORMATO</td>
+                        <td className="oculta-stock" >cantidad</td>
+                        <td className="oculta-stock" >presentacion en Kg</td>
+                        <td className="oculta-stock"></td>
+                        <td className="oculta-stock">Ubicación</td>
+                        <td className="oculta-stock">FORMATO</td>
 
                     </tr>
 
@@ -320,7 +320,7 @@ function StockQuimicos() {
                                     }}
                                 />
                             ) : (
-                                <td onClick={() => handleEditCantidad(index)} className="editable">
+                                <td onClick={() => handleEditCantidad(index)} className="editable oculta-stock">
                                     {item.cantidads}
                                 </td>
                             )}
@@ -343,7 +343,7 @@ function StockQuimicos() {
                                 />
                             ) : (
                                 // Valor actual (editable al hacer clic)
-                                <td onClick={() => handleEditPresentacions(index)} className="editable">
+                                <td onClick={() => handleEditPresentacions(index)} className="editable oculta-stock">
                                     {item.presentacions}
                                 </td>
                             )}
@@ -393,7 +393,7 @@ function StockQuimicos() {
                             )}
                             {/* Resto de las columnas y celdas */}
                             {/* ... */}
-                            <td>{item.cantidadp}</td>
+                            <td className="oculta-stock" >{item.cantidadp}</td>
                             
                             {/* Presentaciones (nueva sección para edición) */}
                             {editingPresentacions.rowIndex === index && editingPresentacions.columnName === "presentacions" ? (
@@ -411,15 +411,15 @@ function StockQuimicos() {
                                 />
                             ) : (
                                 // Valor actual (editable al hacer clic)
-                                <td onClick={() => handleEditPresentacions(index)} className="editable">
+                                <td onClick={() => handleEditPresentacions(index)} className="editable oculta-stock">
                                     {item.presentacions}
                                 </td>
                             )}
                             {/* Resto de las columnas y celdas */}
                             {/* ... */}
-                            <td>{item.total}</td>
-                            <td>{item.Ubicación}</td>
-                            <td>{item.FORMATO}</td>
+                            <td className="oculta-stock">{item.total}</td>
+                            <td className="oculta-stock">{item.Ubicación}</td>
+                            <td className="oculta-stock">{item.FORMATO}</td>
                         </tr>
                     ))}
 
@@ -431,26 +431,26 @@ function StockQuimicos() {
                 <table className='table-bidones-container'>
                     <tr className='tr-prod-stock-quim' >
                         <td>Producto</td>
-                        <td colspan="2">Stock Seguridad</td>
+                        <td className="oculta-stock"colspan="2">Stock Seguridad</td>
 
                         <td colspan="2">Stock actual</td>
 
-                        <td colspan="2">Pedido</td>
+                        <td className="oculta-stock"colspan="2">Pedido</td>
 
-                        <td>Total</td>
-                        <td></td>
+                        <td className="oculta-stock">Total</td>
+                        <td className="oculta-stock"></td>
 
                     </tr>
                     <tr className='tr-prod-stock-quim2'>
                         <td>Producto</td>
-                        <td>cantidad</td>
-                        <td>presentacion en KG</td>
-                        <td>cantidad</td>
-                        <td>presentacion en Kg</td>
+                        <td className="oculta-stock">cantidad</td>
+                        <td className="oculta-stock">presentacion en KG</td>
                         <td>cantidad</td>
                         <td>presentacion en Kg</td>
-                        <td>Total</td>
-                        <td>Ubicación</td>
+                        <td className="oculta-stock">cantidad</td>
+                        <td className="oculta-stock">presentacion en Kg</td>
+                        <td className="oculta-stock">Total</td>
+                        <td className="oculta-stock">Ubicación</td>
 
                     </tr>
 
@@ -471,11 +471,11 @@ function StockQuimicos() {
                                     }}
                                 />
                             ) : (
-                                <td onClick={() => handleEditCantidadB(index)} className="editable">
+                                <td onClick={() => handleEditCantidadB(index)} className="editable oculta-stock">
                                     {item.cantidads}
                                 </td>
                             )}
-                            <td>{item.presentacions}</td>
+                            <td className='oculta-stock' >{item.presentacions}</td>
                             {editingCantidadAB.rowIndex === index && editingCantidadAB.columnName === "cantidada" ? (
                                 <input
                                     type="number"
@@ -494,10 +494,10 @@ function StockQuimicos() {
                                 </td>
                             )}
                             <td>{item.presentacions}</td>
-                            <td>{item.cantidadp}</td>
-                            <td>{item.presentacions}</td>
-                            <td>{item.total}</td>
-                            <td>{item.ubicacion}</td>
+                            <td className='oculta-stock'>{item.cantidadp}</td>
+                            <td className='oculta-stock'>{item.presentacions}</td>
+                            <td className='oculta-stock'>{item.total}</td>
+                            <td className='oculta-stock'>{item.ubicacion}</td>
 
                         </tr>
                     ))}

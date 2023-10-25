@@ -79,3 +79,10 @@ h1 {
     text-align: center;
     
   }
+
+
+  @media (width <=813px) {
+    .oculta-stock{
+      display: none;
+    }
+  }
