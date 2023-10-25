@@ -370,9 +370,53 @@ function StockQuimicos() {
                                     {item.cantidada}
                                 </td>
                             )}
-                            <td>{item.presentacions}</td>
+                            
+                            {/* Presentaciones (nueva sección para edición) */}
+                            {editingPresentacions.rowIndex === index && editingPresentacions.columnName === "presentacions" ? (
+                                // Campo de edición
+                                <input
+                                    type="number"
+                                    value={editedValuePresentacions}
+                                    onChange={handlePresentacionsChange}
+                                    onBlur={handleSavePresentacions}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSavePresentacions();
+                                        }
+                                    }}
+                                />
+                            ) : (
+                                // Valor actual (editable al hacer clic)
+                                <td onClick={() => handleEditPresentacions(index)} className="editable">
+                                    {item.presentacions}
+                                </td>
+                            )}
+                            {/* Resto de las columnas y celdas */}
+                            {/* ... */}
                             <td>{item.cantidadp}</td>
-                            <td>{item.presentacions}</td>
+                            
+                            {/* Presentaciones (nueva sección para edición) */}
+                            {editingPresentacions.rowIndex === index && editingPresentacions.columnName === "presentacions" ? (
+                                // Campo de edición
+                                <input
+                                    type="number"
+                                    value={editedValuePresentacions}
+                                    onChange={handlePresentacionsChange}
+                                    onBlur={handleSavePresentacions}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSavePresentacions();
+                                        }
+                                    }}
+                                />
+                            ) : (
+                                // Valor actual (editable al hacer clic)
+                                <td onClick={() => handleEditPresentacions(index)} className="editable">
+                                    {item.presentacions}
+                                </td>
+                            )}
+                            {/* Resto de las columnas y celdas */}
+                            {/* ... */}
                             <td>{item.total}</td>
                             <td>{item.Ubicación}</td>
                             <td>{item.FORMATO}</td>
