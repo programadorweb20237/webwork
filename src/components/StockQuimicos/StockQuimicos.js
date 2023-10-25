@@ -310,8 +310,8 @@ function StockQuimicos() {
                 <table className='table-container'>
                     <tr className='tr-prod-stock-quim' >
                         <td>Fecha:</td>
-                        <td>{data.length > 0 ? data[0].fecha : 'Sin fecha'}</td>
-                        <td colspan="9"></td>
+                        <td className="oculta-stock">{data.length > 0 ? data[0].fecha : 'Sin fecha'}</td>
+                        <td colspan="9">{data.length > 0 ? data[0].fecha : 'Sin fecha'}</td>
 
                     </tr>
                     <tr className='tr-prod-stock-quim' >
@@ -330,7 +330,7 @@ function StockQuimicos() {
                     </tr>
                     <tr className='tr-prod-stock-quim2'>
                         <td>PRODUCTO</td>
-                        <td>PROVEEDOR</td>
+                        <td className="oculta-stock">PROVEEDOR</td>
                         <td className="oculta-stock" >cantidad</td>
                         <td className="oculta-stock" >presentacion en KG</td>
                         <td>cantidad</td>
@@ -347,7 +347,7 @@ function StockQuimicos() {
                     {data.map((item, index) => (
                         <tr key={index}>
                             <td>{item.PRODUCTO}</td>
-                            <td>{item.PROVEEDOR}</td>
+                            <td className="oculta-stock">{item.PROVEEDOR}</td>
                             {editingCell.rowIndex === index && editingCell.columnName === "cantidads" ? (
                                 <input
                                     type="number"
