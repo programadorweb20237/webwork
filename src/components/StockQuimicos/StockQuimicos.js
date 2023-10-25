@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './StockQuimicos.css';
 import { apiUrl } from "../API/ApiConfig";
 
-function StockQuimicos() {
+function StockQuimicos({ isLoggedIn, usuarioObj }) {
 
 
 
@@ -316,7 +316,7 @@ function StockQuimicos() {
                     </tr>
                     <tr className='tr-prod-stock-quim' >
                         <td>Producto</td>
-                        <td>-</td>
+                        <td>{usuarioObj.nombre_completo}</td>
                         <td className="oculta-stock" colspan="2">Stock Seguridad</td>
 
                         <td colspan="2">Stock actual</td>

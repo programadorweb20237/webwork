@@ -60,7 +60,7 @@ const App = () => {
         handleLogout={handleLogout}
          />} />
         <Route path="/nueva-pagina" element={<NuevaPagina usuarioObj={usuarioObj} />} />
-        <Route path="/stockquimicos" element={<StockQuimicos />} />
+        <Route path="/stockquimicos" element={<StockQuimicos isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} />} />
         <Route path="/products" element={<ConsumirApi />} />
         <Route path="/limpieza" element={<ItemLimpieza />} />
         <Route path="/pisos" element={<ItemPisos />} />
