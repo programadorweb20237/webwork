@@ -376,6 +376,7 @@ function StockQuimicos() {
                                     value={editedValuePresentacions}
                                     onChange={handlePresentacionsChange}
                                     onBlur={handleSavePresentacions}
+                                    className="oculta-stock"
                                     onKeyDown={(e) => {
                                         if (e.key === "Enter") {
                                             handleSavePresentacions();
@@ -444,6 +445,7 @@ function StockQuimicos() {
                                     value={editedValuePresentacions}
                                     onChange={handlePresentacionsChange}
                                     onBlur={handleSavePresentacions}
+                                    className="oculta-stock"
                                     onKeyDown={(e) => {
                                         if (e.key === "Enter") {
                                             handleSavePresentacions();
@@ -525,6 +527,7 @@ function StockQuimicos() {
                                 <input
                                     type="number"
                                     value={editedValuePresentacionsB}
+                                    className="oculta-stock"
                                     onChange={handlePresentacionsChangeB}
                                     onBlur={handleSavePresentacionsB}
                                     onKeyDown={(e) => {
@@ -569,6 +572,7 @@ function StockQuimicos() {
                                     type="number"
                                     value={editedValuePresentacionsB}
                                     onChange={handlePresentacionsChangeB}
+                                    
                                     onBlur={handleSavePresentacionsB}
                                     onKeyDown={(e) => {
                                         if (e.key === "Enter") {
@@ -593,6 +597,7 @@ function StockQuimicos() {
                                     value={editedValuePresentacionsB}
                                     onChange={handlePresentacionsChangeB}
                                     onBlur={handleSavePresentacionsB}
+                                    className="oculta-stock"
                                     onKeyDown={(e) => {
                                         if (e.key === "Enter") {
                                             handleSavePresentacionsB();
