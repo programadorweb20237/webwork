@@ -259,7 +259,7 @@ function StockQuimicos({ isLoggedIn, usuarioObj }) {
         const formattedDate = `${day}/${month}/${year}`;
 
         // Preparar los datos para enviar al servidor
-        const updatedData = { quimicoStock: data, bidonesStock: data2, fecha: formattedDate };
+        const updatedData = { quimicoStock: data, bidonesStock: data2, fecha: formattedDate, usuariostock: usuarioObj.nombre_completo };
 
         console.log(JSON.stringify(updatedData));
 
