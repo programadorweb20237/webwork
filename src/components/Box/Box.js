@@ -2,7 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Box.css';
 
-const Box = ({isLoggedIn, handleLogout,usuarioObj}) => (
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { Link } from 'react-router-dom';
+
+
+
+const Box = ({ isLoggedIn, handleLogout, usuarioObj }) => {
+
+  const navigate = useNavigate(); // Mueve la declaración aquí
+
+
+  return (
+  
+
   <div className="Box ocultar">
     <ul className='listaNavBox'>
       <li><a onClick={menuDes}href="#">Empresa</a></li>
@@ -18,6 +30,13 @@ const Box = ({isLoggedIn, handleLogout,usuarioObj}) => (
       )}
 
 
+{isLoggedIn && usuarioObj && (usuarioObj.rol === 'Jefe' || usuarioObj.rol === 'Mod') && (
+           <li><a onClick={() => navigate('/stockquimicos')}>Stock</a></li>
+
+      )}
+
+
+
 
 
       <li><a onClick={() => abrirModalLogin(isLoggedIn, handleLogout)} href="#">
@@ -25,8 +44,10 @@ const Box = ({isLoggedIn, handleLogout,usuarioObj}) => (
       </a></li>
     </ul>
   </div>
-);
+  );
+};
 
+// Resto de tu componente
 function menuDes() {
   document.querySelector(".Box").classList.toggle("ocultar");
 }
