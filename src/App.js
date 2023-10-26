@@ -30,6 +30,8 @@ import ItemOrdeñe from './components/API/ItemOrdeñe/ItemOrdeñe';
 
 import ItemNoticias from './components/API/ItemNoticias/ItemNoticias';
 
+import ConsumirApi2 from './components/API/ConsumirApi2';
+
 
 const App = () => {
   // Estado para guardar el objeto Usuario
@@ -62,6 +64,7 @@ const App = () => {
         <Route path="/nueva-pagina" element={<NuevaPagina usuarioObj={usuarioObj} />} />
         <Route path="/stockquimicos" element={<StockQuimicos isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} />} />
         <Route path="/products" element={<ConsumirApi />} />
+        <Route path="/products2" element={<ConsumirApi2 />} />
         <Route path="/limpieza" element={<ItemLimpieza />} />
         <Route path="/pisos" element={<ItemPisos />} />
         <Route path="/ventiladores" element={<ItemVentiladores />} />
