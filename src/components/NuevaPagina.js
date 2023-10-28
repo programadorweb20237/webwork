@@ -41,6 +41,19 @@ function NuevaPagina({ usuarioObj }) {
             return;
         }
 
+
+        // Validar que el valor ingresado sea una dirección de correo electrónico válida
+        const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+        if (!emailPattern.test(newClient.email)) {
+            // Mostrar un mensaje de error si el formato del correo es incorrecto
+            alert('Por favor, ingrese una dirección de correo electrónico válida.');
+            return;
+
+        }
+
+
+
+
         // Realizar una solicitud POST al servidor para guardar el nuevo cliente
         fetch(`${apiUrl}/api-guardar-email.php`, {
             method: 'POST',
@@ -52,7 +65,7 @@ function NuevaPagina({ usuarioObj }) {
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
-                    
+
 
                     // Actualiza la lista de clientes con el nuevo cliente
                     setClientesData([...clientesData, newClient]);
@@ -124,7 +137,7 @@ function NuevaPagina({ usuarioObj }) {
         };
 
 
-        
+
 
         console.log(data);
 
@@ -169,7 +182,7 @@ function NuevaPagina({ usuarioObj }) {
             });
     };
 
-    
+
     const handleSubmit = (event) => {
         event.preventDefault();
         abrirModal();
