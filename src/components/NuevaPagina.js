@@ -271,7 +271,7 @@ function NuevaPagina({ usuarioObj }) {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-primary" onClick={enviarSolicitudPOST}>Confirmar</button>
-                                    <button type="button" id="btn-confirmar-modal-cerrar" className="btn btn-secondary" data-bs-dismiss="modal" onClick={cerrarModal}></button>
+                                    <button type="button" id="btn-confirmar-modal-cerrar" className="btn btn-secondary" data-bs-dismiss="modal" onClick={cerrarModal}>Cancelar</button>
                                 </div>
                             </div>
                         </div>
