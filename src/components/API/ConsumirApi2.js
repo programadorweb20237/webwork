@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './ConsumirApi.css';
 import { apiUrl } from './ApiConfig';
 
-function ConsumirApi2() {
+function ConsumirApi2({ isLoggedIn, usuarioObj }) {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
+
+  const updatedData = { selectedItems: selectedItems, usuariopedido: usuarioObj.nombre_completo };
 
   useEffect(() => {
     fetch(`${apiUrl}/api-routes.php`)
@@ -77,6 +79,8 @@ function ConsumirApi2() {
                 className="btn btn-success" // Estilo de botón para Enviar pedido
                 onClick={() => {
                   // Agregar lógica para enviar el pedido aquí
+                  console.log(updatedData); // Agregar esta línea para mostrar los elementos seleccionados en la consola
+
                 }}
               >
                 Enviar pedido

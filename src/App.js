@@ -64,7 +64,7 @@ const App = () => {
         <Route path="/nueva-pagina" element={<NuevaPagina usuarioObj={usuarioObj} />} />
         <Route path="/stockquimicos" element={<StockQuimicos isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} />} />
         <Route path="/products" element={<ConsumirApi />} />
-        <Route path="/products2" element={<ConsumirApi2 />} />
+        <Route path="/pedido" element={<ConsumirApi2 isLoggedIn={isLoggedIn} usuarioObj={usuarioObj}/>} />
         <Route path="/limpieza" element={<ItemLimpieza />} />
         <Route path="/pisos" element={<ItemPisos />} />
         <Route path="/ventiladores" element={<ItemVentiladores />} />
