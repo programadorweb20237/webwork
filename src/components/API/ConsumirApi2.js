@@ -8,11 +8,13 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
   const [selectedItems, setSelectedItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
 
-  const updatedData = { selectedItems: selectedItems, usuariopedido: usuarioObj.nombre_completo };
+  const updatedData = { selectedItems: selectedItems, usuariopedido: usuarioObj.nombre_completo || "?" };
 
 
 
   const pedidoEmail = () => {
+
+    console.log(updatedData);
     
 
     // Realizar una solicitud POST al servidor para guardar los cambios
