@@ -42,7 +42,7 @@ function ConsumirApi2() {
       />
 
       <button onClick={() => setShowCart(true)} className="btn-carrito">
-        Carrito
+        Pedido
       </button>
 
       <div
@@ -54,7 +54,7 @@ function ConsumirApi2() {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Carrito de Compras</h5>
+              <h5 className="modal-title">Pedido</h5>
               <button
                 type="button"
                 className="btn-close"
@@ -117,7 +117,7 @@ function ConsumirApi2() {
                       }
                     }}
                   >
-                    Agregar al Carrito
+                    Agregar al pedido
                   </button>
                 </td>
               </tr>
