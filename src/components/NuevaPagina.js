@@ -7,15 +7,11 @@ function NuevaPagina({ usuarioObj }) {
     const [cliente, setCliente] = useState('');
     const [pagos, setPagos] = useState([{ precio: '', tipoPago: 'Efectivo', imagen: null }]);
     const [clientesData, setClientesData] = useState([]);
-    const [mensaje, setMensaje] = useState(null); // Estado para el mensaje
-    const [mensajeEstilo, setMensajeEstilo] = useState(null); // Estilo del mensaje
-
-    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal
-
-    const [isClientModalOpen, setIsClientModalOpen] = useState(false); // Estado para controlar el modal de cliente
+    const [mensaje, setMensaje] = useState(null);
+    const [mensajeEstilo, setMensajeEstilo] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isClientModalOpen, setIsClientModalOpen] = useState(false);
     const [newClient, setNewClient] = useState({ nombre: '', email: '' });
-
-   
 
     useEffect(() => {
         // Realizar la solicitud a la API cuando el componente se monte
@@ -33,15 +29,6 @@ function NuevaPagina({ usuarioObj }) {
             });
     }, []);
 
-
-
-
-
-
-
-
-
-  
     // Función para manejar cambios en la entrada del nuevo cliente
     const handleClientInput = (campo, valor) => {
         setNewClient({ ...newClient, [campo]: valor });
@@ -49,26 +36,40 @@ function NuevaPagina({ usuarioObj }) {
 
     // Función para agregar un nuevo cliente y cerrar el modal
     const addNewClient = () => {
-        // Agregar los datos del nuevo cliente a tu lista de clientes (clientesData) si es necesario
-        // También puedes realizar una solicitud a la API para guardarlos en el servidor
+        if (!newClient.nombre || !newClient.email) {
+            alert('Por favor, complete todos los campos.');
+            return;
+        }
 
-        // Cerrar el modal de cliente
-        setIsClientModalOpen(false);
-    };
+        // Realizar una solicitud POST al servidor para guardar el nuevo cliente
+        fetch(`${apiUrl}/api-guardar-email.php`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newClient),
+        })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    
 
+                    // Actualiza la lista de clientes con el nuevo cliente
+                    setClientesData([...clientesData, newClient]);
 
+                    // Limpia los campos del nuevo cliente
+                    setNewClient({ nombre: '', email: '' });
 
+                    // Cierra el modal de cliente
+                    setIsClientModalOpen(false);
 
-
-
-
-
-
-
-
-
-
-
+                    alert('Cliente añadido exitosamente.');
+                } else {
+                    alert('Error al añadir cliente.');
+                }
+            })
+            .catch(error => console.error('Error al guardar los cambios:', error));
+    }
 
     const agregarPago = () => {
         setPagos([...pagos, { precio: '', tipoPago: 'Efectivo', imagen: null }]);
@@ -91,8 +92,6 @@ function NuevaPagina({ usuarioObj }) {
         reader.readAsDataURL(nuevaImagen);
     };
 
-
-
     const calcularTotal = () => {
         const total = pagos.reduce((sum, pago) => sum + parseFloat(pago.precio || 0), 0);
         return total.toFixed(2);
@@ -100,38 +99,32 @@ function NuevaPagina({ usuarioObj }) {
 
     const abrirModal = () => {
         setIsModalOpen(true);
-      
     };
 
     const abrirModal2 = () => {
         setIsClientModalOpen(true);
-        
-      
     };
 
     const cerrarModal = () => {
         setIsModalOpen(false);
     };
 
-
-
-
     const enviarSolicitudPOST = (event) => {
         event.preventDefault();
         document.getElementById("btn-confirmar-modal-cerrar").click();
-       
 
-
-        setTimeout(function() {
+        setTimeout(function () {
             alert("Enviando correo...");
-        }, 300); // 1000 milisegundos (1 segundo)
-       
+        }, 300);
 
         const data = {
             cliente: cliente,
             nombreCliente: clientesData.find(c => c.email === cliente)?.nombre,
             pagos: pagos,
         };
+
+
+        
 
         console.log(data);
 
@@ -148,17 +141,17 @@ function NuevaPagina({ usuarioObj }) {
                 if (data.success) {
                     // Éxito: Configura el mensaje de éxito
                     alert('Correo enviado con éxito!');
-                
+
                     setMensaje('Correo enviado con éxito');
                     setMensajeEstilo('alert alert-success');
                     console.log('Correo enviado con éxito frontend', data.message);
 
 
                     // Después de 5 segundos, borra el mensaje de éxito
-                setTimeout(() => {
-                    setMensaje(null);
-                    setMensajeEstilo(null);
-                }, 5000); // 5000 milisegundos (5 segundos)
+                    setTimeout(() => {
+                        setMensaje(null);
+                        setMensajeEstilo(null);
+                    }, 5000); // 5000 milisegundos (5 segundos)
 
                 } else {
                     // Fallo: Configura el mensaje de fallo
@@ -176,86 +169,30 @@ function NuevaPagina({ usuarioObj }) {
             });
     };
 
-
-
-
+    
     const handleSubmit = (event) => {
         event.preventDefault();
-        abrirModal(); // Abre el modal antes de enviar la solicitud POST
-
-       
+        abrirModal();
     };
 
-       // Controlador de eventos para reiniciar campos
-       const reiniciarCampos = () => {
+    const reiniciarCampos = () => {
         setCliente('');
         setPagos([{ precio: '', tipoPago: 'Efectivo', imagen: null }]);
     };
 
-
-
-    // Renderizar las opciones del select
     const opcionesClientes = clientesData.map(cliente => (
         <option key={cliente.email} value={cliente.email}>
             {cliente.nombre}
         </option>
     ));
 
-    // Verificar si el usuario está autenticado y si su nombre es "Nico"
     if (usuarioObj.username === 'psiri') {
         return (
             <div className="form-pago-1">
                 <h2 className='form-pago-h2'>Formulario de Pagos</h2>
 
-
- {/* Botón de reinicio para restablecer campos */}
- <button type="button" onClick={reiniciarCampos}>Reiniciar Campos</button>
- <button type="button" className="agregar-pago2" onClick={abrirModal2}>Añadir cliente</button>
-
-            {/* Resto del código del formulario... */}
-            
-            {/* Modal para agregar un nuevo cliente con Bootstrap 5 */}
-            {isClientModalOpen && (
-                <div className="modal fade show" id="clientModal" tabIndex="-1" aria-labelledby="clientModalLabel" aria-hidden="true" style={{ display: "block" }}>
-           
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="clientModalLabel">Añadir nuevo cliente</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => setIsClientModalOpen(false)}></button>
-                        </div>
-                        <div className="modal-body">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Nombre"
-                                value={newClient.nombre}
-                                onChange={(e) => handleClientInput('nombre', e.target.value)}
-                            />
-                            <br />
-                            <input
-                                type="email"
-                                className="form-control"
-                                placeholder="Correo electrónico"
-                                value={newClient.email}
-                                onChange={(e) => handleClientInput('email', e.target.value)}
-                            />
-                        </div>
-                        <div className="modal-footer">
-                           
-                            <button type="button" className="btn btn-primary" onClick={addNewClient}>Añadir</button>
-                       
-                        </div>
-                    </div>
-                </div>
-            </div>)}
-            {/* Fin del modal de Bootstrap 5 */}
-
-
-
-
-
-
+                <button type="button" onClick={reiniciarCampos}>Reiniciar Campos</button>
+                <button type="button" className="agregar-pago2" onClick={abrirModal2}>Añadir cliente</button>
 
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="cliente">Elige un cliente:</label>
@@ -267,8 +204,6 @@ function NuevaPagina({ usuarioObj }) {
                     >
                         {opcionesClientes}
                     </select>
-
-               
 
                     <div id="pagos-container">
                         {pagos.map((pago, index) => (
@@ -315,42 +250,71 @@ function NuevaPagina({ usuarioObj }) {
                     {mensaje && <div className={mensajeEstilo}>{mensaje}</div>}
                 </form>
 
-
                 {isModalOpen && (
-                <div className="modal fade show" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ display: "block" }}>
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Confirmar Información</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={cerrarModal}></button>
-                            </div>
-                            <div className="modal-body">
-                                <p>Cliente: {clientesData.find(c => c.email === cliente)?.nombre}</p>
-
-                                <h4>Detalles de los Pagos:</h4>
-                                {pagos.map((pago, index) => (
-                            <div key={index}>
-                                <p>Tipo de Pago: {pago.tipoPago}</p>
-                                <p>Valor: ${pago.precio}</p>
-                            </div>
-                        ))}
-                                <p>Total: ${calcularTotal()}</p>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-primary" onClick={enviarSolicitudPOST}>Confirmar</button>
-                                <button type="button" id="btn-confirmar-modal-cerrar" className="btn btn-secondary" data-bs-dismiss="modal" onClick={cerrarModal}>Cancelar</button>
+                    <div className="modal fade show" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ display: "block" }}>
+                        <div className="modal-dialog">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">Confirmar Información</h5>
+                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={cerrarModal}></button>
+                                </div>
+                                <div className="modal-body">
+                                    <p>Cliente: {clientesData.find(c => c.email === cliente)?.nombre}</p>
+                                    <h4>Detalles de los Pagos:</h4>
+                                    {pagos.map((pago, index) => (
+                                        <div key={index}>
+                                            <p>Tipo de Pago: {pago.tipoPago}</p>
+                                            <p>Valor: ${pago.precio}</p>
+                                        </div>
+                                    ))}
+                                    <p>Total: ${calcularTotal()}</p>
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-primary" onClick={enviarSolicitudPOST}>Confirmar</button>
+                                    <button type="button" id="btn-confirmar-modal-cerrar" className="btn btn-secondary" data-bs-dismiss="modal" onClick={cerrarModal}></button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                )}
+                <div>
+                    {/* Modal para agregar un nuevo cliente con Bootstrap 5 */}
+                    {isClientModalOpen && (
+                        <div className="modal fade show" id="clientModal" tabIndex="-1" aria-labelledby="clientModalLabel" aria-hidden="true" style={{ display: "block" }}>
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="clientModalLabel">Añadir nuevo cliente</h5>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => setIsClientModalOpen(false)}></button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Nombre"
+                                            value={newClient.nombre}
+                                            onChange={(e) => handleClientInput('nombre', e.target.value)}
+                                            required
+                                        />
+                                        <br />
+                                        <input
+                                            type="email"
+                                            className="form-control"
+                                            placeholder="Correo electrónico"
+                                            value={newClient.email}
+                                            onChange={(e) => handleClientInput('email', e.target.value)}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-primary" onClick={addNewClient}>Añadir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    {/* Fin del modal de Bootstrap 5 */}
                 </div>
-            )}
-
-
-
-
-
-
-
             </div>
         );
     } else {
@@ -359,3 +323,10 @@ function NuevaPagina({ usuarioObj }) {
 }
 
 export default NuevaPagina;
+
+
+
+
+
+
+
