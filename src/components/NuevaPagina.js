@@ -12,6 +12,10 @@ function NuevaPagina({ usuarioObj }) {
 
     const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal
 
+    const [isClientModalOpen, setIsClientModalOpen] = useState(false); // Estado para controlar el modal de cliente
+    const [newClient, setNewClient] = useState({ nombre: '', email: '' });
+
+   
 
     useEffect(() => {
         // Realizar la solicitud a la API cuando el componente se monte
@@ -28,6 +32,43 @@ function NuevaPagina({ usuarioObj }) {
                 console.error('Error en la solicitud a la API:', error);
             });
     }, []);
+
+
+
+
+
+
+
+
+
+  
+    // Función para manejar cambios en la entrada del nuevo cliente
+    const handleClientInput = (campo, valor) => {
+        setNewClient({ ...newClient, [campo]: valor });
+    };
+
+    // Función para agregar un nuevo cliente y cerrar el modal
+    const addNewClient = () => {
+        // Agregar los datos del nuevo cliente a tu lista de clientes (clientesData) si es necesario
+        // También puedes realizar una solicitud a la API para guardarlos en el servidor
+
+        // Cerrar el modal de cliente
+        setIsClientModalOpen(false);
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     const agregarPago = () => {
         setPagos([...pagos, { precio: '', tipoPago: 'Efectivo', imagen: null }]);
@@ -59,6 +100,12 @@ function NuevaPagina({ usuarioObj }) {
 
     const abrirModal = () => {
         setIsModalOpen(true);
+      
+    };
+
+    const abrirModal2 = () => {
+        setIsClientModalOpen(true);
+        
       
     };
 
@@ -163,7 +210,50 @@ function NuevaPagina({ usuarioObj }) {
 
  {/* Botón de reinicio para restablecer campos */}
  <button type="button" onClick={reiniciarCampos}>Reiniciar Campos</button>
- <button type="button" className="agregar-pago2" >Añadir cliente</button>
+ <button type="button" className="agregar-pago2" onClick={abrirModal2}>Añadir cliente</button>
+
+            {/* Resto del código del formulario... */}
+            
+            {/* Modal para agregar un nuevo cliente con Bootstrap 5 */}
+            {isClientModalOpen && (
+                <div className="modal fade show" id="clientModal" tabIndex="-1" aria-labelledby="clientModalLabel" aria-hidden="true" style={{ display: "block" }}>
+           
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="clientModalLabel">Añadir nuevo cliente</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => setIsClientModalOpen(false)}></button>
+                        </div>
+                        <div className="modal-body">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Nombre"
+                                value={newClient.nombre}
+                                onChange={(e) => handleClientInput('nombre', e.target.value)}
+                            />
+                            <br />
+                            <input
+                                type="email"
+                                className="form-control"
+                                placeholder="Correo electrónico"
+                                value={newClient.email}
+                                onChange={(e) => handleClientInput('email', e.target.value)}
+                            />
+                        </div>
+                        <div className="modal-footer">
+                           
+                            <button type="button" className="btn btn-primary" onClick={addNewClient}>Añadir</button>
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>)}
+            {/* Fin del modal de Bootstrap 5 */}
+
+
+
+
 
 
 
