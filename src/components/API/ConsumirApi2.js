@@ -10,6 +10,41 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
 
   const updatedData = { selectedItems: selectedItems, usuariopedido: usuarioObj.nombre_completo };
 
+
+
+  const pedidoEmail = () => {
+    
+
+    // Realizar una solicitud POST al servidor para guardar los cambios
+    fetch(`${apiUrl}/api-pedido-email.php`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData),
+    })
+        .then((response) => response.json())
+        .then((result) => {
+            if (result.success) {
+                alert('Pedido enviado exitosamente.');
+            } else {
+                alert('Error al enviar al pedido.');
+            }
+        })
+        .catch((error) => console.error('Error al guardar los cambios:', error));
+
+
+
+};
+
+
+
+
+
+
+
+
+
   useEffect(() => {
     fetch(`${apiUrl}/api-routes.php`)
       .then((response) => response.json())
@@ -79,7 +114,10 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
                 className="btn btn-success" // Estilo de botón para Enviar pedido
                 onClick={() => {
                   // Agregar lógica para enviar el pedido aquí
-                  console.log(updatedData); // Agregar esta línea para mostrar los elementos seleccionados en la consola
+                  pedidoEmail();
+                  setSelectedItems([]); // Limpia los elementos seleccionados
+                  setShowCart(false);
+
 
                 }}
               >
