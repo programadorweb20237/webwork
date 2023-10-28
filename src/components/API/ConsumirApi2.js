@@ -6,7 +6,7 @@ function ConsumirApi2() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
-  const [showCart, setShowCart] = useState(false); // Agrega el estado y la función para controlar el modal
+  const [showCart, setShowCart] = useState(false);
 
   useEffect(() => {
     fetch(`${apiUrl}/api-routes.php`)
@@ -42,7 +42,7 @@ function ConsumirApi2() {
       />
 
       <button onClick={() => setShowCart(true)} className="btn-carrito">
-        Pedido
+        Ver pedido
       </button>
 
       <div
@@ -65,15 +65,33 @@ function ConsumirApi2() {
               <ul>
                 {selectedItems.map((selected, index) => (
                   <li key={index}>
-                    Elemento: {selected.item.description}, Cantidad: {selected.quantity}
+                    Producto: {selected.item.description}, Cantidad: {selected.quantity}.
                   </li>
                 ))}
               </ul>
             </div>
             <div className="modal-footer">
+              
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-success" // Estilo de botón para Enviar pedido
+                onClick={() => {
+                  // Agregar lógica para enviar el pedido aquí
+                }}
+              >
+                Enviar pedido
+              </button>
+
+              <button
+                type="button"
+                className="btn btn-secondary" // Estilo de botón para Resetear
+                onClick={() => setSelectedItems([])} // Limpia los elementos seleccionados
+              >
+                Resetear
+              </button>
+              <button
+                type="button"
+                className="btn btn-danger"
                 onClick={() => setShowCart(false)}
               >
                 Cerrar
@@ -92,6 +110,7 @@ function ConsumirApi2() {
             <th>Precio Mayorista</th>
             <th>Precio Minorista</th>
             <th>Costo por Kilo</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
