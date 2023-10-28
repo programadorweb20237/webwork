@@ -163,6 +163,8 @@ function NuevaPagina({ usuarioObj }) {
 
  {/* Botón de reinicio para restablecer campos */}
  <button type="button" onClick={reiniciarCampos}>Reiniciar Campos</button>
+ <button type="button" className="agregar-pago2" >Añadir cliente</button>
+
 
 
                 <form onSubmit={handleSubmit}>
@@ -175,6 +177,8 @@ function NuevaPagina({ usuarioObj }) {
                     >
                         {opcionesClientes}
                     </select>
+
+               
 
                     <div id="pagos-container">
                         {pagos.map((pago, index) => (

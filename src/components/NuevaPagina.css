@@ -57,6 +57,10 @@ button {
     background-color: #2d76ba;
 }
 
+.form-pago-1 .agregar-pago2{
+  background-color: #1f7ea6;
+}
+
 /* Estilos para botones */
 .form-pago-1 button {
   background-color:  #11426f;/* Azul */
