@@ -42,6 +42,10 @@ function NuevaPagina({ usuarioObj }) {
         }
 
 
+ 
+
+
+
         // Validar que el valor ingresado sea una dirección de correo electrónico válida
         const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
         if (!emailPattern.test(newClient.email)) {
@@ -50,6 +54,9 @@ function NuevaPagina({ usuarioObj }) {
             return;
 
         }
+
+
+
 
 
 
@@ -72,6 +79,8 @@ function NuevaPagina({ usuarioObj }) {
 
                     // Limpia los campos del nuevo cliente
                     setNewClient({ nombre: '', email: '' });
+
+      
 
                     // Cierra el modal de cliente
                     setIsClientModalOpen(false);
@@ -306,7 +315,7 @@ function NuevaPagina({ usuarioObj }) {
                                             className="form-control"
                                             placeholder="Nombre"
                                             value={newClient.nombre}
-                                            onChange={(e) => handleClientInput('nombre', e.target.value)}
+                                            onChange={(e) => handleClientInput('nombre', e.target.value.toUpperCase())}
                                             required
                                         />
                                         <br />
