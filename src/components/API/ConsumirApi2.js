@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './ConsumirApi.css';
+import './ConsumirApi2.css';
 import { apiUrl } from './ApiConfig';
 
 function ConsumirApi2({ isLoggedIn, usuarioObj }) {
@@ -68,7 +68,7 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
   };
 
   return (
-    <div className="productosDivAPI">
+    <div className="productosDivAPI2">
       <h1>Tabla de Productos y Químicos</h1>
       <input
         className="buscadorProd"
@@ -143,7 +143,7 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
         </div>
       </div>
 
-      <table>
+      <table className='tablaPedidosGrande'>
         <thead>
           <tr>
             <th>Código</th>
@@ -185,6 +185,53 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
             ))}
         </tbody>
       </table>
+
+      <table className='tablaPedidosMobile'>
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Agregar</th>
+    </tr>
+  </thead>
+  <tbody>
+    {data
+      .filter((item) =>
+        item.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .map((item, index) => (
+        <tr key={index}>
+          <td className='table-product-mobile'>
+            <div className='table-product-mobile-div'>
+              <p><strong>Código:</strong> {item.code}</p>
+              <p><strong>Producto:</strong> {replace42(item.description)}</p>
+              <p><strong>Presentación:</strong> {item.presentation}</p>
+              <p><strong>Precio Mayorista:</strong> {replace42(item.dealerPrice)}</p>
+              <p><strong>Precio Minorista:</strong> {replace42(item.retailPrice)}</p>
+              <p><strong>Costo por Kilo:</strong> {item.costoKilo === 42 ? "0" : item.costoKilo || ""}</p>
+            </div>
+          </td>
+          <td>
+            <button
+              onClick={() => {
+                const quantity = prompt('Ingrese la cantidad:');
+                if (quantity !== null && quantity !== "") {
+                  addToCart(item, quantity);
+                }
+              }}
+            >
+              Agregar al pedido
+            </button>
+          </td>
+        </tr>
+      ))}
+  </tbody>
+</table>
+
+
+
+
+
     </div>
   );
 }
