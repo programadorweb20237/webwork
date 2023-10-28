@@ -29,6 +29,7 @@ function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
 
     <nav className="Navbar">
 
+      
       <img src={menusvg} onClick={menuDes} id="menusvgId" />
 
 
@@ -37,7 +38,10 @@ function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
         <p className='dairy-en-nav'>Dairy Solutions</p>
       </div>
 
-      <img id="logoId" className="logoimg" src={logo} onClick={IrInicio}  />
+
+
+        {/*     <img id="logoId" className="logoimg" src={logo} onClick={IrInicio}/>      */}
+      <img id="logoId" className="logoimg" src={logo} onClick={() => navigate('/pedido')}  />
       <nav className='NavDef' id="menu">
         <ul className="listaNav2" id='listaNavUl'>
           <li><a href="#areaNosotrostheId">Empresa</a></li>
