@@ -29,8 +29,9 @@ class ContactForm extends Component {
 
 
         
-  // Aquí puedes enviar los datos del formulario al servidor PHP
-  fetch( `${apiUrl}/api-contact-email.php`, {
+
+// Aquí puedes enviar los datos del formulario al servidor PHP
+fetch(`${apiUrl}/api-contact-email.php`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -39,11 +40,28 @@ class ContactForm extends Component {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data); // Muestra la respuesta del servidor
+      if (data.success) {
+        // Los datos se enviaron exitosamente, muestra un mensaje de éxito
+        alert('Enviado exitosamente!');
+
+        // Restablece los campos del formulario
+        this.setState({
+            nombre: '', // Establece el campo nombre en blanco
+            telefono: '', // Establece el campo telefono en blanco
+            email: '', // Establece el campo email en blanco
+            consulta: '', // Establece el campo consulta en blanco
+          });
+
+
+      } else {
+        // Maneja el caso en el que ocurrió un error en el servidor
+        alert('Error al enviar el formulario: ' + data.message);
+      }
     })
     .catch((error) => {
       console.error('Error al enviar el formulario:', error);
     });
+  
 
 
 
