@@ -29,6 +29,11 @@ const Box = ({ isLoggedIn, handleLogout, usuarioObj }) => {
 
       )}
 
+{isLoggedIn && usuarioObj && usuarioObj.rol === 'Cliente' && (
+           <li><a onClick={() => navigate('/pedido')}>Pedido</a></li>
+
+      )}
+
 
 {isLoggedIn && usuarioObj && (usuarioObj.rol === 'Jefe' || usuarioObj.rol === 'Mod') && (
            <li><a onClick={() => navigate('/stockquimicos')}>Stock</a></li>

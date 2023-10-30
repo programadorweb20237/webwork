@@ -41,7 +41,7 @@ function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
 
 
         {/*     <img id="logoId" className="logoimg" src={logo} onClick={IrInicio}/>      */}
-      <img id="logoId" className="logoimg" src={logo} onClick={() => navigate('/pedido')}  />
+      <img id="logoId" className="logoimg" src={logo} onClick={IrInicio}  />
       <nav className='NavDef' id="menu">
         <ul className="listaNav2" id='listaNavUl'>
           <li><a href="#areaNosotrostheId">Empresa</a></li>
@@ -56,6 +56,16 @@ function Navbar({ isLoggedIn, usuarioObj, handleLogin, handleLogout }) {
 
             <a href="#areaNoticiastheId">Noticias</a></li>
           <li><a href="#areaContactotheId">Contacto</a></li>
+
+
+
+            {/*Solo se renderiza si esta un usuario logeado y si es rol Cliente */}
+      {isLoggedIn && usuarioObj && usuarioObj.rol === 'Cliente' && (
+         <li onClick={() => navigate('/pedido')}>
+         <a href='#'>Pedido</a>
+       </li>
+
+      )}
 
        
 
