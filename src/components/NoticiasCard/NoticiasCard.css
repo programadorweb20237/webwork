@@ -49,15 +49,19 @@
     
 }
 
-.descNoticiasCard{
+.descNoticiasCard {
     display: flex;
     padding: 0.5em 1em;
     word-break: break-word;
     background-color: transparent;
+    max-height: 100%; /* Establece la altura máxima para mostrar 3 líneas de texto */
+    overflow: hidden; /* Controla el desbordamiento vertical */
+    white-space: normal; /* Permite saltos de línea */
 }
 
 .contenedorDescNoticia{
     width: 100%;
+    height: 75%;
     background-color: transparent;
 }
 

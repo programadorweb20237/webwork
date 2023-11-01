@@ -32,6 +32,8 @@ import ItemNoticias from './components/API/ItemNoticias/ItemNoticias';
 
 import ConsumirApi2 from './components/API/ConsumirApi2';
 
+import NuevoNoticiaForm from './components/API/ItemNoticias/NuevoNoticiaForm';
+
 
 const App = () => {
   // Estado para guardar el objeto Usuario
@@ -72,6 +74,7 @@ const App = () => {
         <Route path="/ordeñe" element={<ItemOrdeñe />} />
 
         <Route path="/noticias" element={<ItemNoticias />} />
+        <Route path="/noticiasform" element={<NuevoNoticiaForm />} />
       </Routes>
     </HashRouter>
   );

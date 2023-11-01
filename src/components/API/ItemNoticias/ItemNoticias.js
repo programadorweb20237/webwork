@@ -9,6 +9,8 @@ function ItemNoticias() {
 
             <h1>Noticas</h1>
 
+            <button>Agregar Noticia</button>
+
             <div className='area-noticias-item'>
                 
 
