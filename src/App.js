@@ -33,6 +33,7 @@ import ItemNoticias from './components/API/ItemNoticias/ItemNoticias';
 import ConsumirApi2 from './components/API/ConsumirApi2';
 
 import NuevoNoticiaForm from './components/API/ItemNoticias/NuevoNoticiaForm';
+import NuevoNoticiaFormEdit from './components/API/ItemNoticias/NuevoNoticiaFormEdit';
 
 
 const App = () => {
@@ -75,6 +76,7 @@ const App = () => {
 
         <Route path="/noticias" element={<ItemNoticias />} />
         <Route path="/noticiasform" element={<NuevoNoticiaForm />} />
+        <Route path="/noticiasformedit/:id"  element={<NuevoNoticiaFormEdit />} />
       </Routes>
     </HashRouter>
   );
