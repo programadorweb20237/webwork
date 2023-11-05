@@ -8,6 +8,6 @@
 // http://192.168.1.26
 
 // IP backend Dairy
-// https://backend.dairy.com.ar
+// https://normal.dairy.com.ar
 
-export const apiUrl = 'http://localhost:80';
+export const apiUrl = 'https://normal.dairy.com.ar';

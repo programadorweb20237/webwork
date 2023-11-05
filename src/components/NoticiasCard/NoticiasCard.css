@@ -22,6 +22,8 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    background-color: transparent;
+    
 
 }
 .textosNoticiasCard{
@@ -55,13 +57,15 @@
     flex-direction: row;
     justify-content: end;
    align-items: center;
+   height: 100%;
+  
 }
 
 .fechaNoticiasCard{
    margin:auto;
     margin-right: 7px;
     background-color: transparent;
-    margin-top: 1px;
+    
     
 }
 
@@ -79,6 +83,7 @@
     width: 100%;
     height: 75%;
     background-color: transparent;
+    
 }
 
 @media (width <=813px) {
