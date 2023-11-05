@@ -68,7 +68,7 @@ function NuevoNoticiaFormEdit(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         const fechaParts = fecha.split('/');
-        const formattedDate = `${fechaParts[2]}/${fechaParts[1]}/${fechaParts[0]}`;
+        const formattedDate = `${fechaParts[0]}/${fechaParts[1]}/${fechaParts[2]}`;
 
         const formData = new FormData();
         formData.append('titulo', titulo);

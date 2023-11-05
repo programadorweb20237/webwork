@@ -38,13 +38,15 @@ class NuevoNoticiaForm extends Component {
 
         // Formatea la fecha al formato aaaa/mm/dd para que sea fácil de almacenar en la base de datos
         const fechaParts = this.state.fecha.split('/');
-        const formattedDate = `${fechaParts[2]}/${fechaParts[1]}/${fechaParts[0]}`;
+        const formattedDate = `${fechaParts[0]}/${fechaParts[1]}/${fechaParts[2]}`;
 
         const formData = new FormData();
         formData.append('titulo', this.state.titulo);
         formData.append('imagen', this.state.imagen);
         formData.append('contenido', this.state.contenido);
         formData.append('fecha', formattedDate);
+
+        console.log(formData);
 
         // Realiza la solicitud POST al backend
         fetch(`${apiUrl}/api-item-noticias.php`, {
