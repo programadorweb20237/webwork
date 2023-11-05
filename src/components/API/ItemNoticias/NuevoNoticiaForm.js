@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './NuevoNoticiaForm.css';
 import { apiUrl } from '../ApiConfig';
 
+
+
 class NuevoNoticiaForm extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +13,13 @@ class NuevoNoticiaForm extends Component {
             contenido: '',
             fecha: this.getCurrentDate() // Inicializa la fecha actual al cargar el formulario
         };
+        
     }
+
+ 
+
+
+
 
     getCurrentDate() {
         const today = new Date();
@@ -115,11 +123,12 @@ class NuevoNoticiaForm extends Component {
                     <br />
 
                     <input type="submit" value="Enviar" className="nuevo-noticia-form-submit" />
-                    <input type="button" value="Cancelar" onClick={() => this.props.history.push('/index')} className="nuevo-noticia-form-cancel" />
+                    <input type="button" value="Cancelar" className="nuevo-noticia-form-cancel" />
                 </form>
             </div>
         );
     }
 }
 
+// Envuelve el componente con withRouter para acceder a las propiedades de enrutamiento
 export default NuevoNoticiaForm;

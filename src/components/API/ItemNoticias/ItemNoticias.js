@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import './ItemNoticias.css';
 import { apiUrl } from "../ApiConfig";
 import NoticiasCard from '../../NoticiasCard/NoticiasCard';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+
 
 
 function ItemNoticias() {
 
     const [noticias, setNoticias] = useState([]);
+
+    const navigate = useNavigate(); // Obtiene la función de navegación
 
    
   
@@ -26,7 +30,7 @@ function ItemNoticias() {
 
             <h1>Noticas</h1>
 
-            <button>Agregar Noticia</button>
+            <button onClick={() => navigate('/noticiasform')}>Agregar Noticia</button>
 
             
 
