@@ -5,6 +5,8 @@ import NoticiasCard from '../NoticiasCard/NoticiasCard';
 import imgReunion from "./reunion.jpg"
 import { apiUrl } from "../API/ApiConfig"
 
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+
 
 // Este es el objeto Usuario que usamos si ya esta logeado el usuario
 // const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -14,6 +16,8 @@ import { apiUrl } from "../API/ApiConfig"
 
 function Noticias() {
   const [noticias, setNoticias] = useState([]);
+
+  const navigate = useNavigate(); // Obtiene la función de navegación
 
   useEffect(() => {
     // Realiza una solicitud GET a la API de noticias
@@ -28,7 +32,7 @@ function Noticias() {
 
   return (
     <div className="Noticias" id="areaNoticiastheId">
-      <h2 className="h2Noticias">NOTICIAS</h2>
+      <h2 className="h2Noticias" onClick={() => navigate('/noticias')}>NOTICIAS</h2>
       <div className="areaNoticias">
 
     
@@ -41,7 +45,7 @@ function Noticias() {
           />
         ))}
       </div>
-      <a href="/noticias">Ver más.</a>
+     
     </div>
   );
 }
