@@ -48,6 +48,22 @@
     padding-top:0.2em;
     
 }
+.contenedorFechaNoticia{
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+   align-items: center;
+}
+
+.fechaNoticiasCard{
+   margin:auto;
+    margin-right: 7px;
+    background-color: transparent;
+    margin-top: 1px;
+    
+}
 
 .descNoticiasCard {
     display: flex;

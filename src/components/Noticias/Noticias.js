@@ -42,6 +42,7 @@ function Noticias() {
             img={noticia.imagen}
             titulo={noticia.titulo}
             descripcion ={noticia.contenido}
+            fecha={noticia.fecha}
           />
         ))}
       </div>
