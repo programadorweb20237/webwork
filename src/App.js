@@ -74,7 +74,7 @@ const App = () => {
         <Route path="/efluentes" element={<ItemEfluentes />} />
         <Route path="/ordeñe" element={<ItemOrdeñe />} />
 
-        <Route path="/noticias" element={<ItemNoticias />} />
+        <Route path="/noticias" element={<ItemNoticias isLoggedIn={isLoggedIn} usuarioObj={usuarioObj}  />} />
         <Route path="/noticiasform" element={<NuevoNoticiaForm />} />
         <Route path="/noticiasformedit/:id"  element={<NuevoNoticiaFormEdit />} />
       </Routes>
