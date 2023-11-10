@@ -1,0 +1,10 @@
+.area-video-efluentes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.item-video-efluentes{
+ margin:0.5em;
+}

@@ -1,0 +1,13 @@
+.area-img-pisos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.area-img-pisos img{
+    width:300px;
+    margin: 0.5em;
+
+}
+

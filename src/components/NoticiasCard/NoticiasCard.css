@@ -1,0 +1,98 @@
+.NoticiasCard {
+    width: 100%;
+    max-width: 787px;
+    min-height: 380px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-bottom: 0.3em solid black;
+    margin:1em 1em;
+    cursor: pointer;
+    background-color: rgba(185, 217, 233, 0.281);
+}
+.subNoticiasCard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: transparent(115, 255, 0);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    
+
+}
+.textosNoticiasCard{
+    background-color:transparent;
+    width: 429px;
+    height: 368px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.imgNoticiasCard{
+    width: 22em;
+    height: 15em;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+.h4NoticiasCard{
+    font-size: 1.8em;
+    text-align: center;
+    padding-top:0.2em;
+    
+}
+.contenedorFechaNoticia{
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+   align-items: center;
+   height: 100%;
+  
+}
+
+.fechaNoticiasCard{
+   margin:auto;
+    margin-right: 7px;
+    background-color: transparent;
+    
+    
+}
+
+.descNoticiasCard {
+    display: flex;
+    padding: 0.5em 1em;
+    word-break: break-word;
+    background-color: transparent;
+    max-height: 100%; /* Establece la altura máxima para mostrar 3 líneas de texto */
+    overflow: hidden; /* Controla el desbordamiento vertical */
+    white-space: normal; /* Permite saltos de línea */
+}
+
+.contenedorDescNoticia{
+    width: 100%;
+    height: 75%;
+    background-color: transparent;
+    
+}
+
+@media (width <=813px) {
+    .textosNoticiasCard{
+        justify-content: flex-start;
+        width: 100%;
+        max-width:530px;
+    }
+    .NoticiasCard{
+        min-height: 647px;
+    }
+}

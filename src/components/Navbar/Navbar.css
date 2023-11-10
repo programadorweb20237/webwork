@@ -1,0 +1,289 @@
+.Navbar {
+    height: 3.75em;
+    width: 100%;
+    background-color: var(--nav-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    position: fixed;
+    margin-bottom: 60px;
+    min-width: 650px;
+    z-index: 100;
+
+}
+
+.btn-recibos-y-logout{
+    display: none;
+}
+
+/* menu */
+
+#menu {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+    align-items: end;
+    background-color: red;
+
+
+}
+
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* items del menu */
+
+#menu ul li {
+    background-color: var(--nav-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+
+
+}
+
+/* enlaces del menu */
+
+#menu ul a {
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.4em;
+    padding: 17px 10px;
+
+    text-align: center;
+
+}
+
+/* items del menu */
+
+#menu ul li {
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+    transition: all 280ms;
+
+}
+
+/* efecto al pasar el ratón por los items del menu */
+
+#menu ul li:hover {
+    background: var(--contrast-color);
+}
+
+
+/* menu desplegable */
+
+#menu ul ul {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #000000;
+    padding: 0;
+    
+
+
+
+
+}
+
+/* items del menu desplegable */
+
+#menu ul ul li {
+    float: none;
+    width: 150px;
+    transition: all 280ms;
+}
+
+/* enlaces de los items del menu desplegable */
+
+#menu ul ul a {
+
+    padding: 10px 15px;
+}
+
+/* items del menu desplegable al pasar el ratón */
+
+#menu ul li:hover>ul {
+display:block;
+
+    
+}
+
+
+
+
+
+
+
+.logoimg {
+    background-color: transparent;
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    margin: 23px;
+
+    cursor: pointer;
+
+}
+
+.searchimg {
+    display: none;
+    background-color: transparent;
+    width: 25px;
+    height: fit-content;
+
+    cursor: pointer;
+    margin-right: 0.8em;
+    padding-left: 0.5em;
+
+
+}
+
+.loginimg {
+    background-color: transparent;
+    width: 2.3em;
+    height: fit-content;
+    margin: auto 0px;
+    margin-right: 3.8em;
+    padding-left: 0.5em;
+   
+
+    cursor: pointer;
+}
+
+.contenedor-dairy-en-nav {
+    display: none;
+}
+
+.downflecha {
+    display: none;
+    width: 1em;
+    height: fit-content;
+
+}
+
+#menusvgId {
+    display: none;
+}
+
+#logopalabraId {
+    display: none;
+}
+
+@media (width <=1005px) {
+   
+
+    #itemBoumatic {
+        display: none !important;
+    }
+
+}
+
+@media (width >=1176px) {
+    .Navbar {
+
+        justify-content: space-around;
+
+    }
+
+
+
+}
+
+@media (width <=813px) {
+    #menu {
+        display: none;
+    }
+
+    .Navbar {
+        background-color: var(--nav-color);
+        justify-content: flex-start;
+    }
+
+    #listaNavUl {
+        display: none;
+    }
+
+    #logoId {
+        display: block;
+
+
+        background-color: transparent;
+        height: 3em;
+        width: 3em;
+        border-radius: 50%;
+        margin: 0px;
+
+        cursor: none;
+
+
+    }
+
+    #searchId {
+        display: none;
+    }
+
+    #loginId {
+        display: none;
+    }
+
+    #menusvgId {
+        display: block;
+        width: 4em;
+        color: white;
+        padding-left: 0.2em;
+        cursor: pointer;
+        margin:auto 0em;
+    }
+
+    #logopalabraId {
+        display: none;
+        height: 2.4em;
+        margin: auto 0px;
+        padding: 0px;
+        margin-left: -0.6em;
+
+    }
+    .contenedor-dairy-en-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centra horizontalmente */
+        align-items:center; /* Centra verticalmente */
+        height: 100%; /* Ajusta la altura al 100% del viewport */
+        background-color: transparent;
+        margin:0em;
+        padding: 0em;
+        margin-left: 0.3em;
+        margin-right: 0.7em;
+      }
+    .dairy-en-nav{
+        margin: 0em;
+        padding: 0em;
+       
+        background-color: transparent;
+       
+        font-size: 2.45em;
+       
+    }
+
+    .btn-recibos-y-logout{
+        display: none;
+    }
+
+}
