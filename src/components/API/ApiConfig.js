@@ -10,4 +10,4 @@
 // IP backend Dairy
 // https://normal.dairy.com.ar
 
-export const apiUrl = 'https://normal.dairy.com.ar';
+export const apiUrl = 'http://localhost:80';
