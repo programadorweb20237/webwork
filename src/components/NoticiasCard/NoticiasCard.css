@@ -26,6 +26,19 @@
     
 
 }
+.pencilSvg{
+    width:2em;
+    margin: auto 0px;
+    background-color: transparent;
+    border-radius: 10px;
+    display: block;
+   
+}
+.pencilSvg:hover{
+    background-color: rgb(187, 236, 242);
+}
+
+
 .textosNoticiasCard{
     background-color:transparent;
     width: 429px;
@@ -34,6 +47,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.textosNoticiasCard2{
+    background-color:transparent;
+    
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding-left:  1em;
+    padding-right:  1em;
+    
 }
 
 
