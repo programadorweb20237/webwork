@@ -71,11 +71,20 @@ function NuevoNoticiaFormEdit(props) {
         const formattedDate = `${fechaParts[0]}/${fechaParts[1]}/${fechaParts[2]}`;
 
         const formData = new FormData();
+        formData.append('id', id);
         formData.append('titulo', titulo);
         formData.append('imagen', imagen);
         formData.append('contenido', contenido);
         formData.append('fecha', formattedDate);
         console.log(formData);
+        const formDataObject = {};
+    formData.forEach((value, key) => {
+        formDataObject[key] = value;
+    });
+
+    // Convertir objeto JavaScript a JSON y luego imprimirlo
+    const formDataJson = JSON.stringify(formDataObject);
+    console.log(formDataJson);
 
         fetch(`${apiUrl}/api-item-noticias.php`, {
             method: 'PUT',
