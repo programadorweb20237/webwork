@@ -48,8 +48,9 @@ const NoticiasCard = (props) => {
 
   const handleDeleteConfirm = () => {
     const idDeLaNoticia = props.idd;
+    const imgNoticia = props.img;
   
-    fetch(`${apiUrl}/api-item-noticias.php?id=${idDeLaNoticia}`, {
+    fetch(`${apiUrl}/api-item-noticias.php?id=${idDeLaNoticia}&imagen=${imgNoticia}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())
