@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './NuevoNoticiaForm.css';
-import { apiUrl } from '../ApiConfig';
+import { apiUrl, apiUrl2} from '../ApiConfig';
 import { useParams } from 'react-router-dom';
 
 function NuevoNoticiaFormEdit(props) {
@@ -141,7 +141,7 @@ function NuevoNoticiaFormEdit(props) {
                 <br />
 
                 <input type="submit" value="Enviar" className="nuevo-noticia-form-submit" />
-                <input type="button" value="Cancelar" onClick={() => props.history.push('/index')} className="nuevo-noticia-form-cancel" />
+                <input type="button" value="Cancelar" onClick={() => window.location.href = `${apiUrl2}`} className="nuevo-noticia-form-cancel" />
             </form>
         </div>
     );

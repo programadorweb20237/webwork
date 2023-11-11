@@ -11,3 +11,4 @@
 // https://normal.dairy.com.ar
 
 export const apiUrl = 'http://localhost:80';
+export const apiUrl2 = 'http://localhost:3000';

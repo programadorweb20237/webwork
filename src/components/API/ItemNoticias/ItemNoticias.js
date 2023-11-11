@@ -45,6 +45,7 @@ function ItemNoticias({isLoggedIn, usuarioObj}) {
                 {noticias.map((noticia) => (
                     <NoticiasCard
                         key={noticia.id}
+                        idd={noticia.id}
                         img={noticia.imagen}
                         titulo={noticia.titulo}
                         descripcion={noticia.contenido}
