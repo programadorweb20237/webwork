@@ -42,9 +42,9 @@ function ConsumirApi() {
             <th>Código</th>
             <th>Descripción</th>
             <th>Presentación</th>
-             <th >Precio Mayorista</th>
-             <th>Precio Minorista</th>
-            <th>Costo por Kilo</th> 
+             <th class="ocultar">Precio Mayorista</th>
+             <th class="ocultar">Precio Minorista</th>
+            <th class="ocultar">Costo por Kilo</th> 
           </tr>
         </thead>
         <tbody>
@@ -59,9 +59,9 @@ function ConsumirApi() {
                 <td>{replace42(item.description)}</td>
                 <td>{item.presentation}</td>
                 
-                <td>{replace42(item.dealerPrice)}</td>
-                <td>{replace42(item.retailPrice)}</td>
-                <td>{item.costoKilo === 42 ? "0" : item.costoKilo || ""}</td>
+                <td class="ocultar">{replace42(item.dealerPrice)}</td>
+                <td class="ocultar">{replace42(item.retailPrice)}</td>
+                <td class="ocultar">{item.costoKilo === 42 ? "0" : item.costoKilo || ""}</td>
                 
               </tr>
             ))}

@@ -38,6 +38,9 @@
     background-color: #f7dc6f; /* Naranja claro */
   }
 
+  .ocultar{
+    display: none;
+  }
 
 
   .productosDivAPI{
