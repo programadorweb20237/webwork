@@ -55,6 +55,15 @@ const NuevoNoticiaForm = () => {
         formData.append('fecha', formattedDate);
 
         console.log(formData);
+        const formDataObject = {};
+        formData.forEach((value, key) => {
+            formDataObject[key] = value;
+        });
+    
+        // Convertir objeto JavaScript a JSON y luego imprimirlo
+        const formDataJson = JSON.stringify(formDataObject);
+        console.log(formDataJson);
+        
 
         // Realiza la solicitud POST al backend
         fetch(`${apiUrl}/api-item-noticias.php`, {
