@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './NoticiasCard.css';
 import PencilIcon from './pencil.svg';
 import { useState } from 'react';
-import {apiUrl2} from "../API/ApiConfig"
+import {apiUrl,apiUrl2} from "../API/ApiConfig"
 
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
@@ -39,6 +39,7 @@ const NoticiasCard = (props) => {
   const handleDeleteIconClick = () => {
     setShowModal(false);
     setShowDeleteConfirmationModal(true);
+
   };
 
   const handleCloseDeleteConfirmationModal = () => {
@@ -46,6 +47,21 @@ const NoticiasCard = (props) => {
   };
 
   const handleDeleteConfirm = () => {
+    const idDeLaNoticia = props.idd;
+  
+    fetch(`${apiUrl}/api-item-noticias.php?id=${idDeLaNoticia}`, {
+      method: 'DELETE',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Manejar la respuesta del servidor, por ejemplo, mostrar un mensaje de éxito
+        window.location.reload();
+
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  
     // Agrega lógica aquí para manejar la eliminación de la noticia
     // Una vez que se confirma la eliminación, puedes cerrar el modal de confirmación de eliminación
     handleCloseDeleteConfirmationModal();
