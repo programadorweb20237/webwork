@@ -75,9 +75,10 @@ function NuevoNoticiaFormEdit(props) {
         formData.append('imagen', imagen);
         formData.append('contenido', contenido);
         formData.append('fecha', formattedDate);
+        console.log(formData);
 
         fetch(`${apiUrl}/api-item-noticias.php`, {
-            method: 'POST',
+            method: 'PUT',
             body: formData,
         })
             .then(response => response.json())
