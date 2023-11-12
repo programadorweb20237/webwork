@@ -29,6 +29,14 @@ const NoticiasCard = (props) => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
+
+  const handleClickNoticia = () => {
+    const idDeLaNoticia  = props.idd;
+    window.location.href = `${apiUrl2}/noticia/${idDeLaNoticia}`;
+   };
+
+
   const handleEditModal = () => {
     setShowModal(false);
     const idDeLaNoticia  = props.idd;
@@ -71,7 +79,7 @@ const NoticiasCard = (props) => {
   };
 
   return (
-    <div className="NoticiasCard">
+    <div className="NoticiasCard" onClick={handleClickNoticia}>
 
       <div className="subNoticiasCard">
 
