@@ -16,6 +16,8 @@ const NoticiasCard = (props) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteConfirmationModal, setShowDeleteConfirmationModal] = useState(false);
 
+  const { isNoticias } = props;
+
   const navigate = useNavigate();
  
 
@@ -80,8 +82,15 @@ const NoticiasCard = (props) => {
         <div className='textosNoticiasCard'>
           <div className='textosNoticiasCard2'>
             <h4 className='h4NoticiasCard' >{props.titulo}</h4>
-            <img src={PencilIcon} className="pencilSvg" alt="Pencil Icon" onClick={handlePencilIconClick} // Manejador de clic para abrir el modal
+            {isNoticias && (
+            <img
+              src={PencilIcon}
+              className="pencilSvg"
+              alt="Pencil Icon"
+              onClick={handlePencilIconClick}
             />
+          )}
+           
           </div>
           <div className='contenedorDescNoticia'>
             <p className='descNoticiasCard'>{props.descripcion}</p>

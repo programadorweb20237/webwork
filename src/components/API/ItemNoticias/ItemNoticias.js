@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 
 
-function ItemNoticias({isLoggedIn, usuarioObj}) {
+function ItemNoticias({isLoggedIn, usuarioObj, isNoticias,setIsNoticias}) {
 
     const [noticias, setNoticias] = useState([]);
 
@@ -15,12 +15,16 @@ function ItemNoticias({isLoggedIn, usuarioObj}) {
 
 
     useEffect(() => {
+        setIsNoticias(true);
+
+     
         // Realiza una solicitud GET a la API de noticias
         fetch(`${apiUrl}/api-item-noticias.php`)
             .then((response) => response.json())
             .then((data) => {
                 console.log('Datos de noticias recibidos:', data); // Agrega este console.log
                 setNoticias(data.noticiasItems);
+                
             })
             .catch((error) => console.error('Error al obtener noticias:', error));
     }, []);
@@ -28,7 +32,7 @@ function ItemNoticias({isLoggedIn, usuarioObj}) {
     return (
         <div className='item-noticias-div"'>
 
-            <h1>Noticas</h1>
+            <h1>Noticias</h1>
 
 
             {/*Solo se renderiza si esta un usuario logeado y si es rol Jefe */}
@@ -50,6 +54,7 @@ function ItemNoticias({isLoggedIn, usuarioObj}) {
                         titulo={noticia.titulo}
                         descripcion={noticia.contenido}
                         fecha={noticia.fecha}
+                        isNoticias={isNoticias}
                     />
                 ))}
             </div>

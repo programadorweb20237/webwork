@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 
 
-function Noticias() {
+function Noticias({isNoticias}) {
   const [noticias, setNoticias] = useState([]);
 
   const navigate = useNavigate(); // Obtiene la función de navegación
@@ -44,6 +44,7 @@ function Noticias() {
             titulo={noticia.titulo}
             descripcion ={noticia.contenido}
             fecha={noticia.fecha}
+            isNoticias={false}
           />
         ))}
       </div>

@@ -36,6 +36,8 @@ import ConsumirApi2 from './components/API/ConsumirApi2';
 import NuevoNoticiaForm from './components/API/ItemNoticias/NuevoNoticiaForm';
 import NuevoNoticiaFormEdit from './components/API/ItemNoticias/NuevoNoticiaFormEdit';
 
+import NoticiasCard from './components/NoticiasCard/NoticiasCard';
+
 
 const App = () => {
 
@@ -59,6 +61,8 @@ const App = () => {
   // Estado para guardar la sesión de inicio de sesión
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    // Estado para saber si estoy en noticias
+    const [isNoticias, setIsNoticias] = useState(false);
 
   
   // Función para cambiar el estado de autenticación
@@ -88,6 +92,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home usuarioObj={usuarioObj}
         isLoggedIn={isLoggedIn}
+        isNoticias={isNoticias}
         handleLogin={handleLogin}
         handleLogout={handleLogout}
          />} />
@@ -101,7 +106,7 @@ const App = () => {
         <Route path="/efluentes" element={<ItemEfluentes />} />
         <Route path="/ordeñe" element={<ItemOrdeñe />} />
 
-        <Route path="/noticias" element={<ItemNoticias isLoggedIn={isLoggedIn} usuarioObj={usuarioObj}  />} />
+        <Route path="/noticias" element={<ItemNoticias isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} isNoticias={isNoticias} setIsNoticias={setIsNoticias} />} />
         <Route path="/noticiasform" element={<NuevoNoticiaForm />} />
         <Route path="/noticiasformedit/:id"  element={<NuevoNoticiaFormEdit />} />
       </Routes>
@@ -111,7 +116,7 @@ const App = () => {
 
 // Define tus componentes separadamente
 
-function Home({ usuarioObj,isLoggedIn,handleLogin,handleLogout }) {
+function Home({ usuarioObj,isLoggedIn,handleLogin,handleLogout, isNoticias }) {
 
   return (
     <div className="App">
@@ -120,9 +125,10 @@ function Home({ usuarioObj,isLoggedIn,handleLogin,handleLogout }) {
       <Portada isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout}  />
       <Nosotros handleLogin={handleLogin} usuarioObj={usuarioObj} isLoggedIn={isLoggedIn} />
       <AreaProductos isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout}  />
+      
 
       <Entrenamientos isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
-      <Noticias isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
+      <Noticias  isNoticias={isNoticias} isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
       <ContactForm isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
       <Footer isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} handleLogin={handleLogin} handleLogout={handleLogout} />
 
