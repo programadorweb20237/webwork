@@ -62,7 +62,16 @@ function NuevoNoticiaFormEdit(props) {
     }
 
     const handleImageChange = (event) => {
-        setImagen(event.target.files[0]);
+        const file = event.target.files[0];
+    
+        if (file) {
+            // Lee el contenido del archivo como base64
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagen(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
     }
 
     const handleSubmit = (event) => {
@@ -88,7 +97,10 @@ function NuevoNoticiaFormEdit(props) {
 
         fetch(`${apiUrl}/api-item-noticias.php`, {
             method: 'PUT',
-            body: formData,
+            headers: {
+                'Content-Type': 'application/json',
+              },
+            body: formDataJson,
         })
             .then(response => response.json())
             .then(data => {
