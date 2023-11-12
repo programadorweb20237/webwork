@@ -104,7 +104,7 @@ function NuevoNoticiaFormEdit(props) {
         })
             .then(response => response.json())
             .then(data => {
-                // Maneja la respuesta del servidor, por ejemplo, muestra un mensaje de éxito
+                // Maneja la respuesta del servidor, por ejemplo, muestra un mensaje de éxitoo
             })
             .catch(error => {
                 console.error("Error:", error);
