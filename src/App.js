@@ -37,7 +37,7 @@ import NuevoNoticiaForm from './components/API/ItemNoticias/NuevoNoticiaForm';
 import NuevoNoticiaFormEdit from './components/API/ItemNoticias/NuevoNoticiaFormEdit';
 
 import NoticiasCard from './components/NoticiasCard/NoticiasCard';
-
+import NoticiaIndividual from './components/API/ItemNoticias/NoticiaIndividual/NoticiaIndividual';
 
 const App = () => {
 
@@ -108,6 +108,7 @@ const App = () => {
 
         <Route path="/noticias" element={<ItemNoticias isLoggedIn={isLoggedIn} usuarioObj={usuarioObj} isNoticias={isNoticias} setIsNoticias={setIsNoticias} />} />
         <Route path="/noticiasform" element={<NuevoNoticiaForm />} />
+        <Route path="/noticia/:id" element={<NoticiaIndividual />} />
         <Route path="/noticiasformedit/:id"  element={<NuevoNoticiaFormEdit />} />
       </Routes>
     </HashRouter>

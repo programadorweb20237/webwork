@@ -1,0 +1,6 @@
+.imgNoticiaIndividual{
+    width: 22em;
+    height: 15em;
+    object-fit: cover;
+    border-radius: 10%;
+}
