@@ -8,8 +8,6 @@ import {apiUrl,apiUrl2} from "../API/ApiConfig"
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 
-
-
 const NoticiasCard = (props) => {
 
   const [showModal, setShowModal] = useState(false);
@@ -19,11 +17,14 @@ const NoticiasCard = (props) => {
   const { isNoticias } = props;
 
   const navigate = useNavigate();
+
+  const handlePencilIconClick = (event) => {
+     // Detener la propagación del evento para evitar que llegue al contenedor de la noticia
+     event.stopPropagation();
  
-
-
-  const handlePencilIconClick = () => {
     setShowModal(true);
+
+
   };
 
   const handleCloseModal = () => {
@@ -79,9 +80,9 @@ const NoticiasCard = (props) => {
   };
 
   return (
-    <div className="NoticiasCard" onClick={handleClickNoticia}>
+    <div className="NoticiasCard" >
 
-      <div className="subNoticiasCard">
+      <div onClick={handleClickNoticia} className="subNoticiasCard">
 
 
 
