@@ -189,6 +189,7 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
                 setTimeout(() => {
                     setSuccessMessage(null);
                 }, 3000); // 3000 milisegundos (3 segundos)
+                reiniciarCampos();
             } else {
                 setErrorMessage('Error al enviar el formulario: ' + result.message);
                 setTimeout(() => {
