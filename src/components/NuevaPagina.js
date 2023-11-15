@@ -122,7 +122,12 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
 
     const agregarPago = () => {
         setPagos([...pagos, { precio: '', tipoPago: 'Efectivo', imagen: null }]);
+
+
+
     };
+
+
 
     const handleChange = (index, field, value) => {
         const nuevosPagos = [...pagos];
@@ -226,7 +231,7 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
 
 
     return (
-        <div className="form-pago-1">
+        <div className="form-pago-1" >
             <h2 className='form-pago-h2'>Formulario de Pagos</h2>
 
             <button type="button" onClick={reiniciarCampos}>Reiniciar Campos</button>
@@ -243,9 +248,22 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
                     {opcionesClientes}
                 </select>
 
-                <div id="pagos-container">
+                <div id="pagos-container" >
                     {pagos.map((pago, index) => (
-                        <div key={index} className="pago">
+                        <div key={index} className="pago"
+                            style={{
+                                backgroundColor: index % 2 === 0 ? '#f0f0f0' : '#ececec',
+                                borderBottom: '1em solid #ccc' // Ajusta el color según tus preferencias
+                            }
+
+                            }
+
+
+
+                        >
+
+
+
                             <label htmlFor={`tipo-pago-${index}`}>Tipo de Pago:</label>
                             <select
                                 id={`tipo-pago-${index}`}

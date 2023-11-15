@@ -12,6 +12,7 @@
   z-index: 999; /* Asegúrate de que esté por encima de otros elementos */
 }
 
+
 .loading-message {
   font-size: 18px;
   font-weight: bold;
