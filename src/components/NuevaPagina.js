@@ -17,23 +17,26 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    const [successMessage, setSuccessMessage] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(null);
+
 
     const navigate = useNavigate(); // Obtiene la función de navegación
 
 
-    
+
 
     useEffect(() => {
 
         // Verificar si hay información de usuario en el almacenamiento local
-    const storedIsLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    const storedUsuarioObj = JSON.parse(localStorage.getItem('usuarioObj'));
+        const storedIsLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const storedUsuarioObj = JSON.parse(localStorage.getItem('usuarioObj'));
 
 
-    // Si no hay un usuario autenticado, redirigir a la página de inicio
-    if (!storedIsLoggedIn || !storedUsuarioObj) {
-        navigate('/');
-    }
+        // Si no hay un usuario autenticado, redirigir a la página de inicio
+        if (!storedIsLoggedIn || !storedUsuarioObj) {
+            navigate('/');
+        }
 
 
 
@@ -66,7 +69,7 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
         }
 
 
- 
+
 
 
 
@@ -104,7 +107,7 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
                     // Limpia los campos del nuevo cliente
                     setNewClient({ nombre: '', email: '' });
 
-      
+
 
                     // Cierra el modal de cliente
                     setIsClientModalOpen(false);
@@ -158,18 +161,18 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
     const enviarSolicitudPOST = async (event) => {
         event.preventDefault();
         document.getElementById("btn-confirmar-modal-cerrar").click();
-    
+
         setIsLoading(true); // Inicia la pantalla de carga
-    
-    
+
+
         const data = {
             cliente: cliente,
             nombreCliente: clientesData.find(c => c.email === cliente)?.nombre,
             pagos: pagos,
         };
-    
+
         console.log(data);
-    
+
         try {
             const response = await fetch(`${apiUrl}/sendmail.php`, {
                 method: 'POST',
@@ -178,37 +181,30 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
                 },
                 body: JSON.stringify(data),
             });
-    
+
             const result = await response.json();
-    
+
             if (result.success) {
-                // Éxito: Configura el mensaje de éxito
-                setMensaje('Correo enviado con éxito');
-                setMensajeEstilo('alert alert-success');
-                console.log('Correo enviado con éxito frontend', result.message);
-    
-                // Después de 5 segundos, borra el mensaje de éxito
+                setSuccessMessage('Correo enviado con éxito.');
                 setTimeout(() => {
-                    setMensaje(null);
-                    setMensajeEstilo(null);
-                }, 5000); // 5000 milisegundos (5 segundos)
+                    setSuccessMessage(null);
+                }, 3000); // 3000 milisegundos (3 segundos)
             } else {
-                // Fallo: Configura el mensaje de fallo
-                setMensaje('Error al enviar el formulario: ' + result.message);
-                setMensajeEstilo('alert alert-danger');
-                console.error('Error al enviar el formulario:', result.message);
-                alert(result.message);
+                setErrorMessage('Error al enviar el formulario: ' + result.message);
+                setTimeout(() => {
+                    setErrorMessage(null);
+                }, 5000); // 3000 milisegundos (3 segundos)
             }
         } catch (error) {
-            // Fallo en la solicitud: Configura el mensaje de fallo
-            setMensaje('Error en la solicitud: ' + error);
-            setMensajeEstilo('alert alert-danger');
-            console.error('Error en la solicitud:', error);
+            setErrorMessage('Error en la solicitud: ' + error);
+            setTimeout(() => {
+                setErrorMessage(null);
+            }, 5000); // 3000 milisegundos (3 segundos)
         } finally {
             setIsLoading(false); // Detiene la pantalla de carga, ya sea que la solicitud haya tenido éxito o haya fallado
         }
     };
-    
+
 
 
     const handleSubmit = (event) => {
@@ -227,146 +223,158 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
         </option>
     ));
 
-   
-        return (
-            <div className="form-pago-1">
-                <h2 className='form-pago-h2'>Formulario de Pagos</h2>
 
-                <button type="button" onClick={reiniciarCampos}>Reiniciar Campos</button>
-                <button type="button" className="agregar-pago2" onClick={abrirModal2}>Añadir cliente</button>
+    return (
+        <div className="form-pago-1">
+            <h2 className='form-pago-h2'>Formulario de Pagos</h2>
 
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="cliente">Elige un cliente:</label>
-                    <select
-                        id="cliente"
-                        name="cliente"
-                        value={cliente}
-                        onChange={(event) => setCliente(event.target.value)}
-                    >
-                        {opcionesClientes}
-                    </select>
+            <button type="button" onClick={reiniciarCampos}>Reiniciar Campos</button>
+            <button type="button" className="agregar-pago2" onClick={abrirModal2}>Añadir cliente</button>
 
-                    <div id="pagos-container">
-                        {pagos.map((pago, index) => (
-                            <div key={index} className="pago">
-                                <label htmlFor={`tipo-pago-${index}`}>Tipo de Pago:</label>
-                                <select
-                                    id={`tipo-pago-${index}`}
-                                    name={`tipo-pago-${index}`}
-                                    value={pago.tipoPago}
-                                    onChange={(event) => handleChange(index, 'tipoPago', event.target.value)}
-                                >
-                                    <option value="Efectivo">Efectivo</option>
-                                    <option value="Cheque">Cheque</option>
-                                </select>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="cliente">Elige un cliente:</label>
+                <select
+                    id="cliente"
+                    name="cliente"
+                    value={cliente}
+                    onChange={(event) => setCliente(event.target.value)}
+                >
+                    {opcionesClientes}
+                </select>
 
-                                <label htmlFor={`precio-${index}`}>Precio:</label>
-                                <input
-                                    type="number"
-                                    step="0.01"
-                                    id={`precio-${index}`}
-                                    name={`precio-${index}`}
-                                    value={pago.precio}
-                                    onChange={(event) => handleChange(index, 'precio', event.target.value)}
-                                    placeholder="Ingrese el precio"
-                                    required
-                                />
+                <div id="pagos-container">
+                    {pagos.map((pago, index) => (
+                        <div key={index} className="pago">
+                            <label htmlFor={`tipo-pago-${index}`}>Tipo de Pago:</label>
+                            <select
+                                id={`tipo-pago-${index}`}
+                                name={`tipo-pago-${index}`}
+                                value={pago.tipoPago}
+                                onChange={(event) => handleChange(index, 'tipoPago', event.target.value)}
+                            >
+                                <option value="Efectivo">Efectivo</option>
+                                <option value="Cheque">Cheque</option>
+                            </select>
 
-                                <label htmlFor={`imagen-${index}`}>Subir una Imagen (opcional):</label>
-                                <input
-                                    type="file"
-                                    id={`imagen-${index}`}
-                                    name={`imagen-${index}`}
-                                    accept="image/*"
-                                    onChange={(event) => handleImagenChange(index, event)}
-                                />
-                            </div>
-                        ))}
-                    </div>
+                            <label htmlFor={`precio-${index}`}>Precio:</label>
+                            <input
+                                type="number"
+                                step="0.01"
+                                id={`precio-${index}`}
+                                name={`precio-${index}`}
+                                value={pago.precio}
+                                onChange={(event) => handleChange(index, 'precio', event.target.value)}
+                                placeholder="Ingrese el precio"
+                                required
+                            />
 
-                    <button className="agregar-pago1" type="button" onClick={agregarPago}>Agregar Pago</button>
+                            <label htmlFor={`imagen-${index}`}>Subir una Imagen (opcional):</label>
+                            <input
+                                type="file"
+                                id={`imagen-${index}`}
+                                name={`imagen-${index}`}
+                                accept="image/*"
+                                onChange={(event) => handleImagenChange(index, event)}
+                            />
+                        </div>
+                    ))}
+                </div>
 
-                    <button type="submit">Enviar</button>
+                <button className="agregar-pago1" type="button" onClick={agregarPago}>Agregar Pago</button>
 
-                    {mensaje && <div className={mensajeEstilo}>{mensaje}</div>}
-                </form>
+                <button type="submit">Enviar</button>
 
-                {isLoading && (
+                {mensaje && <div className={mensajeEstilo}>{mensaje}</div>}
+            </form>
+
+            {isLoading && (
                 <div className="loading-overlay">
                     <div className="loading-message">Enviando...</div>
                 </div>
             )}
 
+            {successMessage && (
+                <div className="success-message">
+                    {successMessage}
+                </div>
+            )}
 
-                {isModalOpen && (
-                    <div className="modal fade show" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ display: "block" }}>
+            {errorMessage && (
+                <div className="error-message">
+                    {errorMessage}
+                </div>
+            )}
+
+
+            {isModalOpen && (
+                <div className="modal fade show" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ display: "block" }}>
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Confirmar Información</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={cerrarModal}></button>
+                            </div>
+                            <div className="modal-body">
+                                <p>Cliente: {clientesData.find(c => c.email === cliente)?.nombre}</p>
+                                <p>Email: {clientesData.find(c => c.email === cliente)?.email}</p>
+                                <h4>Detalles de los Pagos:</h4>
+                                {pagos.map((pago, index) => (
+                                    <div key={index}>
+                                        <p>Tipo de Pago: {pago.tipoPago}</p>
+                                        <p>Valor: ${pago.precio}</p>
+                                    </div>
+                                ))}
+                                <p><strong>Total: ${calcularTotal()}</strong></p>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-primary" onClick={enviarSolicitudPOST}>Confirmar</button>
+                                <button type="button" id="btn-confirmar-modal-cerrar" className="btn btn-secondary" data-bs-dismiss="modal" onClick={cerrarModal}>Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            <div>
+                {/* Modal para agregar un nuevo cliente con Bootstrap 5 */}
+                {isClientModalOpen && (
+                    <div className="modal fade show" id="clientModal" tabIndex="-1" aria-labelledby="clientModalLabel" aria-hidden="true" style={{ display: "block" }}>
                         <div className="modal-dialog">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Confirmar Información</h5>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={cerrarModal}></button>
+                                    <h5 className="modal-title" id="clientModalLabel">Añadir nuevo cliente</h5>
+                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => setIsClientModalOpen(false)}></button>
                                 </div>
                                 <div className="modal-body">
-                                    <p>Cliente: {clientesData.find(c => c.email === cliente)?.nombre}</p>
-                                    <p>Email: {clientesData.find(c => c.email === cliente)?.email}</p>
-                                    <h4>Detalles de los Pagos:</h4>
-                                    {pagos.map((pago, index) => (
-                                        <div key={index}>
-                                            <p>Tipo de Pago: {pago.tipoPago}</p>
-                                            <p>Valor: ${pago.precio}</p>
-                                        </div>
-                                    ))}
-                                    <p><strong>Total: ${calcularTotal()}</strong></p>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Nombre"
+                                        value={newClient.nombre}
+                                        onChange={(e) => handleClientInput('nombre', e.target.value.toUpperCase())}
+                                        required
+                                    />
+                                    <br />
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        placeholder="Correo electrónico"
+                                        value={newClient.email}
+                                        onChange={(e) => handleClientInput('email', e.target.value)}
+                                        required
+                                    />
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-primary" onClick={enviarSolicitudPOST}>Confirmar</button>
-                                    <button type="button" id="btn-confirmar-modal-cerrar" className="btn btn-secondary" data-bs-dismiss="modal" onClick={cerrarModal}>Cancelar</button>
+                                    <button type="button" className="btn btn-primary" onClick={addNewClient}>Añadir</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 )}
-                <div>
-                    {/* Modal para agregar un nuevo cliente con Bootstrap 5 */}
-                    {isClientModalOpen && (
-                        <div className="modal fade show" id="clientModal" tabIndex="-1" aria-labelledby="clientModalLabel" aria-hidden="true" style={{ display: "block" }}>
-                            <div className="modal-dialog">
-                                <div className="modal-content">
-                                    <div className="modal-header">
-                                        <h5 className="modal-title" id="clientModalLabel">Añadir nuevo cliente</h5>
-                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => setIsClientModalOpen(false)}></button>
-                                    </div>
-                                    <div className="modal-body">
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            placeholder="Nombre"
-                                            value={newClient.nombre}
-                                            onChange={(e) => handleClientInput('nombre', e.target.value.toUpperCase())}
-                                            required
-                                        />
-                                        <br />
-                                        <input
-                                            type="email"
-                                            className="form-control"
-                                            placeholder="Correo electrónico"
-                                            value={newClient.email}
-                                            onChange={(e) => handleClientInput('email', e.target.value)}
-                                            required
-                                        />
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button type="button" className="btn btn-primary" onClick={addNewClient}>Añadir</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                    {/* Fin del modal de Bootstrap 5 */}
-                </div>
+                {/* Fin del modal de Bootstrap 5 */}
             </div>
-        );
-   
+        </div>
+    );
+
 }
 
 export default NuevaPagina;
