@@ -15,6 +15,9 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
     const [isClientModalOpen, setIsClientModalOpen] = useState(false);
     const [newClient, setNewClient] = useState({ nombre: '', email: '' });
 
+    const [isLoading, setIsLoading] = useState(false);
+
+
     const navigate = useNavigate(); // Obtiene la función de navegación
 
 
@@ -152,65 +155,60 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
         setIsModalOpen(false);
     };
 
-    const enviarSolicitudPOST = (event) => {
+    const enviarSolicitudPOST = async (event) => {
         event.preventDefault();
         document.getElementById("btn-confirmar-modal-cerrar").click();
-
-        setTimeout(function () {
-            alert("Enviando correo...");
-        }, 300);
-
+    
+        setIsLoading(true); // Inicia la pantalla de carga
+    
+    
         const data = {
             cliente: cliente,
             nombreCliente: clientesData.find(c => c.email === cliente)?.nombre,
             pagos: pagos,
         };
-
-
-
-
+    
         console.log(data);
-
-        // Enviar la solicitud POST
-        fetch(`${apiUrl}/sendmail.php`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Éxito: Configura el mensaje de éxito
-                    alert('Correo enviado con éxito!');
-
-                    setMensaje('Correo enviado con éxito');
-                    setMensajeEstilo('alert alert-success');
-                    console.log('Correo enviado con éxito frontend', data.message);
-
-
-                    // Después de 5 segundos, borra el mensaje de éxito
-                    setTimeout(() => {
-                        setMensaje(null);
-                        setMensajeEstilo(null);
-                    }, 5000); // 5000 milisegundos (5 segundos)
-
-                } else {
-                    // Fallo: Configura el mensaje de fallo
-                    setMensaje('Error al enviar el formulario: ' + data.message);
-                    setMensajeEstilo('alert alert-danger');
-                    console.error('Error al enviar el formulario:', data.message);
-                    alert(data.message)
-                }
-            })
-            .catch(error => {
-                // Fallo en la solicitud: Configura el mensaje de fallo
-                setMensaje('Error en la solicitud: ' + error);
-                setMensajeEstilo('alert alert-danger');
-                console.error('Error en la solicitud:', error);
+    
+        try {
+            const response = await fetch(`${apiUrl}/sendmail.php`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
             });
+    
+            const result = await response.json();
+    
+            if (result.success) {
+                // Éxito: Configura el mensaje de éxito
+                setMensaje('Correo enviado con éxito');
+                setMensajeEstilo('alert alert-success');
+                console.log('Correo enviado con éxito frontend', result.message);
+    
+                // Después de 5 segundos, borra el mensaje de éxito
+                setTimeout(() => {
+                    setMensaje(null);
+                    setMensajeEstilo(null);
+                }, 5000); // 5000 milisegundos (5 segundos)
+            } else {
+                // Fallo: Configura el mensaje de fallo
+                setMensaje('Error al enviar el formulario: ' + result.message);
+                setMensajeEstilo('alert alert-danger');
+                console.error('Error al enviar el formulario:', result.message);
+                alert(result.message);
+            }
+        } catch (error) {
+            // Fallo en la solicitud: Configura el mensaje de fallo
+            setMensaje('Error en la solicitud: ' + error);
+            setMensajeEstilo('alert alert-danger');
+            console.error('Error en la solicitud:', error);
+        } finally {
+            setIsLoading(false); // Detiene la pantalla de carga, ya sea que la solicitud haya tenido éxito o haya fallado
+        }
     };
+    
 
 
     const handleSubmit = (event) => {
@@ -292,6 +290,13 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
 
                     {mensaje && <div className={mensajeEstilo}>{mensaje}</div>}
                 </form>
+
+                {isLoading && (
+                <div className="loading-overlay">
+                    <div className="loading-message">Enviando...</div>
+                </div>
+            )}
+
 
                 {isModalOpen && (
                     <div className="modal fade show" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ display: "block" }}>
