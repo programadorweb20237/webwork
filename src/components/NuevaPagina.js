@@ -4,6 +4,9 @@ import { apiUrl } from './API/ApiConfig';
 import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
+import Compressor from 'compressorjs'; // Importa Compressor desde la biblioteca instalada
+
+
 
 function NuevaPagina({ usuarioObj, isLoggedIn }) {
     const [cliente, setCliente] = useState('');
@@ -137,14 +140,23 @@ function NuevaPagina({ usuarioObj, isLoggedIn }) {
 
     const handleImagenChange = (index, event) => {
         const nuevaImagen = event.target.files[0];
-
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const base64Image = e.target.result;
-            handleChange(index, 'imagen', base64Image);
-        };
-        reader.readAsDataURL(nuevaImagen);
-    };
+    
+        new Compressor(nuevaImagen, {
+          quality: 0.6, // Ajusta la calidad de compresión (0-1)
+          success(result) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const base64Image = e.target.result;
+              handleChange(index, 'imagen', base64Image);
+            };
+            reader.readAsDataURL(result);
+          },
+          error(error) {
+            // Maneja errores de compresión
+            console.error('Error al comprimir la imagen:', error.message);
+          }
+        });
+      };
 
     const calcularTotal = () => {
         const total = pagos.reduce((sum, pago) => sum + parseFloat(pago.precio || 0), 0);
