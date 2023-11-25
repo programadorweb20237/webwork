@@ -1,36 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './ConsumirApi.css';
-import { apiUrl } from './ApiConfig';
-
-// Import the main component
-import { Viewer } from '@react-pdf-viewer/core';
-
-import { Worker } from '@react-pdf-viewer/core';
-
-// Import the styles
-import '@react-pdf-viewer/core/lib/styles/index.css';
+import { apiUrl,apiUrl2 } from './ApiConfig';
 
 
 function ConsumirApi() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [pdfUrl, setPdfUrl] = useState(`${apiUrl}/get-libro.php`);
+
+  const [pdfInstance, setPdfInstance] = useState(null);
+  const searchForCodeRef = useRef(null);
 
   useEffect(() => {
     fetch(`${apiUrl}/api-routes.php`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        // Combina los datos de productos y químicos en una sola lista
         const combinedData = [...data.products, ...data.quimicos];
         setData(combinedData);
       })
       .catch((error) => console.error('Error al obtener los datos:', error));
-
-     
-
-
-
   }, []);
 
   const replace42 = (value) => {
@@ -40,22 +28,13 @@ function ConsumirApi() {
     return value;
   };
 
-
-
-  const handleClick = (code) => {
-    console.log("Se ha ejecutado!")
-    
+  const handleCodeClick = (code) => {
+    window.open(`${apiUrl2}/libro/${code}`, '_blank');
   };
 
   return (
     <div className='productosDivAPI'>
       <h1>Tabla de Productos y Químicos</h1>
-      <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-      <Viewer fileUrl={ pdfUrl } />
-  
-</Worker>
- 
- 
 
       <input
         className='buscadorProd'
@@ -64,7 +43,9 @@ function ConsumirApi() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      
       <table>
+
         <thead>
           <tr>
             <th>Código</th>
@@ -84,7 +65,8 @@ function ConsumirApi() {
             .map((item, index) => (
               <tr key={index}>
                 <td
-                  onClick={() => handleClick(item.code)}
+                  ref={searchForCodeRef}
+                  onClick={() => handleCodeClick(item.code)}
                   style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
                 >
                   {item.code}
