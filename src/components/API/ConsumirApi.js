@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import "./ConsumirApi.css";
+import './ConsumirApi.css';
 import { apiUrl } from './ApiConfig';
 
-const pdfjs = await import('pdfjs-dist/build/pdf');
-const pdfjsWorker = await import('pdfjs-dist/build/pdf.worker');
+// Import the main component
+import { Viewer } from '@react-pdf-viewer/core';
+
+import { Worker } from '@react-pdf-viewer/core';
+
+// Import the styles
+import '@react-pdf-viewer/core/lib/styles/index.css';
+
 
 function ConsumirApi() {
   const [data, setData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [pdfUrl, setPdfUrl] = useState('libro.pdf');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [pdfUrl, setPdfUrl] = useState(`${apiUrl}/libro.pdf`);
 
   useEffect(() => {
     fetch(`${apiUrl}/api-routes.php`)
@@ -20,43 +26,37 @@ function ConsumirApi() {
         setData(combinedData);
       })
       .catch((error) => console.error('Error al obtener los datos:', error));
+
+     
+
+
+
   }, []);
 
   const replace42 = (value) => {
-    if (value === 42 || value === "42") {
-      return "-";
+    if (value === 42 || value === '42') {
+      return '-';
     }
     return value;
   };
 
-  const renderizarPDF = async (pdfUrl) => {
-    pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
-    try {
-      const pdfDocument = await pdfjs.getDocument(pdfUrl);
-
-      // Limpiar el contenedor antes de renderizar el nuevo PDF
-      const pdfContainer = document.getElementById('pdf-container');
-      pdfContainer.innerHTML = "";
-
-      for (let pageNum = 1; pageNum <= pdfDocument.numPages; pageNum++) {
-        const pdfPage = await pdfDocument.getPage(pageNum);
-
-        // Agregar la página al contenedor
-        pdfContainer.appendChild(pdfPage.div);
-      }
-    } catch (error) {
-      console.error('Error al cargar el PDF:', error);
-    }
-  };
 
   const handleClick = (code) => {
-    renderizarPDF(pdfUrl);
+    console.log("Se ha ejecutado!")
+    
   };
 
   return (
     <div className='productosDivAPI'>
       <h1>Tabla de Productos y Químicos</h1>
+      <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+      <Viewer fileUrl={ pdfUrl } />
+  
+</Worker>
+ 
+ 
+
       <input
         className='buscadorProd'
         type="text"
