@@ -14,7 +14,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 function ConsumirApi() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [pdfUrl, setPdfUrl] = useState(`${apiUrl}/libro.pdf`);
+  const [pdfUrl, setPdfUrl] = useState(`${apiUrl}/get-libro.php`);
 
   useEffect(() => {
     fetch(`${apiUrl}/api-routes.php`)
