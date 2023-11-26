@@ -8,14 +8,36 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
   const [selectedItems, setSelectedItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
 
-  const updatedData = { selectedItems: selectedItems, usuariopedido: usuarioObj.nombre_completo || "?" };
+  const updatedData = { 
+    selectedItems: selectedItems.map(item => ({
+      ...item,
+      totalPrice: item.totalPrice.toString().replace('.', ',') // Convertir el número a cadena y reemplazar '.' por ','
+    })),
+    usuariopedido: usuarioObj.nombre_completo || "?"
+  };
 
 
 
   const pedidoEmail = () => {
+    const productos = selectedItems.map(selected => ({
+      producto: selected.item.description,
+      cantidad: selected.quantity,
+      precio: selected.item.dealerPrice.toString().replace('.', ','), // Formatear el precio con coma en lugar de punto
+      
+      precioTotalProducto: selected.totalPrice.toString().replace('.', ',') // Formatear el precio total con coma en lugar de punto
+    }));
+  
+    const precioTotalFinal = selectedItems.reduce((total, item) => total + parseFloat(item.totalPrice), 0);
+    const precioTotalFinalFormatted = precioTotalFinal.toFixed(2).toString().replace('.', ','); // Redondear y formatear el precio total
 
-    console.log(updatedData);
-
+  
+    const dataToSend = {
+      selectedItems: productos,
+      usuariopedido: usuarioObj.nombre_completo || "?",
+      precioTotalFinal: precioTotalFinalFormatted // Usar el precio total final formateado
+    };
+  
+    console.log(dataToSend);
 
     // Realizar una solicitud POST al servidor para guardar los cambios
     fetch(`${apiUrl}/api-pedido-email.php`, {
@@ -23,7 +45,7 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(updatedData),
+      body: JSON.stringify(dataToSend),
     })
       .then((response) => response.json())
       .then((result) => {
@@ -34,9 +56,7 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
         }
       })
       .catch((error) => console.error('Error al guardar los cambios:', error));
-
-
-
+    console.log(JSON.stringify(dataToSend));
   };
 
 
@@ -107,16 +127,15 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
             </div>
 
 
-
             <div className="modal-body">
               <ul>
                 {selectedItems.map((selected, index) => (
                   <li key={index}>
-                    Producto: {selected.item.description}, Cantidad: {selected.quantity}, Precio: ${selected.totalPrice}.
+                    Producto: {selected.item.description}, Cantidad: {selected.quantity}, Precio: ${selected.totalPrice.toLocaleString('es-ES')}.
                   </li>
                 ))}
               </ul>
-              <p>Precio Total: ${selectedItems.reduce((total, item) => total + parseFloat(item.totalPrice), 0)} USD.</p>
+              <p>Precio Total Estimado: ${selectedItems.reduce((total, item) => total + parseFloat(item.totalPrice), 0).toLocaleString('es-ES')} USD.</p>
             </div>
 
 
