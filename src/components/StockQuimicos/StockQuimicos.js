@@ -302,7 +302,7 @@ function StockQuimicos({ isLoggedIn, usuarioObj }) {
             const productosQuimicosParaEnviar = data.filter(producto => producto.cantidadp > 0);
             const productosBidonesParaEnviar = data2.filter(producto => producto.cantidadp > 0);
         
-            // Crear listas con los datos requeridos para enviar al backend
+            // Crear listas con los datos requeridos para enviar al backendd
             const productosQuimicosFormateados = productosQuimicosParaEnviar.map(producto => ({
                 usuariomod:usuarioObj.nombre_completo,
                 nombre: producto.PRODUCTO,
