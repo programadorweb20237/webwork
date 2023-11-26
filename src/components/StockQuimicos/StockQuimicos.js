@@ -295,10 +295,72 @@ function StockQuimicos({ isLoggedIn, usuarioObj }) {
         }, 18000); // 10000 ms = 10 segundos
 
 
+     
 
-    };
+
+            // Filtrar productos con cantidadp mayor a 0
+            const productosQuimicosParaEnviar = data.filter(producto => producto.cantidadp > 0);
+            const productosBidonesParaEnviar = data2.filter(producto => producto.cantidadp > 0);
+        
+            // Crear listas con los datos requeridos para enviar al backend
+            const productosQuimicosFormateados = productosQuimicosParaEnviar.map(producto => ({
+                usuariomod:usuarioObj.nombre_completo,
+                nombre: producto.PRODUCTO,
+                proveedor: producto.PROVEEDOR,
+                cantidadPedido: producto.cantidadp,
+                presentacionKgPedido: producto.presentacionp,
+                total: producto.total,
+                ubicacion: producto.Ubicación,
+                formato: producto.FORMATO
+            }));
+        
+            const productosBidonesFormateados = productosBidonesParaEnviar.map(producto => ({
+                nombre: producto.producto,
+                proveedor: producto.proveedor,
+                cantidadPedido: producto.cantidadp,
+                presentacionKgPedido: producto.presentacionp,
+                total: producto.total,
+                ubicacion: producto.ubicacion,
+                formato: producto.formato
+            }));
 
 
+
+            // Crear objeto con los datos a enviar al backend
+const datosAEnviar = {
+    usuariomod2: usuarioObj.nombre_completo,
+    productosQuimicos: productosQuimicosFormateados,
+    productosBidones: productosBidonesFormateados
+};
+
+
+        
+            // Enviar los datos al backend, por ejemplo usando fetch
+            fetch(`${apiUrl}/api-guardar-stock.php`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Agrega cualquier header necesario, como tokens de autenticación si los requieres
+                },
+                body: JSON.stringify(datosAEnviar)
+            })
+            .then(response => {
+                // Manejar la respuesta del backend
+            })
+            .catch(error => {
+                console.error('Error al enviar los datos al backend:', error);
+            });
+
+
+
+
+            console.log(JSON.stringify(datosAEnviar));
+            
+
+        };
+
+
+       
 
     return (
 
