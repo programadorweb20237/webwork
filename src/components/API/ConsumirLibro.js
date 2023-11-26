@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import './ConsumirLibro.css';
 import { apiUrl } from './ApiConfig';
@@ -21,24 +23,33 @@ import { NextIcon, PreviousIcon, SearchIcon } from '@react-pdf-viewer/search';
 
 
 const ConsumirLibro = () => {
-    const word = 'BGM 5/BGM 5+ PUMPS';
+    const word = 'AirStar';
     const [pdfUrl] = useState(`${apiUrl}/get-libro.php`);
+    
 
     
 
     const defaultLayoutPluginInstance = defaultLayoutPlugin();
     const searchPluginInstance = searchPlugin({
-        keyword: 'BGM 5/BGM 5+ PUMPS',
+        keyword: word,
+        matchCase: true,
     });
+
+
+    
    
-
-
+const daleClickOk= () => {
+    alert("okay");
+    searchPluginInstance.jumpToNextMatch();
+};
 
 
 
     return (
         <div>
             <h1 >Productos</h1>
+            <button onClick={daleClickOk}>Clickme</button>
+            
             <Worker  workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
                 <Viewer
                     fileUrl={pdfUrl}

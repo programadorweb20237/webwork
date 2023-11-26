@@ -40,6 +40,8 @@ import NoticiasCard from './components/NoticiasCard/NoticiasCard';
 import NoticiaIndividual from './components/API/ItemNoticias/NoticiaIndividual/NoticiaIndividual';
 
 import ConsumirLibro from './components/API/ConsumirLibro';
+import JumpToFirstMatchExample from './components/API/showsearch/YourComponent.tsx';
+
 
 const App = () => {
 
@@ -113,7 +115,7 @@ const App = () => {
         <Route path="/noticia/:id" element={<NoticiaIndividual />} />
         <Route path="/noticiasformedit/:id"  element={<NuevoNoticiaFormEdit />} />
 
-        <Route path="/libro" element={<ConsumirLibro />} />
+        <Route path="/libro" element={<JumpToFirstMatchExample />} />
       </Routes>
     </HashRouter>
   );
