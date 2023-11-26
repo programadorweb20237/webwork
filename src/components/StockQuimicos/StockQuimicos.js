@@ -292,13 +292,13 @@ function StockQuimicos({ isLoggedIn, usuarioObj }) {
         // Habilita el botón después de un período de tiempo (por ejemplo, 10 segundos)
         setTimeout(() => {
             setButtonDisabled(false);
-        }, 18000); // 10000 ms = 10 segundos
+        }, 23000); // 10000 ms = 10 segundos
 
 
      
 
 
-            // Filtrar productos con cantidadp mayor a 0
+            // Filtrar productos con cantidadp mayoor a 0
             const productosQuimicosParaEnviar = data.filter(producto => producto.cantidadp > 0);
             const productosBidonesParaEnviar = data2.filter(producto => producto.cantidadp > 0);
         
