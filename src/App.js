@@ -115,7 +115,7 @@ const App = () => {
         <Route path="/noticia/:id" element={<NoticiaIndividual />} />
         <Route path="/noticiasformedit/:id"  element={<NuevoNoticiaFormEdit />} />
 
-        <Route path="/libro" element={<JumpToFirstMatchExample />} />
+        <Route path="/libro/:kkey" element={<JumpToFirstMatchExample />} />
       </Routes>
     </HashRouter>
   );

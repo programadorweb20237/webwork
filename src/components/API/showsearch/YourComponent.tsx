@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Viewer, Worker } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import { apiUrl } from "../ApiConfig";
+import { useParams } from 'react-router-dom';
 
 
 import { ScrollMode, SpecialZoomLevel } from '@react-pdf-viewer/core';
@@ -13,9 +14,10 @@ import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 interface JumpToFirstMatchExampleProps {
     fileUrl: string;
+    keyword: any;
 }
 
-const JumpToFirstMatchExample: React.FC<JumpToFirstMatchExampleProps> = ({ fileUrl }) => {
+const JumpToFirstMatchExample: React.FC<JumpToFirstMatchExampleProps> = ({ fileUrl,keyword }) => {
     const [isDocumentLoaded, setDocumentLoaded] = React.useState(false);
     const handleDocumentLoad = () => setDocumentLoaded(true);
 
@@ -26,7 +28,7 @@ const JumpToFirstMatchExample: React.FC<JumpToFirstMatchExampleProps> = ({ fileU
 
     React.useEffect(() => {
         if (isDocumentLoaded) {
-            const keyword = 'BGM 3/BGM 4 PUMPS'; // Keyword to highlight
+            
             highlight(keyword);
         }
     }, [isDocumentLoaded]);
@@ -50,7 +52,10 @@ const JumpToFirstMatchExample: React.FC<JumpToFirstMatchExampleProps> = ({ fileU
 const pdfUrl = `${apiUrl}/get-libro.php`; // Replace this with your API URL
 
 const YourComponent = () => {
-    return <JumpToFirstMatchExample fileUrl={pdfUrl} />;
+    const { kkey } = useParams();
+    const decodedKeyword = kkey ? decodeURIComponent(kkey) : "null"; // Decodifica el parámetro kkey si existe, de lo contrario asigna "null"
+
+    return <JumpToFirstMatchExample fileUrl={pdfUrl} keyword={ decodedKeyword } />;
 };
 
 export default YourComponent;
