@@ -15,29 +15,29 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
   const pedidoEmail = () => {
 
     console.log(updatedData);
-    
+
 
     // Realizar una solicitud POST al servidor para guardar los cambios
     fetch(`${apiUrl}/api-pedido-email.php`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedData),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedData),
     })
-        .then((response) => response.json())
-        .then((result) => {
-            if (result.success) {
-                alert('Pedido enviado exitosamente.');
-            } else {
-                alert('Error al enviar al pedido.');
-            }
-        })
-        .catch((error) => console.error('Error al guardar los cambios:', error));
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.success) {
+          alert('Pedido enviado exitosamente.');
+        } else {
+          alert('Error al enviar al pedido.');
+        }
+      })
+      .catch((error) => console.error('Error al guardar los cambios:', error));
 
 
 
-};
+  };
 
 
 
@@ -66,8 +66,13 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
   };
 
   const addToCart = (item, quantity) => {
-    setSelectedItems([...selectedItems, { item, quantity }]);
+    const totalPrice = parseFloat(item.dealerPrice) * parseInt(quantity);
+    setSelectedItems([...selectedItems, { item, quantity, totalPrice }]);
   };
+
+
+
+
 
   return (
     <div className="productosDivAPI2">
@@ -100,17 +105,26 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
                 onClick={() => setShowCart(false)}
               ></button>
             </div>
+
+
+
             <div className="modal-body">
               <ul>
                 {selectedItems.map((selected, index) => (
                   <li key={index}>
-                    Producto: {selected.item.description}, Cantidad: {selected.quantity}.
+                    Producto: {selected.item.description}, Cantidad: {selected.quantity}, Precio: ${selected.totalPrice}.
                   </li>
                 ))}
               </ul>
+              <p>Precio Total: ${selectedItems.reduce((total, item) => total + parseFloat(item.totalPrice), 0)} USD.</p>
             </div>
+
+
+
+
+
             <div className="modal-footer">
-              
+
               <button
                 type="button"
                 className="btn btn-success" // Estilo de botón para Enviar pedido
@@ -189,46 +203,46 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
       </table>
 
       <table className='tablaPedidosMobile'>
-  <thead>
-    <tr>
-      <th>Producto</th>
-      <th>Agregar</th>
-    </tr>
-  </thead>
-  <tbody>
-    {data
-      .filter((item) =>
-        item.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-      .map((item, index) => (
-        <tr key={index}>
-          <td className='table-product-mobile'>
-            <div className='table-product-mobile-div'>
-              <p><strong>Código:</strong> {item.code}</p>
-              <p><strong>Producto:</strong> {replace42(item.description)}</p>
-              <p><strong>Presentación:</strong> {item.presentation}</p>
-              <p><strong>Precio Mayorista:</strong> {replace42(item.dealerPrice)}</p>
-              <p><strong>Precio Minorista:</strong> {replace42(item.retailPrice)}</p>
-              <p><strong>Costo por Kilo:</strong> {item.costoKilo === 42 ? "0" : item.costoKilo || ""}</p>
-            </div>
-          </td>
-          <td>
-            <button
-              onClick={() => {
-                const quantity = prompt('Ingrese la cantidad:');
-                if (quantity !== null && quantity !== "") {
-                  addToCart(item, quantity);
-                }
-              }}
-            >
-              Agregar al pedido
-            </button>
-          </td>
-        </tr>
-      ))}
-  </tbody>
-</table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Agregar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data
+            .filter((item) =>
+              item.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              item.description.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            .map((item, index) => (
+              <tr key={index}>
+                <td className='table-product-mobile'>
+                  <div className='table-product-mobile-div'>
+                    <p><strong>Código:</strong> {item.code}</p>
+                    <p><strong>Producto:</strong> {replace42(item.description)}</p>
+                    <p><strong>Presentación:</strong> {item.presentation}</p>
+                    <p><strong>Precio Mayorista:</strong> {replace42(item.dealerPrice)}</p>
+                    <p><strong>Precio Minorista:</strong> {replace42(item.retailPrice)}</p>
+                    <p><strong>Costo por Kilo:</strong> {item.costoKilo === 42 ? "0" : item.costoKilo || ""}</p>
+                  </div>
+                </td>
+                <td>
+                  <button
+                    onClick={() => {
+                      const quantity = prompt('Ingrese la cantidad:');
+                      if (quantity !== null && quantity !== "") {
+                        addToCart(item, quantity);
+                      }
+                    }}
+                  >
+                    Agregar al pedido
+                  </button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
 
 
 
