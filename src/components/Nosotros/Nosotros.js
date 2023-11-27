@@ -21,6 +21,10 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
 
   const [registroExitoso, setRegistroExitoso] = useState(false);
   const [mensajeRegistroExitoso, setMensajeRegistroExitoso] = useState('');
+
+  const [registroError, setRegistroError] = useState(false);
+  const [mensajeRegistroError, setMensajeRegistroError] = useState('');
+
   const abrirModalRegistro=()=>{
     const botonRegistro = document.querySelector(".registro-btn-modal");
     botonRegistro.click();
@@ -109,15 +113,22 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setRegistroExitoso(true);
-        setMensajeRegistroExitoso("¡Registro exitoso!");
-      })
-      .catch((error) => {
+        if (data && data.message === "El nombre de usuario o el correo electrónico ya están en uso") {
+            // Muestra un mensaje de error o toma la acción correspondiente
+            console.log('Error: El usuario ya está registrado');
+            setRegistroError(true);
+        
+            // Aquí podrías mostrar un mensaje de error en tu interfaz o manejar la situación de otra manera
+        } else {
+            // Si no hay un mensaje indicando que el usuario ya existe, se considera un registro exitoso
+            setRegistroExitoso(true);
+            setMensajeRegistroExitoso("¡Registro exitoso!");
+        }
+    })
+    .catch((error) => {
         console.error('Error al enviar la solicitud:', error);
-
-
         console.log(formData);
-      });
+    });
   };
 
   const handleChange = (e) => {
@@ -346,6 +357,22 @@ const Nosotros = ({ handleLogin, usuarioObj, isLoggedIn }) => {
           </div>
         </div>
       </div>
+
+      {/* Modal para el mensaje de registro fallido */}
+
+      <div className={`modal fade ${registroError ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: registroError ? 'block' : 'none' }}>
+  <div className="modal-dialog modal-danger" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title text-danger">Error de Registro</h5>
+        <button type="button" className="btn-close text-danger" data-bs-dismiss="modal" aria-label="Close" onClick={() => setRegistroError(false)}></button>
+      </div>
+      <div className="modal-body">
+        <p className="text-danger">El usuario ya existe. Por favor, intenta con otro nombre de usuario o correo electrónico.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
