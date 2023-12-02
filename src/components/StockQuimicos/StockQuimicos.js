@@ -405,7 +405,7 @@ const datosAEnviar = {
 
                     </tr>
 
-
+                                        
                     {data.map((item, index) => (
                         <tr key={index}>
                             <td>{item.PRODUCTO}</td>

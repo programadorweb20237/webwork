@@ -42,6 +42,8 @@ import NoticiaIndividual from './components/API/ItemNoticias/NoticiaIndividual/N
 import ConsumirLibro from './components/API/ConsumirLibro';
 import JumpToFirstMatchExample from './components/API/showsearch/YourComponent.tsx';
 
+import ExcelPrecios from './components/ExcelPrecios/ExcelPrecios.js';
+
 
 const App = () => {
 
@@ -114,8 +116,10 @@ const App = () => {
         <Route path="/noticiasform" element={<NuevoNoticiaForm />} />
         <Route path="/noticia/:id" element={<NoticiaIndividual />} />
         <Route path="/noticiasformedit/:id"  element={<NuevoNoticiaFormEdit />} />
+        <Route path="/excelprecios" element={<ExcelPrecios />} />
 
         <Route path="/libro/:kkey" element={<JumpToFirstMatchExample />} />
+        
       </Routes>
     </HashRouter>
   );
