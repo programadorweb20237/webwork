@@ -16,8 +16,6 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
     usuariopedido: usuarioObj.nombre_completo || "?"
   };
 
-
-
   const pedidoEmail = () => {
     const productos = selectedItems.map(selected => ({
       producto: selected.item.description,
@@ -60,13 +58,6 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
   };
 
 
-
-
-
-
-
-
-
   useEffect(() => {
     fetch(`${apiUrl}/api-routes.php`)
       .then((response) => response.json())
@@ -89,10 +80,6 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
     const totalPrice = parseFloat(item.dealerPrice) * parseInt(quantity);
     setSelectedItems([...selectedItems, { item, quantity, totalPrice }]);
   };
-
-
-
-
 
   return (
     <div className="productosDivAPI2">
@@ -152,7 +139,6 @@ function ConsumirApi2({ isLoggedIn, usuarioObj }) {
                   pedidoEmail();
                   setSelectedItems([]); // Limpia los elementos seleccionados
                   setShowCart(false);
-
 
                 }}
               >
