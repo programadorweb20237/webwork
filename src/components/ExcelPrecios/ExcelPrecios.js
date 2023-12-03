@@ -36,7 +36,7 @@ const ExcelPrecios = () => {
 
       // Verificar si la actualización fue exitosa
       if (updateData && updateData.message === 'Actualización exitosa') {
-        setUploadSuccess(true); // Establecer el estado para mostrar la alerta de actualización exitosa
+        setUploadSuccess(true); // Establecer el estado para mostrarr la alerta de actualización exitosa
       }
     } catch (error) {
       console.error('Error al subir el archivo:', error);
