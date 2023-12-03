@@ -30,7 +30,7 @@ class ContactForm extends Component {
 
         
 
-// Aquí puedes enviar los datos del formulario al servidor PHP
+// Aquí puedes enviar los datos del formulario al servidoor PHP
 fetch(`${apiUrl}/api-contact-email.php`, {
     method: 'POST',
     headers: {
