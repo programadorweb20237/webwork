@@ -7,13 +7,24 @@ const ExcelPrecios = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadSuccess, setUploadSuccess] = useState(false);
   const [fileUploadSuccess, setFileUploadSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Nuevo estado para controlar la pantalla de carga
+
 
   const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+    const file = event.target.files[0];
+    if (file && file.name.endsWith('.xlsm')) {
+      setSelectedFile(file);
+    } else {
+      // Muestra un mensaje al usuario indicando que el archivo no es válido
+      alert('Por favor, selecciona un archivo con extensión .xlsm');
+      // Puedes restablecer el archivo seleccionado a null aquí si lo prefieres
+       setSelectedFile(null);
+    }
   };
 
   const handleUpload = async () => {
     try {
+      setIsLoading(true); // Mostrar pantalla de carga al iniciar la subida
       const formData = new FormData();
       formData.append('file', selectedFile);
 
@@ -29,15 +40,7 @@ const ExcelPrecios = () => {
         setFileUploadSuccess(true); // Establecer el estado para mostrar la alerta de subida exitosa
       }
 
-      // Realizar la segunda solicitud
-      const updateResponse = await fetch(`${apiUrl}/update-excel-fusion.php`);
-      const updateData = await updateResponse.json();
-      console.log('update-excel.php ejecutado:', updateData);
-
-      // Verificar si la actualización fue exitosa
-      if (updateData && updateData.message === 'Actualización exitosa') {
-        setUploadSuccess(true); // Establecer el estado para mostrarr la alerta de actualización exitosa
-      }
+      
     } catch (error) {
       console.error('Error al subir el archivo:', error);
     }
@@ -55,7 +58,13 @@ const ExcelPrecios = () => {
   useEffect(() => {
     // Mostrar la alerta cuando fileUploadSuccess sea true
     if (fileUploadSuccess) {
-      alert('¡Se subió el archivo exitosamente!');
+     
+      window.open('https://normal.dairy.com.ar/update-excel-fusion.php', '_blank'); // Abrir Google en una nueva pestaña
+      setIsLoading(false); // Mostrar pantalla de carga al iniciar la subida
+
+
+      
+
       // Puedes hacer más acciones aquí si es necesario
       setFileUploadSuccess(false); // Restablecer el estado después de mostrar la alerta
     }
@@ -68,6 +77,15 @@ const ExcelPrecios = () => {
       <button onClick={handleUpload} disabled={!selectedFile}>
         Subir Archivo
       </button>
+      <h5>El proceso tarda aproximadamente 15 minutos.</h5>
+
+
+      
+      {/* Mostrar la pantalla de carga si isLoading es true */}
+      {isLoading &&  <div className='ExcelPreciosCargando'><p>Cargando...</p></div>}
+
+
+
     </div>
   );
 };
